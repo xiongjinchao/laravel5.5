@@ -6,6 +6,7 @@
         .pagination{margin:0}
         .overlay{padding-top:80px}
         #activity{min-height:300px;}
+        .operation a{margin-right: 5px;}
     </style>
 @endsection
 

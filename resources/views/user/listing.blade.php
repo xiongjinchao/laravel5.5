@@ -14,7 +14,7 @@
     <tbody>
         @if($users->count() > 0)
             @foreach($users as $key=>$item)
-                <tr class="{{$item->status == \App\Models\User::STATUS_DISABLED?'danger':''}}">
+                <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$item->name}}</td>
                     <td>{{\App\Models\Organization::getOrganizationPath($item->organization_id)}}</td>
@@ -31,7 +31,7 @@
                     <td class="operation">
                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
                         <a class="btn btn-sm btn-warning btn-reset-password" href="{{ route('user.password',[$item->id]) }}" title="重置密码"><i class="fa fa-refresh"></i> 重置密码</a>
-                        <form action="{{ route('user.destroy',[$item->id]) }}" method="POST" style="display: inline">
+                        <form action="" method="POST" style="display: inline">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <a class="btn btn-sm btn-danger btn-delete" href="{{ route('user.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>

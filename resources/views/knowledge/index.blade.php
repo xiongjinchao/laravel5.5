@@ -6,7 +6,7 @@
         .pagination{margin:0}
         .overlay{padding-top:80px}
         #activity{min-height:300px;}
-        .hot-country a,.operation a{margin-right: 10px;}
+        .hot-country a,.operation a{margin-right: 5px;}
     </style>
 @endsection
 

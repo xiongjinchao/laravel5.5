@@ -15,6 +15,7 @@ $(".sidebar-menu a").each(function(i,item){
 //列表中删除按钮
 $(".content").on('click','.btn-delete',function(e){
     e.preventDefault();
+    var action = $(this).attr('href');
     var that = $(this);
     var html =
         '<div class="modal fade" id="modal-delete">'
@@ -40,7 +41,7 @@ $(".content").on('click','.btn-delete',function(e){
     }
     $('#modal-delete').modal();
     $('#modal-delete .confirm-delete').on('click',function(){
-        that.closest('form').submit();
+        that.closest('form').attr('action',action).submit();
     });
 });
 

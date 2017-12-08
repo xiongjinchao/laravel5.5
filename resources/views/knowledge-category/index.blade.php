@@ -2,7 +2,7 @@
 @section('css')
     <style>
         .operation,.sort{width:160px;}
-        .operation a,.sort a{margin-right: 10px;}
+        .operation a,.sort a{margin-right: 5px;}
     </style>
 @endsection
 @section('content')
@@ -34,7 +34,7 @@
                                     <td>{{$item->updated_at}}</td>
                                     <td class="operation">
                                         <a class="btn btn-sm btn-primary" href="{{ route('knowledge-category.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                                        <form action="{{ route('knowledge-category.destroy',[$item->id]) }}" method="POST" style="display: inline">
+                                        <form action="" method="POST" style="display: inline">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <a class="btn btn-sm btn-danger btn-delete" href="{{ route('knowledge-category.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
