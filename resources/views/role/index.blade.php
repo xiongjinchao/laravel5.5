@@ -20,7 +20,7 @@
                     <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>中文名称</th>
+                        <th>展示名称</th>
                         <th>英文名称</th>
                         <th>描述</th>
                         <th>创建时间</th>
@@ -69,7 +69,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>中文名称</label>
+                                    <label>展示名称</label>
                                     <input class="form-control" name="display_name">
                                 </div>
                             </div>
