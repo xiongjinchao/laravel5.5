@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Organization;
 use App\Models\User;
+use App\Models\Role;
 use View,Redirect;
 
 class UserController extends Controller
@@ -146,7 +147,29 @@ class UserController extends Controller
             'users' => User::getlist(request()->all())
         ];
         $view = view('user.listing', $data)->render();
-        return ['status' => 'OK', 'html' => $view];
+        return ['status' => 'success', 'html' => $view];
+    }
+
+    //保存为用户分配角色
+    public function assignment($id){
+        $user = User::find($id);
+        $user->operator = request()->user()->id;
+        if($user->save()){
+            $roleUserTable = Config::get('entrust.role_user_table');
+            DB::table($roleUserTable)->where('user_id','=',$id)->delete();
+            if(!empty(request()->roles)){
+                foreach (request()->roles as $item){
+                    $role = Role::find($item);
+                    if(!$user->hasRole($role->name)){
+                        $user->attachRole($role);
+                    }
+                }
+            }
+            request()->session()->flash('success','分配角色成功');
+        }else{
+            request()->session()->flash('error','分配角色失败');
+        }
+        return Redirect::route('user.index');
     }
 
     //修改密码

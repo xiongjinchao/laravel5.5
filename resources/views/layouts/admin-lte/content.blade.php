@@ -21,7 +21,7 @@
     <section class="content container-fluid" style="min-height:820px;">
 
         @if (request()->session()->has('success') || request()->session()->has('error'))
-            <div class="callout callout-{{request()->session()->has('success')?'info':'danger'}}">
+            <div class="main-callout callout callout-{{request()->session()->has('success')?'info':'danger'}}">
                 <h4>操作提醒</h4>
                 {{request()->session()->has('success') ? request()->session()->get('success'):request()->session()->get('error')}}
             </div>

@@ -35,6 +35,7 @@ class User extends \App\User
                         ->from($organizationTable)
                         ->whereRaw($useTable.'.organization_id = '.$organizationTable.'.id');
                 });
+            $query->where($useTable.'.id', '>', '1');
             if (array_get($params, 'name') != '') {
                 $query->where($useTable.'.name', 'like', '%'.$params['name'].'%');
             }
@@ -44,9 +45,9 @@ class User extends \App\User
             if (array_get($params, 'mobile') != '') {
                 $query->where($useTable.'.mobile', 'like', '%'.$params['mobile'].'%');
             }
-            return $query->orderBy($useTable.'.id', 'DESC')->paginate(15);
+            return $query->orderBy($useTable.'.status', 'ASC')->orderBy($useTable.'.id', 'DESC')->paginate(15);
         }else {
-            $query = self::where('id', '>', '0');
+            $query = self::where('id', '>', '1');
             if (array_get($params, 'organization_id') > 0) {
                 $organization = Organization::find($params['organization_id']);
                 $id = Organization::where('lft', '>=', $organization->lft)->where('rgt', '<=', $organization->rgt)->pluck('id')->toArray();
@@ -61,7 +62,7 @@ class User extends \App\User
             if (array_get($params, 'mobile') != '') {
                 $query->where('mobile', 'like', '%'.$params['mobile'].'%');
             }
-            return $query->orderBy('id', 'DESC')->paginate(15);
+            return $query->orderBy('status', 'ASC')->orderBy('id', 'DESC')->paginate(15);
         }
     }
 

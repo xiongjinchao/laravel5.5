@@ -17,7 +17,7 @@
         @if($knowledge->count() > 0)
             @foreach($knowledge as $key=>$item)
                 <tr>
-                    <td>{{$key+1}}</td>
+                    <td><b>{{$key+1}}</b></td>
                     <td>{{$item->title}}</td>
                     <td>{{$item->status>0?$item->getStatusOptions($item->status):''}}</td>
                     <td>{{\App\Models\KnowledgeCategory::getKnowledgeCategoryPath($item->category_id)}}</td>
@@ -29,7 +29,7 @@
                     <td class="operation">
                         <a class="btn btn-sm btn-primary" href="{{ route('knowledge.copy',[$item->id]) }}" title="复制"><i class="fa fa-copy"></i> 复制</a>
                         <a class="btn btn-sm btn-info" href="{{ route('knowledge.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                        <form action="{{ route('knowledge.destroy',[$item->id]) }}" method="POST" style="display: inline">
+                        <form action="" method="POST" style="display: inline">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <a class="btn btn-sm btn-danger btn-delete" href="{{ route('knowledge.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>

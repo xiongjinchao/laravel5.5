@@ -1,13 +1,9 @@
 @extends('layouts.admin-lte')
-@section('css')
-    <style>
-        .operation,.sort{width:160px;}
-        .operation a,.sort a{margin-right: 10px;}
-    </style>
-@endsection
+
 @section('content')
     <div class="organization-index">
         <p><a class="btn btn-success" href="{{route("organization.create")}}"><i class="fa fa-plus-circle"></i> 创建组织架构</a></p>
+
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title">{{$page['subTitle'] or ''}}</h3>
@@ -28,13 +24,13 @@
                         @if($organizations->count() > 0)
                             @foreach($organizations as $key=>$item)
                                 <tr>
-                                    <td>{{$key+1}}</td>
+                                    <td><b>{{$key+1}}</b></td>
                                     <td>{!!$item->getSpace().($item->rgt-$item->lft >1 ? '<b>'.$item->name.'</b>':$item->name)!!}</td>
                                     <td>{{$item->hasOneUser!=null?$item->hasOneUser->name:''}}</td>
                                     <td>{{$item->updated_at}}</td>
                                     <td class="operation">
                                         <a class="btn btn-sm btn-primary" href="{{ route('organization.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                                        <form action="{{ route('organization.destroy',[$item->id]) }}" method="POST" style="display: inline">
+                                        <form action="" method="POST" style="display: inline">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <a class="btn btn-sm btn-danger btn-delete" href="{{ route('organization.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>

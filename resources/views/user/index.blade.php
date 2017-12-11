@@ -2,11 +2,6 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset("AdminLTE/bower_components/select2/dist/css/select2.min.css")}}">
-    <style>
-        .pagination{margin:0}
-        .overlay{padding-top:80px}
-        #activity{min-height:300px;}
-    </style>
 @endsection
 
 @section('content')
@@ -120,7 +115,14 @@
                         $("#activity").html('<div class="overlay text-center"><img src="{{asset('images/loading.gif')}}" width="80"></div>');
                     },
                     success: function(data){
-                        $("#activity").html(data.html);
+                        if(data.status == 'success') {
+                            $("#activity").html(data.html);
+                        }else{
+                            $("#activity").html('<div class="callout callout-danger"><h4>操作提醒</h4>'+data.message+'</div>');
+                        }
+                    },
+                    error: function(data){
+                        $("#activity").html('<div class="callout callout-danger"><h4>操作提醒</h4>'+data.responseJSON.message+'</div>');
                     }
                 });
             });

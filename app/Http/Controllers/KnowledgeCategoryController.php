@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KnowledgeCategory;
 use Illuminate\Http\Request;
-use View,DB,Redirect;
+use View,DB,Redirect,Entrust,Route;
 
 class KnowledgeCategoryController extends Controller
 {
@@ -17,7 +17,6 @@ class KnowledgeCategoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-
         View::share('page',[
             'title' => '知识管理',
             'subTitle' => '知识目录',
@@ -35,6 +34,9 @@ class KnowledgeCategoryController extends Controller
      */
     public function index()
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         $data = [
             'knowledgeCategories' => KnowledgeCategory::orderBy('lft','ASC')->get(),
         ];
@@ -48,6 +50,9 @@ class KnowledgeCategoryController extends Controller
      */
     public function create()
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         $data = [
             'breadcrumb' => [['url' => '#','label' => '创建' ]],
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
@@ -63,6 +68,9 @@ class KnowledgeCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         DB::transaction(function () use($request) {
             $category = new KnowledgeCategory();
             $category->fill($request->all());
@@ -96,6 +104,9 @@ class KnowledgeCategoryController extends Controller
      */
     public function show($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         //
     }
 
@@ -107,6 +118,9 @@ class KnowledgeCategoryController extends Controller
      */
     public function edit($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         $data = [
             'breadcrumb' => [['url' => '#','label' => '更新' ]],
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
@@ -125,6 +139,9 @@ class KnowledgeCategoryController extends Controller
     public function update(Request $request, $id)
     {
 
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         DB::transaction(function () use($request,$id) {
             $category = KnowledgeCategory::find($id);
             $category->operator = request()->user()->id;
@@ -222,6 +239,9 @@ class KnowledgeCategoryController extends Controller
      */
     public function destroy($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         DB::transaction(function () use($id) {
             $category = KnowledgeCategory::find($id);
 
@@ -235,6 +255,9 @@ class KnowledgeCategoryController extends Controller
 
     public function moveUp($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         DB::transaction(function () use($id) {
             $category = KnowledgeCategory::find($id);
             $category->operator = request()->user()->id;
@@ -258,6 +281,9 @@ class KnowledgeCategoryController extends Controller
 
     public function moveDown($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         DB::transaction(function () use($id) {
             $category = KnowledgeCategory::find($id);
             $category->operator = request()->user()->id;

@@ -15,6 +15,7 @@ $(".sidebar-menu a").each(function(i,item){
 //列表中删除按钮
 $(".content").on('click','.btn-delete',function(e){
     e.preventDefault();
+    var action = $(this).attr('href');
     var that = $(this);
     var html =
         '<div class="modal fade" id="modal-delete">'
@@ -40,11 +41,11 @@ $(".content").on('click','.btn-delete',function(e){
     }
     $('#modal-delete').modal();
     $('#modal-delete .confirm-delete').on('click',function(){
-        that.closest('form').submit();
+        that.closest('form').attr('action',action).submit();
     });
 });
 
 //提示层间隔2S消失
 setTimeout(function(){
-    $(".container-fluid .callout-info,.container-fluid .callout-danger").fadeOut();
+    $(".container-fluid .main-callout").fadeOut();
 },2000);
