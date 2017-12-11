@@ -87,9 +87,9 @@ class User extends \App\User
     }
 
     //获取该用户下拥有的角色
-    public function getRoles()
+    public static function getRoles($id)
     {
         $roleUserTable = Config::get('entrust.role_user_table');
-        return DB::table($roleUserTable)->where('user_id','=',$this->id)->pluck('role_id')->toArray();
+        return DB::table($roleUserTable)->where('user_id','=',$id)->pluck('role_id')->toArray();
     }
 }
