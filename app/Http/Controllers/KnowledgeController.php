@@ -6,20 +6,18 @@ use App\Models\Country;
 use App\Models\Knowledge;
 use App\Models\KnowledgeCategory;
 use Illuminate\Http\Request;
-use View,Redirect;
+use View,Route,Redirect;
 
 class KnowledgeController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
-
         $this->middleware('auth');
+
+        $methods = Route::current()->methods();
+        $permission = '['.$methods[0].']'. Route::current()->getActionName();
+        $this->middleware('permission:'.$permission);
 
         View::share('page',[
             'title' => '知识管理',
@@ -38,9 +36,6 @@ class KnowledgeController extends Controller
      */
     public function index()
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
         $data = [
             'countries' => Country::all()->toArray(),
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
@@ -56,9 +51,6 @@ class KnowledgeController extends Controller
      */
     public function create()
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
         return view('knowledge.create');
     }
 
@@ -70,9 +62,6 @@ class KnowledgeController extends Controller
      */
     public function store(Request $request)
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
         //
     }
 
@@ -84,9 +73,6 @@ class KnowledgeController extends Controller
      */
     public function show($id)
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
         //
     }
 
@@ -98,9 +84,6 @@ class KnowledgeController extends Controller
      */
     public function edit($id)
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
         $data = [
             'breadcrumb' => [['url' => '#','label' => '更新' ]],
             'countries' => Country::all()->toArray(),
@@ -119,10 +102,6 @@ class KnowledgeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
-
         $knowledge = Knowledge::find($id);
         $knowledge->fill($request->all());
         $knowledge->operator = $request->user()->id;
@@ -142,10 +121,6 @@ class KnowledgeController extends Controller
      */
     public function destroy($id)
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
-
         if(Knowledge::find($id)->delete()){
             request()->session()->flash('success','知识已成功删除');
         }else{
@@ -156,10 +131,6 @@ class KnowledgeController extends Controller
 
     public function listing()
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
-
         $data = [
             'knowledge' => Knowledge::getlist(request()->all())
         ];
@@ -169,10 +140,6 @@ class KnowledgeController extends Controller
 
     public function copy($id)
     {
-        if($this->checkEntrustAuth() !== true){
-            return $this->checkEntrustAuth();
-        }
-
         if(Knowledge::copyKnowledge($id)){
             request()->session()->flash('success','知识已成功复制');
         }else{

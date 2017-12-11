@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Organization;
-use DB,View,Redirect;
+use DB,View,Route,Redirect;
 
 class OrganizationController extends Controller
 {
@@ -16,6 +16,10 @@ class OrganizationController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        $methods = Route::current()->methods();
+        $permission = '['.$methods[0].']'. Route::current()->getActionName();
+        $this->middleware('permission:'.$permission);
 
         View::share('page',[
             'title' => '系统设置',

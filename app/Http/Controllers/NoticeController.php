@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use View,Route,Redirect;
 
 class NoticeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        $methods = Route::current()->methods();
+        $permission = '['.$methods[0].']'. Route::current()->getActionName();
+        $this->middleware('permission:'.$permission);
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -10,15 +10,14 @@ use Config,DB,View,Route,Redirect;
 
 class RoleController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
-
         $this->middleware('auth');
+
+        $methods = Route::current()->methods();
+        $permission = '['.$methods[0].']'. Route::current()->getActionName();
+        $this->middleware('permission:'.$permission);
 
         View::share('page',[
             'title' => '系统设置',
