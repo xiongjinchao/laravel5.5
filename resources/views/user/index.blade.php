@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset("AdminLTE/bower_components/select2/dist/css/select2.min.css")}}">
+    <link rel="stylesheet" href="{{asset("AdminLTE/plugins/iCheck/all.css")}}">
 @endsection
 
 @section('content')
@@ -75,6 +76,7 @@
 
 @section('js')
     <script src="{{asset("AdminLTE/bower_components/select2/dist/js/select2.full.min.js")}}"></script>
+    <script src="{{asset("AdminLTE/plugins/iCheck/icheck.min.js")}}"></script>
     <script>
         $(function () {
             $(".select2").select2();

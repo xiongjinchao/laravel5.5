@@ -144,7 +144,8 @@ class UserController extends Controller
     public function listing()
     {
         $data = [
-            'users' => User::getlist(request()->all())
+            'users' => User::getlist(request()->all()),
+            'roles' => Role::orderBy('name','DESC')->get()
         ];
         $view = view('user.listing', $data)->render();
         return ['status' => 'success', 'html' => $view];

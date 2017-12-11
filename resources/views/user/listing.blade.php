@@ -30,7 +30,7 @@
                     </td>
                     <td class="operation">
                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                        <a class="btn btn-sm btn-primary" href="{{ route('role.assignment',[$item->id]) }}" title="分配"><i class="fa fa-edit"></i> 分配</a>
+                        <a class="btn btn-sm btn-success btn-assignment-role" href="{{ route('user.assignment',[$item->id]) }}" title="分配角色"><i class="fa fa-edit"></i> 分配角色</a>
                         <a class="btn btn-sm btn-warning btn-reset-password" href="{{ route('user.password',[$item->id]) }}" title="重置密码"><i class="fa fa-refresh"></i> 重置密码</a>
                         <form action="" method="POST" style="display: inline">
                             {{ csrf_field() }}
@@ -47,14 +47,59 @@
     {{$users->links()}}
 </div>
 
+<div class="modal fade" id="modal-assignment-role">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="POST">
+                {{ csrf_field() }}
+                <div class="modal-header bg-blue">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">分配角色</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>系统角色</label>
+                        </div>
+                        @foreach($roles as $key=>$item)
+                            @if($item->description == '系统')
+                                <div class="col-md-3">
+                                    <label><input type="checkbox" value="{{$item->id}}}"></label>
+                                    {{$item->display_name}}
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>自定义角色</label>
+                        </div>
+                        @foreach($roles as $key=>$item)
+                            @if($item->description != '系统')
+                                <div class="col-md-3">
+                                    <label><input type="checkbox" value="{{$item->id}}}"></label>
+                                    {{$item->display_name}}
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban"></i> 放弃</button>
+                    <button type="button" class="btn btn-primary pull-right confirm-reset-password"><i class="fa fa-check"></i> 确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="modal-reset-password">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="" method="POST">
                 {{ csrf_field() }}
                 <div class="modal-header bg-blue">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">修改密码</h4>
                 </div>
                 <div class="modal-body">
@@ -77,6 +122,17 @@
 </div>
 
 <script>
+    $('#modal-assignment-role input[type=checkbox]').iCheck({
+        checkboxClass: 'icheckbox_minimal-blue'
+    });
+
+    $(".btn-assignment-role").on('click',function(e){
+        e.preventDefault();
+        var action = $(this).attr('href');
+        $("#modal-assignment-role form").attr('action',action);
+        $("#modal-assignment-role").modal();
+    });
+
     $(".btn-reset-password").on('click',function(e){
         e.preventDefault();
         var action = $(this).attr('href');
