@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-08 18:50:04
+Date: 2017-12-11 18:21:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -145,7 +145,7 @@ CREATE TABLE `knowledge` (
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of knowledge
@@ -176,8 +176,8 @@ CREATE TABLE `knowledge_category` (
 -- ----------------------------
 -- Records of knowledge_category
 -- ----------------------------
-INSERT INTO `knowledge_category` VALUES ('1', '人力知识', '1', '2', '0', '1', '1', '1512543331', '1512543331');
-INSERT INTO `knowledge_category` VALUES ('2', '财务知识', '3', '4', '0', '1', '1', '1512543339', '1512543339');
+INSERT INTO `knowledge_category` VALUES ('1', '人力知识', '1', '2', '0', '1', '1', '1512543331', '1512984574');
+INSERT INTO `knowledge_category` VALUES ('2', '财务知识', '3', '4', '0', '1', '1', '1512543339', '1512984574');
 INSERT INTO `knowledge_category` VALUES ('3', '业务知识', '5', '10', '0', '1', '1', '1512543346', '1512543389');
 INSERT INTO `knowledge_category` VALUES ('4', '法律法规', '11', '12', '0', '1', '1', '1512543352', '1512543389');
 INSERT INTO `knowledge_category` VALUES ('5', '签证业务', '6', '7', '3', '2', '1', '1512543373', '1512543373');
@@ -285,12 +285,11 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permissions_name_unique` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of permissions
 -- ----------------------------
-INSERT INTO `permissions` VALUES ('1', '[GET]App\\Http\\Controllers\\HomeController@index', 'App\\Http\\Controllers\\HomeController@index', 'home', '2017-12-08 16:21:11', '2017-12-08 16:21:11');
 INSERT INTO `permissions` VALUES ('2', '[GET]App\\Http\\Controllers\\OrganizationController@moveUp', 'App\\Http\\Controllers\\OrganizationController@moveUp', 'organization/move-up/{id}', '2017-12-08 16:21:11', '2017-12-08 16:21:11');
 INSERT INTO `permissions` VALUES ('3', '[GET]App\\Http\\Controllers\\OrganizationController@moveDown', 'App\\Http\\Controllers\\OrganizationController@moveDown', 'organization/move-down/{id}', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
 INSERT INTO `permissions` VALUES ('4', '[GET]App\\Http\\Controllers\\UserController@listing', 'App\\Http\\Controllers\\UserController@listing', 'user/listing', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
@@ -351,7 +350,9 @@ INSERT INTO `permissions` VALUES ('59', '[GET]App\\Http\\Controllers\\NoticeCont
 INSERT INTO `permissions` VALUES ('60', '[GET]App\\Http\\Controllers\\NoticeController@edit', 'App\\Http\\Controllers\\NoticeController@edit', 'notice/{notice}/edit', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
 INSERT INTO `permissions` VALUES ('61', '[PUT]App\\Http\\Controllers\\NoticeController@update', 'App\\Http\\Controllers\\NoticeController@update', 'notice/{notice}', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
 INSERT INTO `permissions` VALUES ('62', '[DELETE]App\\Http\\Controllers\\NoticeController@destroy', 'App\\Http\\Controllers\\NoticeController@destroy', 'notice/{notice}', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('63', '[GET]App\\Http\\Controllers\\PermissionController@retrieve', 'App\\Http\\Controllers\\PermissionController@retrieve', 'permission/retrieve', '2017-12-08 16:30:57', '2017-12-08 16:30:57');
+INSERT INTO `permissions` VALUES ('64', '[GET]App\\Http\\Controllers\\RoleController@permission', 'App\\Http\\Controllers\\RoleController@permission', 'role/permission/{id}', '2017-12-11 09:47:45', '2017-12-11 09:47:45');
+INSERT INTO `permissions` VALUES ('65', '[POST]App\\Http\\Controllers\\RoleController@setPermission', 'App\\Http\\Controllers\\RoleController@setPermission', 'role/set-permission/{id}', '2017-12-11 09:47:45', '2017-12-11 09:47:45');
+INSERT INTO `permissions` VALUES ('66', '[GET]App\\Http\\Controllers\\RoleController@retrievePermission', 'App\\Http\\Controllers\\RoleController@retrievePermission', 'role/retrieve-permission/{id}', '2017-12-11 09:47:45', '2017-12-11 09:47:45');
 
 -- ----------------------------
 -- Table structure for permission_role
@@ -369,68 +370,166 @@ CREATE TABLE `permission_role` (
 -- ----------------------------
 -- Records of permission_role
 -- ----------------------------
-INSERT INTO `permission_role` VALUES ('1', '1');
 INSERT INTO `permission_role` VALUES ('2', '1');
+INSERT INTO `permission_role` VALUES ('2', '11');
+INSERT INTO `permission_role` VALUES ('2', '14');
 INSERT INTO `permission_role` VALUES ('3', '1');
+INSERT INTO `permission_role` VALUES ('3', '11');
+INSERT INTO `permission_role` VALUES ('3', '14');
 INSERT INTO `permission_role` VALUES ('4', '1');
+INSERT INTO `permission_role` VALUES ('4', '12');
 INSERT INTO `permission_role` VALUES ('5', '1');
+INSERT INTO `permission_role` VALUES ('5', '12');
 INSERT INTO `permission_role` VALUES ('7', '1');
+INSERT INTO `permission_role` VALUES ('7', '6');
 INSERT INTO `permission_role` VALUES ('8', '1');
+INSERT INTO `permission_role` VALUES ('8', '6');
+INSERT INTO `permission_role` VALUES ('8', '10');
 INSERT INTO `permission_role` VALUES ('9', '1');
+INSERT INTO `permission_role` VALUES ('9', '6');
+INSERT INTO `permission_role` VALUES ('9', '10');
 INSERT INTO `permission_role` VALUES ('10', '1');
+INSERT INTO `permission_role` VALUES ('10', '6');
+INSERT INTO `permission_role` VALUES ('10', '10');
 INSERT INTO `permission_role` VALUES ('11', '1');
+INSERT INTO `permission_role` VALUES ('11', '6');
+INSERT INTO `permission_role` VALUES ('11', '10');
 INSERT INTO `permission_role` VALUES ('12', '1');
+INSERT INTO `permission_role` VALUES ('12', '7');
 INSERT INTO `permission_role` VALUES ('13', '1');
+INSERT INTO `permission_role` VALUES ('13', '7');
 INSERT INTO `permission_role` VALUES ('14', '1');
+INSERT INTO `permission_role` VALUES ('14', '12');
 INSERT INTO `permission_role` VALUES ('15', '1');
+INSERT INTO `permission_role` VALUES ('15', '12');
 INSERT INTO `permission_role` VALUES ('16', '1');
+INSERT INTO `permission_role` VALUES ('16', '12');
 INSERT INTO `permission_role` VALUES ('17', '1');
+INSERT INTO `permission_role` VALUES ('17', '12');
 INSERT INTO `permission_role` VALUES ('18', '1');
+INSERT INTO `permission_role` VALUES ('18', '12');
 INSERT INTO `permission_role` VALUES ('19', '1');
+INSERT INTO `permission_role` VALUES ('19', '12');
 INSERT INTO `permission_role` VALUES ('20', '1');
+INSERT INTO `permission_role` VALUES ('20', '12');
 INSERT INTO `permission_role` VALUES ('21', '1');
+INSERT INTO `permission_role` VALUES ('21', '11');
+INSERT INTO `permission_role` VALUES ('21', '14');
 INSERT INTO `permission_role` VALUES ('22', '1');
+INSERT INTO `permission_role` VALUES ('22', '11');
+INSERT INTO `permission_role` VALUES ('22', '14');
 INSERT INTO `permission_role` VALUES ('23', '1');
+INSERT INTO `permission_role` VALUES ('23', '11');
+INSERT INTO `permission_role` VALUES ('23', '14');
 INSERT INTO `permission_role` VALUES ('24', '1');
+INSERT INTO `permission_role` VALUES ('24', '11');
+INSERT INTO `permission_role` VALUES ('24', '14');
 INSERT INTO `permission_role` VALUES ('25', '1');
+INSERT INTO `permission_role` VALUES ('25', '11');
+INSERT INTO `permission_role` VALUES ('25', '14');
 INSERT INTO `permission_role` VALUES ('26', '1');
+INSERT INTO `permission_role` VALUES ('26', '11');
+INSERT INTO `permission_role` VALUES ('26', '14');
 INSERT INTO `permission_role` VALUES ('27', '1');
+INSERT INTO `permission_role` VALUES ('27', '11');
+INSERT INTO `permission_role` VALUES ('27', '14');
 INSERT INTO `permission_role` VALUES ('28', '1');
+INSERT INTO `permission_role` VALUES ('28', '13');
 INSERT INTO `permission_role` VALUES ('29', '1');
+INSERT INTO `permission_role` VALUES ('29', '13');
 INSERT INTO `permission_role` VALUES ('30', '1');
+INSERT INTO `permission_role` VALUES ('30', '13');
 INSERT INTO `permission_role` VALUES ('31', '1');
+INSERT INTO `permission_role` VALUES ('31', '13');
 INSERT INTO `permission_role` VALUES ('32', '1');
+INSERT INTO `permission_role` VALUES ('32', '13');
 INSERT INTO `permission_role` VALUES ('33', '1');
+INSERT INTO `permission_role` VALUES ('33', '13');
 INSERT INTO `permission_role` VALUES ('34', '1');
+INSERT INTO `permission_role` VALUES ('34', '13');
 INSERT INTO `permission_role` VALUES ('35', '1');
+INSERT INTO `permission_role` VALUES ('35', '7');
+INSERT INTO `permission_role` VALUES ('35', '10');
 INSERT INTO `permission_role` VALUES ('36', '1');
+INSERT INTO `permission_role` VALUES ('36', '7');
+INSERT INTO `permission_role` VALUES ('36', '10');
 INSERT INTO `permission_role` VALUES ('37', '1');
+INSERT INTO `permission_role` VALUES ('37', '7');
+INSERT INTO `permission_role` VALUES ('37', '10');
 INSERT INTO `permission_role` VALUES ('38', '1');
+INSERT INTO `permission_role` VALUES ('38', '7');
+INSERT INTO `permission_role` VALUES ('38', '10');
 INSERT INTO `permission_role` VALUES ('39', '1');
+INSERT INTO `permission_role` VALUES ('39', '7');
+INSERT INTO `permission_role` VALUES ('39', '10');
 INSERT INTO `permission_role` VALUES ('40', '1');
+INSERT INTO `permission_role` VALUES ('40', '7');
+INSERT INTO `permission_role` VALUES ('40', '10');
 INSERT INTO `permission_role` VALUES ('41', '1');
+INSERT INTO `permission_role` VALUES ('41', '7');
+INSERT INTO `permission_role` VALUES ('41', '10');
 INSERT INTO `permission_role` VALUES ('42', '1');
+INSERT INTO `permission_role` VALUES ('42', '6');
+INSERT INTO `permission_role` VALUES ('42', '10');
 INSERT INTO `permission_role` VALUES ('43', '1');
+INSERT INTO `permission_role` VALUES ('43', '6');
+INSERT INTO `permission_role` VALUES ('43', '10');
 INSERT INTO `permission_role` VALUES ('44', '1');
+INSERT INTO `permission_role` VALUES ('44', '6');
+INSERT INTO `permission_role` VALUES ('44', '10');
 INSERT INTO `permission_role` VALUES ('45', '1');
+INSERT INTO `permission_role` VALUES ('45', '6');
+INSERT INTO `permission_role` VALUES ('45', '10');
 INSERT INTO `permission_role` VALUES ('46', '1');
+INSERT INTO `permission_role` VALUES ('46', '6');
+INSERT INTO `permission_role` VALUES ('46', '10');
 INSERT INTO `permission_role` VALUES ('47', '1');
+INSERT INTO `permission_role` VALUES ('47', '6');
+INSERT INTO `permission_role` VALUES ('47', '10');
 INSERT INTO `permission_role` VALUES ('48', '1');
+INSERT INTO `permission_role` VALUES ('48', '6');
+INSERT INTO `permission_role` VALUES ('48', '10');
 INSERT INTO `permission_role` VALUES ('49', '1');
+INSERT INTO `permission_role` VALUES ('49', '8');
 INSERT INTO `permission_role` VALUES ('50', '1');
+INSERT INTO `permission_role` VALUES ('50', '8');
 INSERT INTO `permission_role` VALUES ('51', '1');
+INSERT INTO `permission_role` VALUES ('51', '8');
 INSERT INTO `permission_role` VALUES ('52', '1');
+INSERT INTO `permission_role` VALUES ('52', '8');
 INSERT INTO `permission_role` VALUES ('53', '1');
+INSERT INTO `permission_role` VALUES ('53', '8');
 INSERT INTO `permission_role` VALUES ('54', '1');
+INSERT INTO `permission_role` VALUES ('54', '8');
 INSERT INTO `permission_role` VALUES ('55', '1');
+INSERT INTO `permission_role` VALUES ('55', '8');
 INSERT INTO `permission_role` VALUES ('56', '1');
+INSERT INTO `permission_role` VALUES ('56', '9');
+INSERT INTO `permission_role` VALUES ('56', '14');
 INSERT INTO `permission_role` VALUES ('57', '1');
+INSERT INTO `permission_role` VALUES ('57', '9');
+INSERT INTO `permission_role` VALUES ('57', '14');
 INSERT INTO `permission_role` VALUES ('58', '1');
+INSERT INTO `permission_role` VALUES ('58', '9');
+INSERT INTO `permission_role` VALUES ('58', '14');
 INSERT INTO `permission_role` VALUES ('59', '1');
+INSERT INTO `permission_role` VALUES ('59', '9');
+INSERT INTO `permission_role` VALUES ('59', '14');
 INSERT INTO `permission_role` VALUES ('60', '1');
+INSERT INTO `permission_role` VALUES ('60', '9');
+INSERT INTO `permission_role` VALUES ('60', '14');
 INSERT INTO `permission_role` VALUES ('61', '1');
+INSERT INTO `permission_role` VALUES ('61', '9');
+INSERT INTO `permission_role` VALUES ('61', '14');
 INSERT INTO `permission_role` VALUES ('62', '1');
-INSERT INTO `permission_role` VALUES ('63', '1');
+INSERT INTO `permission_role` VALUES ('62', '9');
+INSERT INTO `permission_role` VALUES ('62', '14');
+INSERT INTO `permission_role` VALUES ('64', '1');
+INSERT INTO `permission_role` VALUES ('64', '13');
+INSERT INTO `permission_role` VALUES ('65', '1');
+INSERT INTO `permission_role` VALUES ('65', '13');
+INSERT INTO `permission_role` VALUES ('66', '1');
+INSERT INTO `permission_role` VALUES ('66', '13');
 
 -- ----------------------------
 -- Table structure for roles
@@ -438,20 +537,28 @@ INSERT INTO `permission_role` VALUES ('63', '1');
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
   `display_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES ('1', 'Admin', '系统管理员', '系统管理员可以执行任何操作', '2017-12-08 16:20:47', '2017-12-08 16:20:47');
-INSERT INTO `roles` VALUES ('2', 'Editor', '编辑', null, '2017-12-08 17:23:01', '2017-12-08 17:23:01');
+INSERT INTO `roles` VALUES ('1', 'Admin', '系统管理员', '系统', '2017-12-08 16:20:47', '2017-12-08 16:20:47');
+INSERT INTO `roles` VALUES ('6', 'App\\Http\\Controllers\\KnowledgeController', '知识管理', '系统', '2017-12-11 09:47:45', '2017-12-11 10:07:52');
+INSERT INTO `roles` VALUES ('7', 'App\\Http\\Controllers\\KnowledgeCategoryController', '知识分类', '系统', '2017-12-11 09:47:46', '2017-12-11 10:08:14');
+INSERT INTO `roles` VALUES ('8', 'App\\Http\\Controllers\\FAQController', 'FAQ管理', '系统', '2017-12-11 09:47:47', '2017-12-11 10:58:29');
+INSERT INTO `roles` VALUES ('9', 'App\\Http\\Controllers\\NoticeController', '公告管理', '系统', '2017-12-11 09:47:47', '2017-12-11 10:58:44');
+INSERT INTO `roles` VALUES ('10', 'Editor', '编辑', '编辑人员专用', '2017-12-11 09:57:57', '2017-12-11 15:54:08');
+INSERT INTO `roles` VALUES ('11', 'App\\Http\\Controllers\\OrganizationController', '组织架构', '系统', '2017-12-11 10:02:35', '2017-12-11 10:08:29');
+INSERT INTO `roles` VALUES ('12', 'App\\Http\\Controllers\\UserController', '用户管理', '系统', '2017-12-11 10:02:35', '2017-12-11 10:09:06');
+INSERT INTO `roles` VALUES ('13', 'App\\Http\\Controllers\\RoleController', '角色管理', '系统', '2017-12-11 10:02:36', '2017-12-11 10:09:15');
+INSERT INTO `roles` VALUES ('14', 'Finance', '财务', '财务人员专用', '2017-12-11 15:53:56', '2017-12-11 15:53:56');
 
 -- ----------------------------
 -- Table structure for role_user
@@ -470,6 +577,7 @@ CREATE TABLE `role_user` (
 -- Records of role_user
 -- ----------------------------
 INSERT INTO `role_user` VALUES ('1', '1');
+INSERT INTO `role_user` VALUES ('3', '10');
 
 -- ----------------------------
 -- Table structure for users
@@ -495,5 +603,5 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES ('1', '总旋风', '31', 'admin@baicheng.com', '15911006066', '$2y$10$q4BPwflIuQ5hf3gmX1eS.Of11KYKvRRixDquSNoJbJkZGQf3aZ7.G', 'LzscCPJKYGtmr7YDoE4NKYbGhewVxzhe0oKwNYkqAzPdZCQLCSWpJRDhUXmd', '1', '1', '2017-11-28 18:22:29', '2017-12-07 17:18:56');
-INSERT INTO `users` VALUES ('2', '孙小坦', '30', 'sunxiaotan@baicheng.com', '18611911257', '$2y$10$Hx69y2xvLFVmIeTXBsMDpu..TrWieVG02yjPS20o5tbPB7tPRBtr6', null, '1', '2', '2017-12-07 17:25:06', '2017-12-07 17:30:48');
+INSERT INTO `users` VALUES ('2', '孙小坦', '0', 'sunxiaotan@baicheng.com', '18611911257', '$2y$10$Hx69y2xvLFVmIeTXBsMDpu..TrWieVG02yjPS20o5tbPB7tPRBtr6', null, '1', '2', '2017-12-07 17:25:06', '2017-12-07 17:30:48');
 INSERT INTO `users` VALUES ('3', '刘丽君', '32', 'liulijun@baicheng.com', '13801060351', '$2y$10$/cvLK8W1oWgR8KQo/trerODPUnpNGNqdVGWEnWE4FtIRqtssQmcki', null, '1', '2', '2017-12-07 17:30:17', '2017-12-07 17:30:17');
