@@ -38,7 +38,7 @@ class RoleController extends Controller
     public function index()
     {
         $data = [
-            'roles' => Role::all()
+            'roles' => Role::orderBy('name','DESC')->get()
         ];
         return view('role.index', $data);
     }
@@ -65,10 +65,14 @@ class RoleController extends Controller
         $role->name = $request->name;
         $role->display_name = $request->display_name;
         $role->description  = $request->description;
+        if($role->description == '系统'){
+            $request->session()->flash('error','不允许定义描述为的系统角色');
+            return Redirect::route('role.index');
+        }
         if($role->save()){
             $request->session()->flash('success','角色创建成功');
         }else{
-            $request->session()->flash('success','角色创建失败');
+            $request->session()->flash('error','角色创建失败');
         }
         return Redirect::route('role.index');
     }
@@ -107,6 +111,10 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->name = $request->name;
         $role->display_name = $request->display_name;
+        if($role->description!='系统' && $request->description == '系统'){
+            $request->session()->flash('error','不允许定义描述为的系统角色');
+            return Redirect::route('role.index');
+        }
         $role->description  = $request->description;
         if($role->save()){
             $request->session()->flash('success','角色更新成功');
@@ -136,22 +144,38 @@ class RoleController extends Controller
     public function permission($id)
     {
     	$role = Role::find($id);
+    	if($role->description == '系统'){
+            request()->session()->flash('success','不可为系统角色设置权限');
+            return Redirect::route('role.index');
+        }
 		$data = [
 			'breadcrumb' => [
 				['url' => '#','label' => $role->display_name ],
 				['url' => '#','label' => '分配' ]
 			],
             'role' => $role,
-            'permissions' => Permission::orderBy('name','ASC')->get()
-            
+            'controllerRoles' => Role::where('description','=','系统')->where('name','<>','Admin')->orderBy('name','DESC')->get(),
         ];
         return view('role.permission', $data);
     }
 
     //保存角色权限
-    public function setPermission()
+    public function setPermission($id)
     {
+        $role = Role::find($id);
+        $permissionRoleTable = Config::get('entrust.permission_role_table');
+        DB::table($permissionRoleTable)->where('role_id','=',$id)->delete();
+        if(!empty(\request()->permission)) {
+            foreach (\request()->permission as $item){
+                if(!$role->hasPermission($item)){
+                    $permission = Permission::where('name','=',$item)->first();
+                    $role->attachPermission($permission);
+                }
+            }
+        }
 
+        request()->session()->flash('success','权限分配成功');
+        return Redirect::route('role.permission',['id' => $id]);
     }
 
     //检索所有权限(初始化)
@@ -178,7 +202,7 @@ class RoleController extends Controller
         //将不存在的权限删除
         $routes = [];
         foreach (Route::getRoutes()->getRoutes() as $item){
-            if(!strstr($item->getActionName(),'Auth') && strstr($item->getActionName(),'Controllers')) {
+            if(!strstr($item->getActionName(),'Home') && !strstr($item->getActionName(),'Auth') && strstr($item->getActionName(),'Controllers')) {
                 $methods = $item->methods();
                 $routes[] = '[' . $methods[0] . ']' . $item->getActionName();
             }
@@ -191,18 +215,17 @@ class RoleController extends Controller
         }
         
         //删除没有任何权限的系统角色
-        $roleTable = config::get('entrust.roles_table');
-        $query = DB::table($roleTable)
-        	->whereNotExists(function($subQuery)use($roleTable){
-            	$permissionRoleTable = config::get('entrust.permission_role_table');
-                $subQuery->select(DB::raw(1))
-                	->from($permissionRoleTable)
-                    ->whereRaw($roleTable.'.id = '.$permissionRoleTable.'.role_id');
-            })->where($roleTable.'.description', '=', '系统')->delete();
+        $roleTable = Config::get('entrust.roles_table');
+        DB::table($roleTable)->whereNotExists(function($subQuery)use($roleTable){
+            $permissionRoleTable = Config::get('entrust.permission_role_table');
+            $subQuery->select(DB::raw(1))
+                ->from($permissionRoleTable)
+                ->whereRaw($roleTable.'.id = '.$permissionRoleTable.'.role_id');
+        })->where($roleTable.'.description', '=', '系统')->delete();
 
         //将Controller加入到系统角色 & 将新路由添加到权限
         foreach (Route::getRoutes()->getRoutes() as $item){
-            if(!strstr($item->getActionName(),'Auth') && strstr($item->getActionName(),'Controllers')) {
+            if(!strstr($item->getActionName(),'Home') && !strstr($item->getActionName(),'Auth') && strstr($item->getActionName(),'Controllers')) {
             	$controller = explode('@',$item->getActionName())[0];
                 $methods = $item->methods();
                 $role = Role::where('name','=',$controller)->first();
@@ -221,12 +244,12 @@ class RoleController extends Controller
                     $permission->description = $item->uri();
                     $permission->save();
                 }
-                if(DB::table(config::get('entrust.permission_role_table'))->where('role_id','=',$admin->id)->where('permission_id','=',$permission->id)->count()==0){
-					$admin->attachPermission($permission);                
+                if(!$admin->hasPermission($permission->name)){
+					$admin->attachPermission($permission);
                 }
                 
-                if(DB::table(config::get('entrust.permission_role_table'))->where('role_id','=',$role->id)->where('permission_id','=',$permission->id)->count()==0){
-					$role->attachPermission($permission);                
+                if(!$role->hasPermission($permission->name)){
+					$role->attachPermission($permission);
                 }
             }
         }

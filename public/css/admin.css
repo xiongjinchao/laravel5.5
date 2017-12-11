@@ -1,0 +1,9 @@
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{vertical-align:middle}
+
+#activity{min-height:300px;}
+.pagination{margin:0}
+.overlay{padding-top:80px}
+.hot-country a,.operation a,.sort a{margin-right: 5px;}
+
+.permission-group .form-group{margin-bottom:5px;}
+.icheckbox_minimal-blue,.iradio_square-blue{top:-2px;margin-right:5px;}

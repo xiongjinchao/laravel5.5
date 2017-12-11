@@ -16,6 +16,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset("AdminLTE/bower_components/font-awesome/css/font-awesome.min.css")}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{asset("AdminLTE/bower_components/Ionicons/css/ionicons.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/admin.css")}}">
 
     @yield('css')
 

@@ -1,10 +1,5 @@
 @extends('layouts.admin-lte')
-@section('css')
-    <style>
-        .operation,.sort{width:160px;}
-        .operation a,.sort a{margin-right: 5px;}
-    </style>
-@endsection
+
 @section('content')
     <div class="knowledge-category-index">
         <p><a class="btn btn-success" href="{{route("knowledge-category.create")}}"><i class="fa fa-plus-circle"></i> 创建目录</a></p>
@@ -28,7 +23,7 @@
                         @if($knowledgeCategories->count() > 0)
                             @foreach($knowledgeCategories as $key=>$item)
                                 <tr>
-                                    <td>{{$key+1}}</td>
+                                    <td><b>{{$key+1}}</b></td>
                                     <td>{!!$item->getSpace().($item->rgt-$item->lft >1 ? '<b>'.$item->name.'</b>':$item->name)!!}</td>
                                     <td>{{$item->hasOneUser!=null?$item->hasOneUser->name:''}}</td>
                                     <td>{{$item->updated_at}}</td>

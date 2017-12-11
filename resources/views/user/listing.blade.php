@@ -15,7 +15,7 @@
         @if($users->count() > 0)
             @foreach($users as $key=>$item)
                 <tr>
-                    <td>{{$key+1}}</td>
+                    <td><b>{{$key+1}}</b></td>
                     <td>{{$item->name}}</td>
                     <td>{{\App\Models\Organization::getOrganizationPath($item->organization_id)}}</td>
                     <td>{{$item->email}}</td>

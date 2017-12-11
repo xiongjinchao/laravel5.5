@@ -17,7 +17,7 @@
         @if($knowledge->count() > 0)
             @foreach($knowledge as $key=>$item)
                 <tr>
-                    <td>{{$key+1}}</td>
+                    <td><b>{{$key+1}}</b></td>
                     <td>{{$item->title}}</td>
                     <td>{{$item->status>0?$item->getStatusOptions($item->status):''}}</td>
                     <td>{{\App\Models\KnowledgeCategory::getKnowledgeCategoryPath($item->category_id)}}</td>
