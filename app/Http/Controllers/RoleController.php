@@ -111,6 +111,10 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->name = $request->name;
         $role->display_name = $request->display_name;
+        if($role->name!='Admin' && $request->name == 'Admin'){
+            $request->session()->flash('error','不允许定义管理员角色');
+            return Redirect::route('role.index');
+        }
         if($role->description!='系统' && $request->description == '系统'){
             $request->session()->flash('error','不允许定义描述为的系统角色');
             return Redirect::route('role.index');

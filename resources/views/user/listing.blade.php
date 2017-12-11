@@ -30,7 +30,7 @@
                     </td>
                     <td class="operation">
                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                        <a class="btn btn-sm btn-success btn-assignment-role" href="{{ route('user.assignment',[$item->id]) }}" title="分配角色"><i class="fa fa-edit"></i> 分配角色</a>
+                        <a class="btn btn-sm btn-success btn-assignment-role" href="{{ route('user.assignment',[$item->id]) }}" data-has-roles="{{json_encode($item->getRoles())}}" title="分配角色"><i class="fa fa-edit"></i> 分配角色</a>
                         <a class="btn btn-sm btn-warning btn-reset-password" href="{{ route('user.password',[$item->id]) }}" title="重置密码"><i class="fa fa-refresh"></i> 重置密码</a>
                         <form action="" method="POST" style="display: inline">
                             {{ csrf_field() }}
@@ -59,25 +59,40 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <label>系统角色</label>
-                        </div>
-                        @foreach($roles as $key=>$item)
-                            @if($item->description == '系统')
-                                <div class="col-md-3">
-                                    <label><input type="checkbox" value="{{$item->id}}}"></label>
-                                    {{$item->display_name}}
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
                             <label>自定义角色</label>
                         </div>
                         @foreach($roles as $key=>$item)
                             @if($item->description != '系统')
                                 <div class="col-md-3">
-                                    <label><input type="checkbox" value="{{$item->id}}}"></label>
+                                    <label><input type="checkbox" name="roles[]" value="{{$item->id}}"></label>
+                                    {{$item->display_name}}
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                    <span class="help-block"></span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>系统角色</label>
+                        </div>
+                        @foreach($roles as $key=>$item)
+                            @if($item->description == '系统' && $item->name!='Admin')
+                                <div class="col-md-3">
+                                    <label><input type="checkbox" name="roles[]" value="{{$item->id}}"></label>
+                                    {{$item->display_name}}
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                    <span class="help-block"></span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>系统管理员角色</label>
+                        </div>
+                        @foreach($roles as $key=>$item)
+                            @if($item->name == 'Admin')
+                                <div class="col-md-3">
+                                    <label><input type="checkbox" name="roles[]" value="{{$item->id}}"></label>
                                     {{$item->display_name}}
                                 </div>
                             @endif
@@ -86,7 +101,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban"></i> 放弃</button>
-                    <button type="button" class="btn btn-primary pull-right confirm-reset-password"><i class="fa fa-check"></i> 确认</button>
+                    <button type="button" class="btn btn-primary pull-right confirm-assignment-role"><i class="fa fa-check"></i> 确认</button>
                 </div>
             </form>
         </div>
@@ -130,7 +145,22 @@
         e.preventDefault();
         var action = $(this).attr('href');
         $("#modal-assignment-role form").attr('action',action);
+        $("#modal-assignment-role").attr('data-has-roles',$(this).attr('data-has-roles'));
         $("#modal-assignment-role").modal();
+    });
+
+    $("#modal-assignment-role").on('shown.bs.modal', function () {
+        var roles = JSON.parse($("#modal-assignment-role").attr('data-has-roles'));
+        $('#modal-assignment-role input[type=checkbox]').iCheck('uncheck');
+        $('#modal-assignment-role input[type=checkbox]').each(function(i,item){
+            if($.inArray(parseInt($(item).val()),roles)>=0){
+                $(item).iCheck('check');
+            }
+        })
+    });
+
+    $("#modal-assignment-role .confirm-assignment-role").on('click',function(){
+        $(this).closest('form').submit();
     });
 
     $(".btn-reset-password").on('click',function(e){

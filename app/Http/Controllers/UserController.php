@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Organization;
 use App\Models\User;
 use App\Models\Role;
-use View,Redirect;
+use Config,DB,View,Redirect;
 
 class UserController extends Controller
 {

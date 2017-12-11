@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use DB;
+use Config,DB;
 
 class User extends \App\User
 {
@@ -84,5 +84,12 @@ class User extends \App\User
         }else{
             return isset($arr[$status]) ? $arr[$status] : '';
         }
+    }
+
+    //获取该用户下拥有的角色
+    public function getRoles()
+    {
+        $roleUserTable = Config::get('entrust.role_user_table');
+        return DB::table($roleUserTable)->where('user_id','=',$this->id)->pluck('role_id')->toArray();
     }
 }
