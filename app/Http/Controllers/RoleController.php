@@ -165,10 +165,10 @@ class RoleController extends Controller
         $role = Role::find($id);
         $permissionRoleTable = Config::get('entrust.permission_role_table');
         DB::table($permissionRoleTable)->where('role_id','=',$id)->delete();
-        if(!empty(\request()->permission)) {
-            foreach (\request()->permission as $item){
-                if(!$role->hasPermission($item)){
-                    $permission = Permission::where('name','=',$item)->first();
+        if(!empty(\request()->permissions)) {
+            foreach (\request()->permissions as $item){
+                $permission = Permission::find($item);
+                if(!$role->hasPermission($permission->name)){
                     $role->attachPermission($permission);
                 }
             }

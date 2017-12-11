@@ -29,11 +29,12 @@ Route::get('organization/move-down/{id}', 'OrganizationController@moveDown')->na
 //用户管理
 Route::get('user/listing', 'UserController@listing')->name('user.listing');                                             //列表
 Route::post('user/password/{id}', 'UserController@password')->name('user.password');                                    //重置密码
+Route::post('user/assignment/{id}', 'UserController@assignment')->name('user.assignment');                              //保存为用户分配角色
 
 //角色管理
 Route::get('role/permission/{id}', 'RoleController@permission')->name('role.permission');                               //设置权限
 Route::post('role/set-permission/{id}', 'RoleController@setPermission')->name('role.set-permission');                   //保存设置权限
-Route::get('role/retrieve-permission/{id}', 'RoleController@retrievePermission')->name('role.retrieve-permission');          //检索所有权限
+Route::get('role/retrieve-permission/{id}', 'RoleController@retrievePermission')->name('role.retrieve-permission');     //检索所有权限
 
 //知识管理
 Route::get('knowledge/listing', 'KnowledgeController@listing')->name('knowledge.listing');                              //列表

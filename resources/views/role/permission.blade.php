@@ -31,7 +31,7 @@
                                                 @foreach($item->hasManyPermissions() as $permission)
                                                     <?php $action = explode('@',$permission->display_name)[1];?>
                                                     <div class="form-group">
-                                                        <label><input type="checkbox" name="permission[]" class="check-single" {{$role->hasPermission($permission->name)?'checked':''}} value="{{$permission->name}}"></label>
+                                                        <label><input type="checkbox" name="permissions[]" class="check-single" {{$role->hasPermission($permission->name)?'checked':''}} value="{{$permission->id}}"></label>
                                                         {{\App\Models\Permission::getPermission($action)}}
                                                     </div>
                                                 @endforeach

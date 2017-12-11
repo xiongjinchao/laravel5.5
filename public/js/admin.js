@@ -47,5 +47,5 @@ $(".content").on('click','.btn-delete',function(e){
 
 //提示层间隔2S消失
 setTimeout(function(){
-    $(".container-fluid .callout-info,.container-fluid .callout-danger").fadeOut();
+    $(".container-fluid .main-callout").fadeOut();
 },2000);

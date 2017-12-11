@@ -30,6 +30,7 @@
                     </td>
                     <td class="operation">
                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
+                        <a class="btn btn-sm btn-primary" href="{{ route('role.assignment',[$item->id]) }}" title="分配"><i class="fa fa-edit"></i> 分配</a>
                         <a class="btn btn-sm btn-warning btn-reset-password" href="{{ route('user.password',[$item->id]) }}" title="重置密码"><i class="fa fa-refresh"></i> 重置密码</a>
                         <form action="" method="POST" style="display: inline">
                             {{ csrf_field() }}

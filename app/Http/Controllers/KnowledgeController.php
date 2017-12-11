@@ -38,6 +38,9 @@ class KnowledgeController extends Controller
      */
     public function index()
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         $data = [
             'countries' => Country::all()->toArray(),
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
@@ -53,6 +56,9 @@ class KnowledgeController extends Controller
      */
     public function create()
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         return view('knowledge.create');
     }
 
@@ -64,6 +70,9 @@ class KnowledgeController extends Controller
      */
     public function store(Request $request)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         //
     }
 
@@ -75,6 +84,9 @@ class KnowledgeController extends Controller
      */
     public function show($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         //
     }
 
@@ -86,6 +98,9 @@ class KnowledgeController extends Controller
      */
     public function edit($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
         $data = [
             'breadcrumb' => [['url' => '#','label' => '更新' ]],
             'countries' => Country::all()->toArray(),
@@ -104,6 +119,10 @@ class KnowledgeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
+
         $knowledge = Knowledge::find($id);
         $knowledge->fill($request->all());
         $knowledge->operator = $request->user()->id;
@@ -123,6 +142,10 @@ class KnowledgeController extends Controller
      */
     public function destroy($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
+
         if(Knowledge::find($id)->delete()){
             request()->session()->flash('success','知识已成功删除');
         }else{
@@ -133,15 +156,23 @@ class KnowledgeController extends Controller
 
     public function listing()
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
+
         $data = [
             'knowledge' => Knowledge::getlist(request()->all())
         ];
         $view = view('knowledge.listing', $data)->render();
-        return ['status' => 'OK', 'html' => $view];
+        return ['status' => 'success', 'html' => $view];
     }
 
     public function copy($id)
     {
+        if($this->checkEntrustAuth() !== true){
+            return $this->checkEntrustAuth();
+        }
+
         if(Knowledge::copyKnowledge($id)){
             request()->session()->flash('success','知识已成功复制');
         }else{
