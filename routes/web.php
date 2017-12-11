@@ -33,7 +33,7 @@ Route::post('user/password/{id}', 'UserController@password')->name('user.passwor
 //角色管理
 Route::get('role/permission/{id}', 'RoleController@permission')->name('role.permission');                               //设置权限
 Route::post('role/set-permission/{id}', 'RoleController@setPermission')->name('role.set-permission');                   //保存设置权限
-Route::get('role/retrieve-permission', 'RoleController@retrievePermission')->name('role.retrieve-permission');          //检索所有权限
+Route::get('role/retrieve-permission/{id}', 'RoleController@retrievePermission')->name('role.retrieve-permission');          //检索所有权限
 
 //知识管理
 Route::get('knowledge/listing', 'KnowledgeController@listing')->name('knowledge.listing');                              //列表

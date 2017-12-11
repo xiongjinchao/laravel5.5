@@ -20,7 +20,7 @@
                     <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>中文名称</th>
+                        <th>展示名称</th>
                         <th>英文名称</th>
                         <th>描述</th>
                         <th>创建时间</th>
@@ -33,7 +33,7 @@
                         @foreach($roles as $key=>$item)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <td><a href="javascript:void(0)" class="popover-edit-role" data-toggle="popover" data-placement="right" data-trigger="click" title="编辑角色" data-content="">{{$item->display_name}}</a></td>
+                                <td><a href="javascript:void(0)" class="popover-edit-role" data-toggle="popover" data-display_name="{{$item->display_name}}" data-name="{{$item->name}}" data-description="{{$item->description}}" data-update_url="{{ route('role.update',['id'=>$item->id]) }}">{{$item->display_name}}</a></td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->created_at}}</td>
@@ -69,7 +69,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>中文名称</label>
+                                    <label>展示名称</label>
                                     <input class="form-control" name="display_name">
                                 </div>
                             </div>
@@ -109,16 +109,27 @@
             });
 
             $(".popover-edit-role").popover({
-                template:'<div class="popover" role="tooltip"><div class="arrow"></div><h2 class="popover-title"></h2><div class="popover-content"></div><div class="popover-footer text-right"><button type="button" class="btn btn-sm btn-default"><i class="fa fa-ban"></i> 放弃</button> <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> 确认</button></div></div>',
-                html: true
+				title:'编辑角色',
+				content:'<form action="" method="POST">{{ csrf_field() }}{{ method_field('PUT') }}'+$("#modal-create-role .modal-body").html()+'</form>',
+				placement:'right',
+                template:'<div class="popover" role="tooltip"><div class="arrow"></div><h2 class="popover-title"></h2><div class="popover-content"></div><div class="popover-footer text-right"><button type="button" class="btn btn-sm btn-default"><i class="fa fa-ban"></i> 放弃</button> <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> 确认</button></div></div>',
+                html: true,
+                trigger:'click',
             });
 
-            $(".popover-edit-role").on('show.bs.popover',function(){
-                $(".popover-edit-role").attr('data-content', $("#modal-create-role .modal-body").html());
+            $(".popover-edit-role").on('shown.bs.popover',function(){
+            	$(this).closest('td').find('form').attr('action',$(this).attr('data-update_url'))
+                $(this).closest('td').find('input[name=display_name]').val($(this).attr('data-display_name'));
+                $(this).closest('td').find('input[name=name]').val($(this).attr('data-name'));
+                $(this).closest('td').find('textarea[name=description]').val($(this).attr('data-description'));
             });
 
             $(".content").on('click','.popover .btn-default',function(){
                 $(this).closest('td').find('.popover-edit-role').trigger('click');
+            });
+            
+            $(".content").on('click','.popover .btn-primary',function(){
+                $(this).closest('.popover').find('form').submit();
             });
         })
     </script>
