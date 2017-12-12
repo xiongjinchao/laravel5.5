@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-11 18:21:01
+Date: 2017-12-12 20:01:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -145,14 +145,33 @@ CREATE TABLE `knowledge` (
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of knowledge
 -- ----------------------------
-INSERT INTO `knowledge` VALUES ('1', '切勿拿这些心灵鸡汤来教育孩子', '26', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '3', '1', '23', '1', '1', '1443586647', '1512475363');
-INSERT INTO `knowledge` VALUES ('2', '这些话将是一生所求的答案！', '23', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '5', '1', '0', '1', '1', '1443586649', '1512475296');
-INSERT INTO `knowledge` VALUES ('4', '为什么白天必须要结束？', '27', '23', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '2', '1', '22', '1', '1', '1443586650', '1512474516');
+INSERT INTO `knowledge` VALUES ('1', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '3', '1', '23', '1', '1', '1443586647', '1513065224');
+INSERT INTO `knowledge` VALUES ('2', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '5', '1', '0', '1', '1', '1443586649', '1512475296');
+INSERT INTO `knowledge` VALUES ('4', '为什么白天必须要结束？', '2', '23', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '4', '1', '22', '1', '1', '1443586650', '1513067356');
+INSERT INTO `knowledge` VALUES ('5', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '1', '0', '0', '1', '1', '1513067073', '1513067073');
+INSERT INTO `knowledge` VALUES ('6', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '2', '0', '0', '1', '1', '1513067341', '1513067351');
+INSERT INTO `knowledge` VALUES ('7', '为什么白天必须要结束？', '6', '23', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '6', '0', '0', '1', '1', '1513067378', '1513067709');
+INSERT INTO `knowledge` VALUES ('8', '为什么白天必须要结束？', '6', '23', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '1', '0', '0', '1', '1', '1513068310', '1513068310');
+INSERT INTO `knowledge` VALUES ('9', '为什么白天必须要结束？', '6', '23', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '1', '0', '0', '1', '1', '1513068314', '1513068314');
+INSERT INTO `knowledge` VALUES ('10', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '1', '0', '0', '1', '1', '1513068319', '1513068319');
+INSERT INTO `knowledge` VALUES ('11', '为什么白天必须要结束？', '2', '23', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '1', '0', '0', '1', '1', '1513068321', '1513068321');
+INSERT INTO `knowledge` VALUES ('12', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '2', '0', '0', '1', '1', '1513068323', '1513070300');
+INSERT INTO `knowledge` VALUES ('13', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '1', '0', '0', '1', '1', '1513068325', '1513068325');
+INSERT INTO `knowledge` VALUES ('14', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '2', '0', '0', '1', '1', '1513068327', '1513070297');
+INSERT INTO `knowledge` VALUES ('15', '为什么白天必须要结束？', '6', '23', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '5', '0', '0', '1', '1', '1513068330', '1513070289');
+INSERT INTO `knowledge` VALUES ('16', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '4', '0', '0', '1', '1', '1513068332', '1513070279');
+INSERT INTO `knowledge` VALUES ('17', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '5', '0', '0', '1', '1', '1513068334', '1513070282');
+INSERT INTO `knowledge` VALUES ('18', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '1', '0', '0', '1', '1', '1513068343', '1513068343');
+INSERT INTO `knowledge` VALUES ('19', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '4', '0', '0', '1', '1', '1513068347', '1513070271');
+INSERT INTO `knowledge` VALUES ('20', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '1', '0', '0', '1', '1', '1513068354', '1513068354');
+INSERT INTO `knowledge` VALUES ('21', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '4', '0', '0', '1', '1', '1513068357', '1513070267');
+INSERT INTO `knowledge` VALUES ('22', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '2', '0', '0', '1', '1', '1513068361', '1513070253');
+INSERT INTO `knowledge` VALUES ('23', '天上风筝在天上飞', '1', '23', '<p>天上风筝在天上飞天上风筝在天上飞</p>', '2', '0', '0', '1', '1', '1513075729', '1513079339');
 
 -- ----------------------------
 -- Table structure for knowledge_category
@@ -171,7 +190,7 @@ CREATE TABLE `knowledge_category` (
   PRIMARY KEY (`id`),
   KEY `lft` (`lft`),
   KEY `rgt` (`rgt`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of knowledge_category
@@ -182,6 +201,7 @@ INSERT INTO `knowledge_category` VALUES ('3', '业务知识', '5', '10', '0', '1
 INSERT INTO `knowledge_category` VALUES ('4', '法律法规', '11', '12', '0', '1', '1', '1512543352', '1512543389');
 INSERT INTO `knowledge_category` VALUES ('5', '签证业务', '6', '7', '3', '2', '1', '1512543373', '1512543373');
 INSERT INTO `knowledge_category` VALUES ('6', '商旅业务', '8', '9', '3', '2', '1', '1512543389', '1512543389');
+INSERT INTO `knowledge_category` VALUES ('7', '行政管理', '13', '14', '0', '1', '1', '1513047068', '1513047068');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -198,6 +218,28 @@ CREATE TABLE `migrations` (
 -- Records of migrations
 -- ----------------------------
 INSERT INTO `migrations` VALUES ('1', '2017_12_08_112305_entrust_setup_tables', '1');
+
+-- ----------------------------
+-- Table structure for model_logs
+-- ----------------------------
+DROP TABLE IF EXISTS `model_logs`;
+CREATE TABLE `model_logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `model` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '' COMMENT '模型',
+  `model_id` int(11) NOT NULL DEFAULT '0' COMMENT '模型ID',
+  `content` varchar(255) DEFAULT '' COMMENT '日志内容',
+  `operator` varchar(255) CHARACTER SET latin1 DEFAULT '',
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of model_logs
+-- ----------------------------
+INSERT INTO `model_logs` VALUES ('1', 'Knowledge', '23', '更新知识', '1', '2017-12-12 19:41:03');
+INSERT INTO `model_logs` VALUES ('2', 'Knowledge', '23', '提交审核', '1', '2017-12-12 19:48:29');
+INSERT INTO `model_logs` VALUES ('3', 'Knowledge', '23', '审核失败', '1', '2017-12-12 19:48:50');
+INSERT INTO `model_logs` VALUES ('4', 'Knowledge', '23', '提交审核', '1', '2017-12-12 19:49:00');
 
 -- ----------------------------
 -- Table structure for organization
@@ -285,74 +327,54 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permissions_name_unique` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of permissions
 -- ----------------------------
-INSERT INTO `permissions` VALUES ('2', '[GET]App\\Http\\Controllers\\OrganizationController@moveUp', 'App\\Http\\Controllers\\OrganizationController@moveUp', 'organization/move-up/{id}', '2017-12-08 16:21:11', '2017-12-08 16:21:11');
-INSERT INTO `permissions` VALUES ('3', '[GET]App\\Http\\Controllers\\OrganizationController@moveDown', 'App\\Http\\Controllers\\OrganizationController@moveDown', 'organization/move-down/{id}', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
-INSERT INTO `permissions` VALUES ('4', '[GET]App\\Http\\Controllers\\UserController@listing', 'App\\Http\\Controllers\\UserController@listing', 'user/listing', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
-INSERT INTO `permissions` VALUES ('5', '[POST]App\\Http\\Controllers\\UserController@password', 'App\\Http\\Controllers\\UserController@password', 'user/password/{id}', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
-INSERT INTO `permissions` VALUES ('7', '[GET]App\\Http\\Controllers\\KnowledgeController@listing', 'App\\Http\\Controllers\\KnowledgeController@listing', 'knowledge/listing', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
-INSERT INTO `permissions` VALUES ('8', '[GET]App\\Http\\Controllers\\KnowledgeController@copy', 'App\\Http\\Controllers\\KnowledgeController@copy', 'knowledge/copy/{id}', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
-INSERT INTO `permissions` VALUES ('9', '[GET]App\\Http\\Controllers\\KnowledgeController@submit', 'App\\Http\\Controllers\\KnowledgeController@submit', 'knowledge/submit/{id}', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
-INSERT INTO `permissions` VALUES ('10', '[GET]App\\Http\\Controllers\\KnowledgeController@audit', 'App\\Http\\Controllers\\KnowledgeController@audit', 'knowledge/audit/{id}', '2017-12-08 16:21:12', '2017-12-08 16:21:12');
-INSERT INTO `permissions` VALUES ('11', '[GET]App\\Http\\Controllers\\KnowledgeController@publish', 'App\\Http\\Controllers\\KnowledgeController@publish', 'knowledge/publish/{id}', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('12', '[GET]App\\Http\\Controllers\\KnowledgeCategoryController@moveUp', 'App\\Http\\Controllers\\KnowledgeCategoryController@moveUp', 'knowledge-category/move-up/{id}', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('13', '[GET]App\\Http\\Controllers\\KnowledgeCategoryController@moveDown', 'App\\Http\\Controllers\\KnowledgeCategoryController@moveDown', 'knowledge-category/move-down/{id}', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('14', '[GET]App\\Http\\Controllers\\UserController@index', 'App\\Http\\Controllers\\UserController@index', 'user', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('15', '[GET]App\\Http\\Controllers\\UserController@create', 'App\\Http\\Controllers\\UserController@create', 'user/create', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('16', '[POST]App\\Http\\Controllers\\UserController@store', 'App\\Http\\Controllers\\UserController@store', 'user', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('17', '[GET]App\\Http\\Controllers\\UserController@show', 'App\\Http\\Controllers\\UserController@show', 'user/{user}', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('18', '[GET]App\\Http\\Controllers\\UserController@edit', 'App\\Http\\Controllers\\UserController@edit', 'user/{user}/edit', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('19', '[PUT]App\\Http\\Controllers\\UserController@update', 'App\\Http\\Controllers\\UserController@update', 'user/{user}', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('20', '[DELETE]App\\Http\\Controllers\\UserController@destroy', 'App\\Http\\Controllers\\UserController@destroy', 'user/{user}', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('21', '[GET]App\\Http\\Controllers\\OrganizationController@index', 'App\\Http\\Controllers\\OrganizationController@index', 'organization', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('22', '[GET]App\\Http\\Controllers\\OrganizationController@create', 'App\\Http\\Controllers\\OrganizationController@create', 'organization/create', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('23', '[POST]App\\Http\\Controllers\\OrganizationController@store', 'App\\Http\\Controllers\\OrganizationController@store', 'organization', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('24', '[GET]App\\Http\\Controllers\\OrganizationController@show', 'App\\Http\\Controllers\\OrganizationController@show', 'organization/{organization}', '2017-12-08 16:21:13', '2017-12-08 16:21:13');
-INSERT INTO `permissions` VALUES ('25', '[GET]App\\Http\\Controllers\\OrganizationController@edit', 'App\\Http\\Controllers\\OrganizationController@edit', 'organization/{organization}/edit', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('26', '[PUT]App\\Http\\Controllers\\OrganizationController@update', 'App\\Http\\Controllers\\OrganizationController@update', 'organization/{organization}', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('27', '[DELETE]App\\Http\\Controllers\\OrganizationController@destroy', 'App\\Http\\Controllers\\OrganizationController@destroy', 'organization/{organization}', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('28', '[GET]App\\Http\\Controllers\\RoleController@index', 'App\\Http\\Controllers\\RoleController@index', 'role', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('29', '[GET]App\\Http\\Controllers\\RoleController@create', 'App\\Http\\Controllers\\RoleController@create', 'role/create', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('30', '[POST]App\\Http\\Controllers\\RoleController@store', 'App\\Http\\Controllers\\RoleController@store', 'role', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('31', '[GET]App\\Http\\Controllers\\RoleController@show', 'App\\Http\\Controllers\\RoleController@show', 'role/{role}', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('32', '[GET]App\\Http\\Controllers\\RoleController@edit', 'App\\Http\\Controllers\\RoleController@edit', 'role/{role}/edit', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('33', '[PUT]App\\Http\\Controllers\\RoleController@update', 'App\\Http\\Controllers\\RoleController@update', 'role/{role}', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('34', '[DELETE]App\\Http\\Controllers\\RoleController@destroy', 'App\\Http\\Controllers\\RoleController@destroy', 'role/{role}', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('35', '[GET]App\\Http\\Controllers\\KnowledgeCategoryController@index', 'App\\Http\\Controllers\\KnowledgeCategoryController@index', 'knowledge-category', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('36', '[GET]App\\Http\\Controllers\\KnowledgeCategoryController@create', 'App\\Http\\Controllers\\KnowledgeCategoryController@create', 'knowledge-category/create', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('37', '[POST]App\\Http\\Controllers\\KnowledgeCategoryController@store', 'App\\Http\\Controllers\\KnowledgeCategoryController@store', 'knowledge-category', '2017-12-08 16:21:14', '2017-12-08 16:21:14');
-INSERT INTO `permissions` VALUES ('38', '[GET]App\\Http\\Controllers\\KnowledgeCategoryController@show', 'App\\Http\\Controllers\\KnowledgeCategoryController@show', 'knowledge-category/{knowledge_category}', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('39', '[GET]App\\Http\\Controllers\\KnowledgeCategoryController@edit', 'App\\Http\\Controllers\\KnowledgeCategoryController@edit', 'knowledge-category/{knowledge_category}/edit', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('40', '[PUT]App\\Http\\Controllers\\KnowledgeCategoryController@update', 'App\\Http\\Controllers\\KnowledgeCategoryController@update', 'knowledge-category/{knowledge_category}', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('41', '[DELETE]App\\Http\\Controllers\\KnowledgeCategoryController@destroy', 'App\\Http\\Controllers\\KnowledgeCategoryController@destroy', 'knowledge-category/{knowledge_category}', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('42', '[GET]App\\Http\\Controllers\\KnowledgeController@index', 'App\\Http\\Controllers\\KnowledgeController@index', 'knowledge', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('43', '[GET]App\\Http\\Controllers\\KnowledgeController@create', 'App\\Http\\Controllers\\KnowledgeController@create', 'knowledge/create', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('44', '[POST]App\\Http\\Controllers\\KnowledgeController@store', 'App\\Http\\Controllers\\KnowledgeController@store', 'knowledge', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('45', '[GET]App\\Http\\Controllers\\KnowledgeController@show', 'App\\Http\\Controllers\\KnowledgeController@show', 'knowledge/{knowledge}', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('46', '[GET]App\\Http\\Controllers\\KnowledgeController@edit', 'App\\Http\\Controllers\\KnowledgeController@edit', 'knowledge/{knowledge}/edit', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('47', '[PUT]App\\Http\\Controllers\\KnowledgeController@update', 'App\\Http\\Controllers\\KnowledgeController@update', 'knowledge/{knowledge}', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('48', '[DELETE]App\\Http\\Controllers\\KnowledgeController@destroy', 'App\\Http\\Controllers\\KnowledgeController@destroy', 'knowledge/{knowledge}', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('49', '[GET]App\\Http\\Controllers\\FAQController@index', 'App\\Http\\Controllers\\FAQController@index', 'faq', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('50', '[GET]App\\Http\\Controllers\\FAQController@create', 'App\\Http\\Controllers\\FAQController@create', 'faq/create', '2017-12-08 16:21:15', '2017-12-08 16:21:15');
-INSERT INTO `permissions` VALUES ('51', '[POST]App\\Http\\Controllers\\FAQController@store', 'App\\Http\\Controllers\\FAQController@store', 'faq', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('52', '[GET]App\\Http\\Controllers\\FAQController@show', 'App\\Http\\Controllers\\FAQController@show', 'faq/{faq}', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('53', '[GET]App\\Http\\Controllers\\FAQController@edit', 'App\\Http\\Controllers\\FAQController@edit', 'faq/{faq}/edit', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('54', '[PUT]App\\Http\\Controllers\\FAQController@update', 'App\\Http\\Controllers\\FAQController@update', 'faq/{faq}', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('55', '[DELETE]App\\Http\\Controllers\\FAQController@destroy', 'App\\Http\\Controllers\\FAQController@destroy', 'faq/{faq}', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('56', '[GET]App\\Http\\Controllers\\NoticeController@index', 'App\\Http\\Controllers\\NoticeController@index', 'notice', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('57', '[GET]App\\Http\\Controllers\\NoticeController@create', 'App\\Http\\Controllers\\NoticeController@create', 'notice/create', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('58', '[POST]App\\Http\\Controllers\\NoticeController@store', 'App\\Http\\Controllers\\NoticeController@store', 'notice', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('59', '[GET]App\\Http\\Controllers\\NoticeController@show', 'App\\Http\\Controllers\\NoticeController@show', 'notice/{notice}', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('60', '[GET]App\\Http\\Controllers\\NoticeController@edit', 'App\\Http\\Controllers\\NoticeController@edit', 'notice/{notice}/edit', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('61', '[PUT]App\\Http\\Controllers\\NoticeController@update', 'App\\Http\\Controllers\\NoticeController@update', 'notice/{notice}', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('62', '[DELETE]App\\Http\\Controllers\\NoticeController@destroy', 'App\\Http\\Controllers\\NoticeController@destroy', 'notice/{notice}', '2017-12-08 16:21:16', '2017-12-08 16:21:16');
-INSERT INTO `permissions` VALUES ('64', '[GET]App\\Http\\Controllers\\RoleController@permission', 'App\\Http\\Controllers\\RoleController@permission', 'role/permission/{id}', '2017-12-11 09:47:45', '2017-12-11 09:47:45');
-INSERT INTO `permissions` VALUES ('65', '[POST]App\\Http\\Controllers\\RoleController@setPermission', 'App\\Http\\Controllers\\RoleController@setPermission', 'role/set-permission/{id}', '2017-12-11 09:47:45', '2017-12-11 09:47:45');
-INSERT INTO `permissions` VALUES ('66', '[GET]App\\Http\\Controllers\\RoleController@retrievePermission', 'App\\Http\\Controllers\\RoleController@retrievePermission', 'role/retrieve-permission/{id}', '2017-12-11 09:47:45', '2017-12-11 09:47:45');
+INSERT INTO `permissions` VALUES ('1', 'App\\Http\\Controllers\\OrganizationController@moveUp', 'App\\Http\\Controllers\\OrganizationController@moveUp', 'organization/move-up/{id}', '2017-12-12 10:45:44', '2017-12-12 10:45:44');
+INSERT INTO `permissions` VALUES ('2', 'App\\Http\\Controllers\\OrganizationController@moveDown', 'App\\Http\\Controllers\\OrganizationController@moveDown', 'organization/move-down/{id}', '2017-12-12 10:45:45', '2017-12-12 10:45:45');
+INSERT INTO `permissions` VALUES ('3', 'App\\Http\\Controllers\\UserController@tab', 'App\\Http\\Controllers\\UserController@tab', 'user/tab', '2017-12-12 10:45:45', '2017-12-12 10:45:45');
+INSERT INTO `permissions` VALUES ('4', 'App\\Http\\Controllers\\UserController@password', 'App\\Http\\Controllers\\UserController@password', 'user/password/{id}', '2017-12-12 10:45:45', '2017-12-12 10:45:45');
+INSERT INTO `permissions` VALUES ('5', 'App\\Http\\Controllers\\UserController@assignment', 'App\\Http\\Controllers\\UserController@assignment', 'user/assignment/{id}', '2017-12-12 10:45:45', '2017-12-12 10:45:45');
+INSERT INTO `permissions` VALUES ('6', 'App\\Http\\Controllers\\RoleController@permission', 'App\\Http\\Controllers\\RoleController@permission', 'role/permission/{id}', '2017-12-12 10:45:45', '2017-12-12 10:45:45');
+INSERT INTO `permissions` VALUES ('7', 'App\\Http\\Controllers\\RoleController@retrieve', 'App\\Http\\Controllers\\RoleController@retrieve', 'role/retrieve/{id?}', '2017-12-12 10:45:45', '2017-12-12 10:45:45');
+INSERT INTO `permissions` VALUES ('8', 'App\\Http\\Controllers\\KnowledgeController@tab', 'App\\Http\\Controllers\\KnowledgeController@tab', 'knowledge/tab', '2017-12-12 10:45:45', '2017-12-12 10:45:45');
+INSERT INTO `permissions` VALUES ('9', 'App\\Http\\Controllers\\KnowledgeController@copy', 'App\\Http\\Controllers\\KnowledgeController@copy', 'knowledge/copy/{id}', '2017-12-12 10:45:45', '2017-12-12 10:45:45');
+INSERT INTO `permissions` VALUES ('10', 'App\\Http\\Controllers\\KnowledgeController@submit', 'App\\Http\\Controllers\\KnowledgeController@submit', 'knowledge/submit/{id}', '2017-12-12 10:45:46', '2017-12-12 10:45:46');
+INSERT INTO `permissions` VALUES ('11', 'App\\Http\\Controllers\\KnowledgeController@audit', 'App\\Http\\Controllers\\KnowledgeController@audit', 'knowledge/audit/{id}', '2017-12-12 10:45:46', '2017-12-12 10:45:46');
+INSERT INTO `permissions` VALUES ('12', 'App\\Http\\Controllers\\KnowledgeController@publish', 'App\\Http\\Controllers\\KnowledgeController@publish', 'knowledge/publish/{id}', '2017-12-12 10:45:46', '2017-12-12 10:45:46');
+INSERT INTO `permissions` VALUES ('13', 'App\\Http\\Controllers\\KnowledgeCategoryController@moveUp', 'App\\Http\\Controllers\\KnowledgeCategoryController@moveUp', 'knowledge-category/move-up/{id}', '2017-12-12 10:45:46', '2017-12-12 10:45:46');
+INSERT INTO `permissions` VALUES ('14', 'App\\Http\\Controllers\\KnowledgeCategoryController@moveDown', 'App\\Http\\Controllers\\KnowledgeCategoryController@moveDown', 'knowledge-category/move-down/{id}', '2017-12-12 10:45:46', '2017-12-12 10:45:46');
+INSERT INTO `permissions` VALUES ('15', 'App\\Http\\Controllers\\UserController@index', 'App\\Http\\Controllers\\UserController@index', 'user', '2017-12-12 10:45:46', '2017-12-12 10:45:46');
+INSERT INTO `permissions` VALUES ('16', 'App\\Http\\Controllers\\UserController@create', 'App\\Http\\Controllers\\UserController@create', 'user/create', '2017-12-12 10:45:46', '2017-12-12 10:45:46');
+INSERT INTO `permissions` VALUES ('18', 'App\\Http\\Controllers\\UserController@update', 'App\\Http\\Controllers\\UserController@update', 'user/{user}/edit', '2017-12-12 10:45:47', '2017-12-12 10:45:47');
+INSERT INTO `permissions` VALUES ('19', 'App\\Http\\Controllers\\UserController@destroy', 'App\\Http\\Controllers\\UserController@destroy', 'user/{user}', '2017-12-12 10:45:47', '2017-12-12 10:45:47');
+INSERT INTO `permissions` VALUES ('20', 'App\\Http\\Controllers\\OrganizationController@index', 'App\\Http\\Controllers\\OrganizationController@index', 'organization', '2017-12-12 10:45:47', '2017-12-12 10:45:47');
+INSERT INTO `permissions` VALUES ('21', 'App\\Http\\Controllers\\OrganizationController@create', 'App\\Http\\Controllers\\OrganizationController@create', 'organization/create', '2017-12-12 10:45:47', '2017-12-12 10:45:47');
+INSERT INTO `permissions` VALUES ('23', 'App\\Http\\Controllers\\OrganizationController@update', 'App\\Http\\Controllers\\OrganizationController@update', 'organization/{organization}/edit', '2017-12-12 10:45:47', '2017-12-12 10:45:47');
+INSERT INTO `permissions` VALUES ('24', 'App\\Http\\Controllers\\OrganizationController@destroy', 'App\\Http\\Controllers\\OrganizationController@destroy', 'organization/{organization}', '2017-12-12 10:45:47', '2017-12-12 10:45:47');
+INSERT INTO `permissions` VALUES ('25', 'App\\Http\\Controllers\\RoleController@index', 'App\\Http\\Controllers\\RoleController@index', 'role', '2017-12-12 10:45:47', '2017-12-12 10:45:47');
+INSERT INTO `permissions` VALUES ('26', 'App\\Http\\Controllers\\RoleController@create', 'App\\Http\\Controllers\\RoleController@create', 'role/create', '2017-12-12 10:45:48', '2017-12-12 10:45:48');
+INSERT INTO `permissions` VALUES ('28', 'App\\Http\\Controllers\\RoleController@update', 'App\\Http\\Controllers\\RoleController@update', 'role/{role}/edit', '2017-12-12 10:45:48', '2017-12-12 10:45:48');
+INSERT INTO `permissions` VALUES ('29', 'App\\Http\\Controllers\\RoleController@destroy', 'App\\Http\\Controllers\\RoleController@destroy', 'role/{role}', '2017-12-12 10:45:48', '2017-12-12 10:45:48');
+INSERT INTO `permissions` VALUES ('30', 'App\\Http\\Controllers\\KnowledgeCategoryController@index', 'App\\Http\\Controllers\\KnowledgeCategoryController@index', 'knowledge-category', '2017-12-12 10:45:48', '2017-12-12 10:45:48');
+INSERT INTO `permissions` VALUES ('31', 'App\\Http\\Controllers\\KnowledgeCategoryController@create', 'App\\Http\\Controllers\\KnowledgeCategoryController@create', 'knowledge-category/create', '2017-12-12 10:45:48', '2017-12-12 10:45:48');
+INSERT INTO `permissions` VALUES ('33', 'App\\Http\\Controllers\\KnowledgeCategoryController@update', 'App\\Http\\Controllers\\KnowledgeCategoryController@update', 'knowledge-category/{knowledge_category}/edit', '2017-12-12 10:45:49', '2017-12-12 10:45:49');
+INSERT INTO `permissions` VALUES ('34', 'App\\Http\\Controllers\\KnowledgeCategoryController@destroy', 'App\\Http\\Controllers\\KnowledgeCategoryController@destroy', 'knowledge-category/{knowledge_category}', '2017-12-12 10:45:49', '2017-12-12 10:45:49');
+INSERT INTO `permissions` VALUES ('35', 'App\\Http\\Controllers\\KnowledgeController@index', 'App\\Http\\Controllers\\KnowledgeController@index', 'knowledge', '2017-12-12 10:45:49', '2017-12-12 10:45:49');
+INSERT INTO `permissions` VALUES ('36', 'App\\Http\\Controllers\\KnowledgeController@create', 'App\\Http\\Controllers\\KnowledgeController@create', 'knowledge/create', '2017-12-12 10:45:49', '2017-12-12 10:45:49');
+INSERT INTO `permissions` VALUES ('38', 'App\\Http\\Controllers\\KnowledgeController@update', 'App\\Http\\Controllers\\KnowledgeController@update', 'knowledge/{knowledge}/edit', '2017-12-12 10:45:49', '2017-12-12 10:45:49');
+INSERT INTO `permissions` VALUES ('39', 'App\\Http\\Controllers\\KnowledgeController@destroy', 'App\\Http\\Controllers\\KnowledgeController@destroy', 'knowledge/{knowledge}', '2017-12-12 10:45:50', '2017-12-12 10:45:50');
+INSERT INTO `permissions` VALUES ('40', 'App\\Http\\Controllers\\FAQController@index', 'App\\Http\\Controllers\\FAQController@index', 'faq', '2017-12-12 10:45:50', '2017-12-12 10:45:50');
+INSERT INTO `permissions` VALUES ('41', 'App\\Http\\Controllers\\FAQController@create', 'App\\Http\\Controllers\\FAQController@create', 'faq/create', '2017-12-12 10:45:50', '2017-12-12 10:45:50');
+INSERT INTO `permissions` VALUES ('43', 'App\\Http\\Controllers\\FAQController@update', 'App\\Http\\Controllers\\FAQController@update', 'faq/{faq}/edit', '2017-12-12 10:45:50', '2017-12-12 10:45:50');
+INSERT INTO `permissions` VALUES ('44', 'App\\Http\\Controllers\\FAQController@destroy', 'App\\Http\\Controllers\\FAQController@destroy', 'faq/{faq}', '2017-12-12 10:45:50', '2017-12-12 10:45:50');
+INSERT INTO `permissions` VALUES ('45', 'App\\Http\\Controllers\\NoticeController@index', 'App\\Http\\Controllers\\NoticeController@index', 'notice', '2017-12-12 10:45:50', '2017-12-12 10:45:50');
+INSERT INTO `permissions` VALUES ('46', 'App\\Http\\Controllers\\NoticeController@create', 'App\\Http\\Controllers\\NoticeController@create', 'notice/create', '2017-12-12 10:45:50', '2017-12-12 10:45:50');
+INSERT INTO `permissions` VALUES ('48', 'App\\Http\\Controllers\\NoticeController@update', 'App\\Http\\Controllers\\NoticeController@update', 'notice/{notice}/edit', '2017-12-12 10:45:51', '2017-12-12 10:45:51');
+INSERT INTO `permissions` VALUES ('49', 'App\\Http\\Controllers\\NoticeController@destroy', 'App\\Http\\Controllers\\NoticeController@destroy', 'notice/{notice}', '2017-12-12 10:45:51', '2017-12-12 10:45:51');
+INSERT INTO `permissions` VALUES ('50', 'App\\Http\\Controllers\\KnowledgeController@log', 'App\\Http\\Controllers\\KnowledgeController@log', 'knowledge/log/{id}', '2017-12-12 19:12:08', '2017-12-12 19:12:08');
 
 -- ----------------------------
 -- Table structure for permission_role
@@ -370,166 +392,118 @@ CREATE TABLE `permission_role` (
 -- ----------------------------
 -- Records of permission_role
 -- ----------------------------
+INSERT INTO `permission_role` VALUES ('1', '1');
+INSERT INTO `permission_role` VALUES ('1', '2');
+INSERT INTO `permission_role` VALUES ('1', '9');
 INSERT INTO `permission_role` VALUES ('2', '1');
-INSERT INTO `permission_role` VALUES ('2', '11');
-INSERT INTO `permission_role` VALUES ('2', '14');
+INSERT INTO `permission_role` VALUES ('2', '2');
+INSERT INTO `permission_role` VALUES ('2', '9');
 INSERT INTO `permission_role` VALUES ('3', '1');
-INSERT INTO `permission_role` VALUES ('3', '11');
-INSERT INTO `permission_role` VALUES ('3', '14');
+INSERT INTO `permission_role` VALUES ('3', '3');
+INSERT INTO `permission_role` VALUES ('3', '9');
 INSERT INTO `permission_role` VALUES ('4', '1');
-INSERT INTO `permission_role` VALUES ('4', '12');
+INSERT INTO `permission_role` VALUES ('4', '3');
 INSERT INTO `permission_role` VALUES ('5', '1');
-INSERT INTO `permission_role` VALUES ('5', '12');
+INSERT INTO `permission_role` VALUES ('5', '3');
+INSERT INTO `permission_role` VALUES ('6', '1');
+INSERT INTO `permission_role` VALUES ('6', '4');
 INSERT INTO `permission_role` VALUES ('7', '1');
-INSERT INTO `permission_role` VALUES ('7', '6');
+INSERT INTO `permission_role` VALUES ('7', '4');
 INSERT INTO `permission_role` VALUES ('8', '1');
-INSERT INTO `permission_role` VALUES ('8', '6');
-INSERT INTO `permission_role` VALUES ('8', '10');
+INSERT INTO `permission_role` VALUES ('8', '5');
+INSERT INTO `permission_role` VALUES ('8', '9');
 INSERT INTO `permission_role` VALUES ('9', '1');
-INSERT INTO `permission_role` VALUES ('9', '6');
-INSERT INTO `permission_role` VALUES ('9', '10');
+INSERT INTO `permission_role` VALUES ('9', '5');
+INSERT INTO `permission_role` VALUES ('9', '9');
 INSERT INTO `permission_role` VALUES ('10', '1');
-INSERT INTO `permission_role` VALUES ('10', '6');
-INSERT INTO `permission_role` VALUES ('10', '10');
+INSERT INTO `permission_role` VALUES ('10', '5');
+INSERT INTO `permission_role` VALUES ('10', '9');
 INSERT INTO `permission_role` VALUES ('11', '1');
-INSERT INTO `permission_role` VALUES ('11', '6');
-INSERT INTO `permission_role` VALUES ('11', '10');
+INSERT INTO `permission_role` VALUES ('11', '5');
+INSERT INTO `permission_role` VALUES ('11', '9');
 INSERT INTO `permission_role` VALUES ('12', '1');
-INSERT INTO `permission_role` VALUES ('12', '7');
+INSERT INTO `permission_role` VALUES ('12', '5');
+INSERT INTO `permission_role` VALUES ('12', '9');
 INSERT INTO `permission_role` VALUES ('13', '1');
-INSERT INTO `permission_role` VALUES ('13', '7');
+INSERT INTO `permission_role` VALUES ('13', '6');
+INSERT INTO `permission_role` VALUES ('13', '9');
 INSERT INTO `permission_role` VALUES ('14', '1');
-INSERT INTO `permission_role` VALUES ('14', '12');
+INSERT INTO `permission_role` VALUES ('14', '6');
+INSERT INTO `permission_role` VALUES ('14', '9');
 INSERT INTO `permission_role` VALUES ('15', '1');
-INSERT INTO `permission_role` VALUES ('15', '12');
+INSERT INTO `permission_role` VALUES ('15', '3');
+INSERT INTO `permission_role` VALUES ('15', '9');
 INSERT INTO `permission_role` VALUES ('16', '1');
-INSERT INTO `permission_role` VALUES ('16', '12');
-INSERT INTO `permission_role` VALUES ('17', '1');
-INSERT INTO `permission_role` VALUES ('17', '12');
+INSERT INTO `permission_role` VALUES ('16', '3');
+INSERT INTO `permission_role` VALUES ('16', '9');
 INSERT INTO `permission_role` VALUES ('18', '1');
-INSERT INTO `permission_role` VALUES ('18', '12');
+INSERT INTO `permission_role` VALUES ('18', '3');
+INSERT INTO `permission_role` VALUES ('18', '9');
 INSERT INTO `permission_role` VALUES ('19', '1');
-INSERT INTO `permission_role` VALUES ('19', '12');
+INSERT INTO `permission_role` VALUES ('19', '3');
+INSERT INTO `permission_role` VALUES ('19', '9');
 INSERT INTO `permission_role` VALUES ('20', '1');
-INSERT INTO `permission_role` VALUES ('20', '12');
+INSERT INTO `permission_role` VALUES ('20', '2');
+INSERT INTO `permission_role` VALUES ('20', '9');
 INSERT INTO `permission_role` VALUES ('21', '1');
-INSERT INTO `permission_role` VALUES ('21', '11');
-INSERT INTO `permission_role` VALUES ('21', '14');
-INSERT INTO `permission_role` VALUES ('22', '1');
-INSERT INTO `permission_role` VALUES ('22', '11');
-INSERT INTO `permission_role` VALUES ('22', '14');
+INSERT INTO `permission_role` VALUES ('21', '2');
+INSERT INTO `permission_role` VALUES ('21', '9');
 INSERT INTO `permission_role` VALUES ('23', '1');
-INSERT INTO `permission_role` VALUES ('23', '11');
-INSERT INTO `permission_role` VALUES ('23', '14');
+INSERT INTO `permission_role` VALUES ('23', '2');
+INSERT INTO `permission_role` VALUES ('23', '9');
 INSERT INTO `permission_role` VALUES ('24', '1');
-INSERT INTO `permission_role` VALUES ('24', '11');
-INSERT INTO `permission_role` VALUES ('24', '14');
+INSERT INTO `permission_role` VALUES ('24', '2');
+INSERT INTO `permission_role` VALUES ('24', '9');
 INSERT INTO `permission_role` VALUES ('25', '1');
-INSERT INTO `permission_role` VALUES ('25', '11');
-INSERT INTO `permission_role` VALUES ('25', '14');
+INSERT INTO `permission_role` VALUES ('25', '4');
 INSERT INTO `permission_role` VALUES ('26', '1');
-INSERT INTO `permission_role` VALUES ('26', '11');
-INSERT INTO `permission_role` VALUES ('26', '14');
-INSERT INTO `permission_role` VALUES ('27', '1');
-INSERT INTO `permission_role` VALUES ('27', '11');
-INSERT INTO `permission_role` VALUES ('27', '14');
+INSERT INTO `permission_role` VALUES ('26', '4');
 INSERT INTO `permission_role` VALUES ('28', '1');
-INSERT INTO `permission_role` VALUES ('28', '13');
+INSERT INTO `permission_role` VALUES ('28', '4');
 INSERT INTO `permission_role` VALUES ('29', '1');
-INSERT INTO `permission_role` VALUES ('29', '13');
+INSERT INTO `permission_role` VALUES ('29', '4');
 INSERT INTO `permission_role` VALUES ('30', '1');
-INSERT INTO `permission_role` VALUES ('30', '13');
+INSERT INTO `permission_role` VALUES ('30', '6');
+INSERT INTO `permission_role` VALUES ('30', '9');
 INSERT INTO `permission_role` VALUES ('31', '1');
-INSERT INTO `permission_role` VALUES ('31', '13');
-INSERT INTO `permission_role` VALUES ('32', '1');
-INSERT INTO `permission_role` VALUES ('32', '13');
+INSERT INTO `permission_role` VALUES ('31', '6');
+INSERT INTO `permission_role` VALUES ('31', '9');
 INSERT INTO `permission_role` VALUES ('33', '1');
-INSERT INTO `permission_role` VALUES ('33', '13');
+INSERT INTO `permission_role` VALUES ('33', '6');
+INSERT INTO `permission_role` VALUES ('33', '9');
 INSERT INTO `permission_role` VALUES ('34', '1');
-INSERT INTO `permission_role` VALUES ('34', '13');
+INSERT INTO `permission_role` VALUES ('34', '6');
+INSERT INTO `permission_role` VALUES ('34', '9');
 INSERT INTO `permission_role` VALUES ('35', '1');
-INSERT INTO `permission_role` VALUES ('35', '7');
-INSERT INTO `permission_role` VALUES ('35', '10');
+INSERT INTO `permission_role` VALUES ('35', '5');
+INSERT INTO `permission_role` VALUES ('35', '9');
 INSERT INTO `permission_role` VALUES ('36', '1');
-INSERT INTO `permission_role` VALUES ('36', '7');
-INSERT INTO `permission_role` VALUES ('36', '10');
-INSERT INTO `permission_role` VALUES ('37', '1');
-INSERT INTO `permission_role` VALUES ('37', '7');
-INSERT INTO `permission_role` VALUES ('37', '10');
+INSERT INTO `permission_role` VALUES ('36', '5');
+INSERT INTO `permission_role` VALUES ('36', '9');
 INSERT INTO `permission_role` VALUES ('38', '1');
-INSERT INTO `permission_role` VALUES ('38', '7');
-INSERT INTO `permission_role` VALUES ('38', '10');
+INSERT INTO `permission_role` VALUES ('38', '5');
+INSERT INTO `permission_role` VALUES ('38', '9');
 INSERT INTO `permission_role` VALUES ('39', '1');
-INSERT INTO `permission_role` VALUES ('39', '7');
-INSERT INTO `permission_role` VALUES ('39', '10');
+INSERT INTO `permission_role` VALUES ('39', '5');
+INSERT INTO `permission_role` VALUES ('39', '9');
 INSERT INTO `permission_role` VALUES ('40', '1');
 INSERT INTO `permission_role` VALUES ('40', '7');
-INSERT INTO `permission_role` VALUES ('40', '10');
 INSERT INTO `permission_role` VALUES ('41', '1');
 INSERT INTO `permission_role` VALUES ('41', '7');
-INSERT INTO `permission_role` VALUES ('41', '10');
-INSERT INTO `permission_role` VALUES ('42', '1');
-INSERT INTO `permission_role` VALUES ('42', '6');
-INSERT INTO `permission_role` VALUES ('42', '10');
 INSERT INTO `permission_role` VALUES ('43', '1');
-INSERT INTO `permission_role` VALUES ('43', '6');
-INSERT INTO `permission_role` VALUES ('43', '10');
+INSERT INTO `permission_role` VALUES ('43', '7');
 INSERT INTO `permission_role` VALUES ('44', '1');
-INSERT INTO `permission_role` VALUES ('44', '6');
-INSERT INTO `permission_role` VALUES ('44', '10');
+INSERT INTO `permission_role` VALUES ('44', '7');
 INSERT INTO `permission_role` VALUES ('45', '1');
-INSERT INTO `permission_role` VALUES ('45', '6');
-INSERT INTO `permission_role` VALUES ('45', '10');
+INSERT INTO `permission_role` VALUES ('45', '8');
 INSERT INTO `permission_role` VALUES ('46', '1');
-INSERT INTO `permission_role` VALUES ('46', '6');
-INSERT INTO `permission_role` VALUES ('46', '10');
-INSERT INTO `permission_role` VALUES ('47', '1');
-INSERT INTO `permission_role` VALUES ('47', '6');
-INSERT INTO `permission_role` VALUES ('47', '10');
+INSERT INTO `permission_role` VALUES ('46', '8');
 INSERT INTO `permission_role` VALUES ('48', '1');
-INSERT INTO `permission_role` VALUES ('48', '6');
-INSERT INTO `permission_role` VALUES ('48', '10');
+INSERT INTO `permission_role` VALUES ('48', '8');
 INSERT INTO `permission_role` VALUES ('49', '1');
 INSERT INTO `permission_role` VALUES ('49', '8');
 INSERT INTO `permission_role` VALUES ('50', '1');
-INSERT INTO `permission_role` VALUES ('50', '8');
-INSERT INTO `permission_role` VALUES ('51', '1');
-INSERT INTO `permission_role` VALUES ('51', '8');
-INSERT INTO `permission_role` VALUES ('52', '1');
-INSERT INTO `permission_role` VALUES ('52', '8');
-INSERT INTO `permission_role` VALUES ('53', '1');
-INSERT INTO `permission_role` VALUES ('53', '8');
-INSERT INTO `permission_role` VALUES ('54', '1');
-INSERT INTO `permission_role` VALUES ('54', '8');
-INSERT INTO `permission_role` VALUES ('55', '1');
-INSERT INTO `permission_role` VALUES ('55', '8');
-INSERT INTO `permission_role` VALUES ('56', '1');
-INSERT INTO `permission_role` VALUES ('56', '9');
-INSERT INTO `permission_role` VALUES ('56', '14');
-INSERT INTO `permission_role` VALUES ('57', '1');
-INSERT INTO `permission_role` VALUES ('57', '9');
-INSERT INTO `permission_role` VALUES ('57', '14');
-INSERT INTO `permission_role` VALUES ('58', '1');
-INSERT INTO `permission_role` VALUES ('58', '9');
-INSERT INTO `permission_role` VALUES ('58', '14');
-INSERT INTO `permission_role` VALUES ('59', '1');
-INSERT INTO `permission_role` VALUES ('59', '9');
-INSERT INTO `permission_role` VALUES ('59', '14');
-INSERT INTO `permission_role` VALUES ('60', '1');
-INSERT INTO `permission_role` VALUES ('60', '9');
-INSERT INTO `permission_role` VALUES ('60', '14');
-INSERT INTO `permission_role` VALUES ('61', '1');
-INSERT INTO `permission_role` VALUES ('61', '9');
-INSERT INTO `permission_role` VALUES ('61', '14');
-INSERT INTO `permission_role` VALUES ('62', '1');
-INSERT INTO `permission_role` VALUES ('62', '9');
-INSERT INTO `permission_role` VALUES ('62', '14');
-INSERT INTO `permission_role` VALUES ('64', '1');
-INSERT INTO `permission_role` VALUES ('64', '13');
-INSERT INTO `permission_role` VALUES ('65', '1');
-INSERT INTO `permission_role` VALUES ('65', '13');
-INSERT INTO `permission_role` VALUES ('66', '1');
-INSERT INTO `permission_role` VALUES ('66', '13');
+INSERT INTO `permission_role` VALUES ('50', '5');
 
 -- ----------------------------
 -- Table structure for roles
@@ -544,21 +518,20 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES ('1', 'Admin', '系统管理员', '系统', '2017-12-08 16:20:47', '2017-12-08 16:20:47');
-INSERT INTO `roles` VALUES ('6', 'App\\Http\\Controllers\\KnowledgeController', '知识管理', '系统', '2017-12-11 09:47:45', '2017-12-11 10:07:52');
-INSERT INTO `roles` VALUES ('7', 'App\\Http\\Controllers\\KnowledgeCategoryController', '知识分类', '系统', '2017-12-11 09:47:46', '2017-12-11 10:08:14');
-INSERT INTO `roles` VALUES ('8', 'App\\Http\\Controllers\\FAQController', 'FAQ管理', '系统', '2017-12-11 09:47:47', '2017-12-11 10:58:29');
-INSERT INTO `roles` VALUES ('9', 'App\\Http\\Controllers\\NoticeController', '公告管理', '系统', '2017-12-11 09:47:47', '2017-12-11 10:58:44');
-INSERT INTO `roles` VALUES ('10', 'Editor', '编辑', '编辑人员专用', '2017-12-11 09:57:57', '2017-12-11 15:54:08');
-INSERT INTO `roles` VALUES ('11', 'App\\Http\\Controllers\\OrganizationController', '组织架构', '系统', '2017-12-11 10:02:35', '2017-12-11 10:08:29');
-INSERT INTO `roles` VALUES ('12', 'App\\Http\\Controllers\\UserController', '用户管理', '系统', '2017-12-11 10:02:35', '2017-12-11 10:09:06');
-INSERT INTO `roles` VALUES ('13', 'App\\Http\\Controllers\\RoleController', '角色管理', '系统', '2017-12-11 10:02:36', '2017-12-11 10:09:15');
-INSERT INTO `roles` VALUES ('14', 'Finance', '财务', '财务人员专用', '2017-12-11 15:53:56', '2017-12-11 15:53:56');
+INSERT INTO `roles` VALUES ('1', 'Admin', '系统管理员', '系统', '2017-12-12 10:45:44', '2017-12-12 10:45:44');
+INSERT INTO `roles` VALUES ('2', 'App\\Http\\Controllers\\OrganizationController', '组织架构', '系统', '2017-12-12 10:45:44', '2017-12-12 10:52:43');
+INSERT INTO `roles` VALUES ('3', 'App\\Http\\Controllers\\UserController', '用户管理', '系统', '2017-12-12 10:45:45', '2017-12-12 10:52:17');
+INSERT INTO `roles` VALUES ('4', 'App\\Http\\Controllers\\RoleController', '角色管理', '系统', '2017-12-12 10:45:45', '2017-12-12 10:52:30');
+INSERT INTO `roles` VALUES ('5', 'App\\Http\\Controllers\\KnowledgeController', '知识管理', '系统', '2017-12-12 10:45:45', '2017-12-12 10:53:03');
+INSERT INTO `roles` VALUES ('6', 'App\\Http\\Controllers\\KnowledgeCategoryController', '知识目录', '系统', '2017-12-12 10:45:46', '2017-12-12 10:53:14');
+INSERT INTO `roles` VALUES ('7', 'App\\Http\\Controllers\\FAQController', 'FAQ管理', '系统', '2017-12-12 10:45:50', '2017-12-12 10:53:26');
+INSERT INTO `roles` VALUES ('8', 'App\\Http\\Controllers\\NoticeController', '公告管理', '系统', '2017-12-12 10:45:50', '2017-12-12 10:52:53');
+INSERT INTO `roles` VALUES ('9', 'Editor', '编辑', '编辑人员专用', '2017-12-12 10:50:11', '2017-12-12 10:50:11');
 
 -- ----------------------------
 -- Table structure for role_user
@@ -577,7 +550,7 @@ CREATE TABLE `role_user` (
 -- Records of role_user
 -- ----------------------------
 INSERT INTO `role_user` VALUES ('1', '1');
-INSERT INTO `role_user` VALUES ('3', '10');
+INSERT INTO `role_user` VALUES ('3', '9');
 
 -- ----------------------------
 -- Table structure for users
