@@ -6,4 +6,6 @@
 .hot-country a,.operation a,.sort a{margin-right: 5px;}
 
 .permission-group .form-group{margin-bottom:5px;}
-.icheckbox_minimal-blue,.iradio_square-blue{top:-2px;margin-right:5px;}
+.permission-group label{font-weight:normal}
+.content .icheckbox_minimal-blue,.content .iradio_square-blue{top:-2px;margin-right:5px;!important;}
+#modal-assignment-role label{font-weight:normal;margin-top:10px;}

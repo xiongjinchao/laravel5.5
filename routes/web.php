@@ -46,19 +46,22 @@ Route::get('knowledge/publish/{id}', 'KnowledgeController@publish')->name('knowl
 Route::get('knowledge-category/move-up/{id}', 'KnowledgeCategoryController@moveUp')->name('knowledge-category.move-up');
 Route::get('knowledge-category/move-down/{id}', 'KnowledgeCategoryController@moveDown')->name('knowledge-category.move-down');
 
-Route::resources([
-    //用户管理
-    'user' => 'UserController',
-    //组织架构
-    'organization' => 'OrganizationController',
-    //角色管理
-    'role' => 'RoleController',
-    //知识目录
-    'knowledge-category' => 'KnowledgeCategoryController',
-    //知识管理
-    'knowledge' => 'KnowledgeController',
-    //FAQ管理
-    'faq' => 'FAQController',
-    //公告管理
-    'notice' => 'NoticeController',
-],['except' => ['show']]);
+//用户管理
+Route::resource('user', 'UserController', ['except' => ['show']]);
+
+//组织架构
+Route::resource('organization', 'OrganizationController', ['except' => ['show']]);
+
+//知识目录
+Route::resource('knowledge-category', 'KnowledgeCategoryController', ['except' => ['show']]);
+
+Route::resource('knowledge', 'KnowledgeController', ['except' => ['show']]);
+
+//FAQ管理
+Route::resource('faq', 'FAQController', ['except' => ['show']]);
+
+//公告管理
+Route::resource('notice', 'NoticeController', ['except' => ['show']]);
+
+//角色管理
+Route::resource('role', 'RoleController', ['except' => ['show','create','edit']]);

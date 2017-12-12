@@ -22,7 +22,7 @@
 
         @if (request()->session()->has('success') || request()->session()->has('error'))
             <div class="main-callout callout callout-{{request()->session()->has('success')?'info':'danger'}}">
-                <h4>操作提醒</h4>
+                <h4><i class="fa fa-lightbulb-o"></i> 操作提醒</h4>
                 {{request()->session()->has('success') ? request()->session()->get('success'):request()->session()->get('error')}}
             </div>
         @endif

@@ -30,7 +30,7 @@
                     </td>
                     <td class="operation">
                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                        <a class="btn btn-sm btn-success btn-assignment-role" href="{{ route('user.assignment',[$item->id]) }}" data-has-roles="{{json_encode(\App\Models\User::getRoles($item->id))}}" title="分配角色"><i class="fa fa-edit"></i> 分配角色</a>
+                        <a class="btn btn-sm btn-success btn-assignment-role" href="{{ route('user.assignment',[$item->id]) }}" data-has-roles="{{json_encode(\App\Models\User::getRoles($item->id))}}" title="分配角色"><i class="fa fa-gear"></i> 分配角色</a>
                         <a class="btn btn-sm btn-warning btn-reset-password" href="{{ route('user.password',[$item->id]) }}" title="重置密码"><i class="fa fa-refresh"></i> 重置密码</a>
                         <form action="" method="POST" style="display: inline">
                             {{ csrf_field() }}
@@ -54,46 +54,50 @@
                 {{ csrf_field() }}
                 <div class="modal-header bg-blue">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">分配角色</h4>
+                    <h4 class="modal-title"><i class="fa fa-gear"></i> 分配角色</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <label>自定义角色</label>
+                            <label><b>自定义角色</b></label>
                         </div>
                         @foreach($roles as $key=>$item)
                             @if($item->description != '系统')
                                 <div class="col-md-3">
-                                    <label><input type="checkbox" name="roles[]" value="{{$item->id}}"></label>
-                                    {{$item->display_name}}
+                                    <label>
+                                        <input type="checkbox" name="roles[]" value="{{$item->id}}">
+                                        {{$item->display_name}}
+                                    </label>
                                 </div>
                             @endif
                         @endforeach
                     </div>
-                    <span class="help-block"></span>
                     <div class="row">
                         <div class="col-md-12">
-                            <label>系统角色</label>
+                            <label><b>系统角色</b></label>
                         </div>
                         @foreach($roles as $key=>$item)
                             @if($item->description == '系统' && $item->name!='Admin')
                                 <div class="col-md-3">
-                                    <label><input type="checkbox" name="roles[]" value="{{$item->id}}"></label>
-                                    {{$item->display_name}}
+                                    <label>
+                                        <input type="checkbox" name="roles[]" value="{{$item->id}}">
+                                        {{$item->display_name}}
+                                    </label>
                                 </div>
                             @endif
                         @endforeach
                     </div>
-                    <span class="help-block"></span>
                     <div class="row">
                         <div class="col-md-12">
-                            <label>系统管理员角色</label>
+                            <label><b>系统管理员角色</b></label>
                         </div>
                         @foreach($roles as $key=>$item)
                             @if($item->name == 'Admin')
                                 <div class="col-md-3">
-                                    <label><input type="checkbox" name="roles[]" value="{{$item->id}}"></label>
-                                    {{$item->display_name}}
+                                    <label>
+                                        <input type="checkbox" name="roles[]" value="{{$item->id}}">
+                                        {{$item->display_name}}
+                                    </label>
                                 </div>
                             @endif
                         @endforeach
@@ -115,7 +119,7 @@
                 {{ csrf_field() }}
                 <div class="modal-header bg-blue">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">修改密码</h4>
+                    <h4 class="modal-title"><i class="fa fa-edit"></i> 修改密码</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">

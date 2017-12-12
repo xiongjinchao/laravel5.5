@@ -23,16 +23,19 @@
                                         <div class="col-md-3 permission-group">
                                             <h5>
                                                 <div class="form-group">
-                                                    <label><input type="checkbox" class="check-all"></label>
-                                                    <b>{{$item->display_name}}</b>
+                                                    <label>
+                                                        <input type="checkbox" class="check-all"><b>{{$item->display_name}}</b>
+                                                    </label>
                                                 </div>
                                             </h5>
                                             @if($item->hasManyPermissions()!=null)
                                                 @foreach($item->hasManyPermissions() as $permission)
                                                     <?php $action = explode('@',$permission->display_name)[1];?>
                                                     <div class="form-group">
-                                                        <label><input type="checkbox" name="permissions[]" class="check-single" {{$role->hasPermission($permission->name)?'checked':''}} value="{{$permission->id}}"></label>
-                                                        {{\App\Models\Permission::getPermission($action)}}
+                                                        <label>
+                                                            <input type="checkbox" name="permissions[]" class="check-single" {{$role->hasPermission($permission->name)?'checked':''}} value="{{$permission->id}}">
+                                                            {{\App\Models\Permission::getPermission($action)}}
+                                                        </label>
                                                     </div>
                                                 @endforeach
                                             @endif

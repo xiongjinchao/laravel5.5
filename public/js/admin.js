@@ -24,7 +24,7 @@ $(".content").on('click','.btn-delete',function(e){
         +'<div class="modal-header bg-yellow">'
         +'<button type="button" class="close" data-dismiss="modal" aria-label="Close">'
         +'<span aria-hidden="true">&times;</span></button>'
-        +'<h4 class="modal-title">确认提示</h4>'
+        +'<h4 class="modal-title"><i class="fa fa-lightbulb-o"></i> 确认提示</h4>'
         +'</div>'
         +'<div class="modal-body">'
         +'<p>删除记录后数据无法恢复，确认删除该记录？</p>'
