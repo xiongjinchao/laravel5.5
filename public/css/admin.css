@@ -9,3 +9,7 @@
 .permission-group label{font-weight:normal}
 .content .icheckbox_minimal-blue,.content .iradio_square-blue{top:-2px;margin-right:5px;!important;}
 #modal-assignment-role label{font-weight:normal;margin-top:10px;}
+
+.popover{width:350px;max-width:350px;}
+.popover-title{padding:14px;front-size:16px;font-weight:bold;}
+.popover-footer{padding:8px 14px; background:#f7f7f7;border-top:1px solid #ebebeb}

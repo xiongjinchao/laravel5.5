@@ -9,7 +9,7 @@
                 <img src="{{asset("AdminLTE/dist/img/user2-160x160.jpg")}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>{{request()->user()->name}}</p>
+                <p>{{request()->user() == null?'管理员':request()->user()->name}}</p>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
             </div>
@@ -28,7 +28,7 @@
         <!-- /.search form -->
 
         <!-- Sidebar Menu -->
-        <ul class="sidebar-menu" data-widget="tree" data-current-controller="{{'/'.explode('.',\request()->route()->action['as'])[0].'/'}}">
+        <ul class="sidebar-menu" data-widget="tree" data-current-controller="{{request()->route() == null?'/home/':'/'.explode('.',\request()->route()->action['as'])[0].'/'}}">
             <li><a href="{{ route('home') }}"><i class="fa fa-th-large"></i> <span>系统面板</span></a></li>
             <li class="header">内容</li>
             <!-- Optionally, you can add icons to the links -->

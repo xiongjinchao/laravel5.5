@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <div class="knowledge-category-edit">
+            <div class="knowledge-edit">
                 <div class="box">
                     <form action="{{ route('knowledge.update',['id'=>$knowledge->id]) }}" method="POST">
                         {{ csrf_field() }}
@@ -80,17 +80,19 @@
 
                         </div>
                         <div class="box-footer">
+                            <a href="{{ route('knowledge.log',['id'=>$knowledge->id]) }}" class="btn btn-default pull-right"><i class="fa fa-calendar"></i> 操作日志</a>
+
                             @if(in_array($knowledge->status,[\App\Models\Knowledge::STATUS_NEW,\App\Models\Knowledge::STATUS_FAIL_AUDIT,\App\Models\Knowledge::STATUS_OFFLINE]) == \App\Models\Knowledge::STATUS_NEW)
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> 保存知识</button>
                             @endif
-                            @if($knowledge->status == \App\Models\Knowledge::STATUS_NEW)
-                                <a href="#" class="btn btn-default"><i class="fa fa-coffee"></i> 提交审核</a>
+                            @if($knowledge->status == \App\Models\Knowledge::STATUS_NEW || $knowledge->status == \App\Models\Knowledge::STATUS_FAIL_AUDIT || $knowledge->status == \App\Models\Knowledge::STATUS_OFFLINE)
+                                <a href="{{ route('knowledge.submit',['id'=>$knowledge->id]) }}" class="btn btn-default"><i class="fa fa-coffee"></i> 提交审核</a>
                             @elseif($knowledge->status == \App\Models\Knowledge::STATUS_WAIT_AUDIT)
-                                <a href="#" class="btn btn-success"><i class="fa fa-check"></i> 审核成功</a>
-                                <a href="#" class="btn btn-default"><i class="fa fa-close"></i> 审核失败</a>
+                                <a href="{{ route('knowledge.audit',['id'=>$knowledge->id,'status'=>\App\Models\Knowledge::STATUS_WAIT_PUBLISH]) }}" class="btn btn-success"><i class="fa fa-check"></i> 审核成功</a>
+                                <a href="{{ route('knowledge.audit',['id'=>$knowledge->id,'status'=>\App\Models\Knowledge::STATUS_FAIL_AUDIT]) }}" class="btn btn-default"><i class="fa fa-close"></i> 审核失败</a>
                             @elseif($knowledge->status == \App\Models\Knowledge::STATUS_WAIT_PUBLISH)
-                                <a href="#" class="btn btn-success"><i class="fa fa-cloud-upload"></i> 设为上线</a>
-                                <a href="#" class="btn btn-default"><i class="fa fa-cloud-download"></i> 设为下线</a>
+                                <a href="{{ route('knowledge.publish',['id'=>$knowledge->id,'status'=>\App\Models\Knowledge::STATUS_ONLINE]) }}" class="btn btn-success"><i class="fa fa-cloud-upload"></i> 设为上线</a>
+                                <a href="{{ route('knowledge.publish',['id'=>$knowledge->id,'status'=>\App\Models\Knowledge::STATUS_OFFLINE]) }}" class="btn btn-default"><i class="fa fa-cloud-download"></i> 设为下线</a>
                             @endif
                         </div>
                     </form>

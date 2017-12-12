@@ -1,12 +1,5 @@
 @extends('layouts.admin-lte')
-@section('css')
-    <style>
-        .popover{width:350px;max-width:350px;}
-        .popover-title{padding:14px;front-size:16px;font-weight:bold;}
-        .popover-footer{padding:8px 14px; background:#f7f7f7;border-top:1px solid #ebebeb}
-        .operation a{margin-right: 5px;}
-    </style>
-@endsection
+
 @section('content')
     <div class="role-index">
         <p><a class="btn btn-success popover-create-role" data-toggle="popover"><i class="fa fa-plus-circle"></i> 创建角色</a></p>

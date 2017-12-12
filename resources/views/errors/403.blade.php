@@ -1,3 +1,12 @@
+<?php
+$page = [
+    'title' => '(#403)ERROR',
+    'subTitle' => '',
+    'breadcrumb' => [
+        ['url' => '#','label' => '(#403)ERROR' ]
+    ]
+];
+?>
 @extends('layouts.admin-lte')
 
 @section('content')

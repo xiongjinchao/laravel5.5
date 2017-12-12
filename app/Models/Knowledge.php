@@ -60,10 +60,14 @@ class Knowledge extends Model
         unset($current['id'],$current['enshrine'],$current['hit'],$current['created_at'],$current['updated_at']);
         $knowledge = new Knowledge();
         $knowledge->attributes = $current;
-        $knowledge->status = 1;
+        $knowledge->status = self::STATUS_NEW;
         $knowledge->operator = request()->user()->id;
         $knowledge->author = request()->user()->id;
-        return $knowledge->save();
+        if($knowledge->save()){
+            return $knowledge;
+        }else{
+            return false;
+        }
     }
 
     //知识状态

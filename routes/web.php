@@ -39,8 +39,9 @@ Route::get('role/retrieve/{id?}', 'RoleController@retrieve')->name('role.retriev
 Route::get('knowledge/tab', 'KnowledgeController@tab')->name('knowledge.tab');                                          //列表Tap
 Route::get('knowledge/copy/{id}', 'KnowledgeController@copy')->name('knowledge.copy');                                  //复制
 Route::get('knowledge/submit/{id}', 'KnowledgeController@submit')->name('knowledge.submit');                            //提交审核
-Route::get('knowledge/audit/{id}', 'KnowledgeController@audit')->name('knowledge.audit');                               //审核成功 或 审核失败
-Route::get('knowledge/publish/{id}', 'KnowledgeController@publish')->name('knowledge.publish');                         //上线 或 下线
+Route::get('knowledge/audit/{id}/{status}', 'KnowledgeController@audit')->where(['status' => '3|4'])->name('knowledge.audit');             //审核成功 或 审核失败
+Route::get('knowledge/publish/{id}/{status}', 'KnowledgeController@publish')->where(['status' => '5|6'])->name('knowledge.publish');       //上线 或 下线
+Route::get('knowledge/log/{id}', 'KnowledgeController@log')->name('knowledge.log');                                     //操作日志
 
 //知识目录
 Route::get('knowledge-category/move-up/{id}', 'KnowledgeCategoryController@moveUp')->name('knowledge-category.move-up');

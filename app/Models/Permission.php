@@ -25,6 +25,7 @@ class Permission extends EntrustPermission
             'permission' => '分配权限',
             'retrieve' => '检索权限',
             'assignment' => '分配角色',
+            'log' => '查看日志',
         ];
 
         return isset($arr[$permission]) ? $arr[$permission] : '';

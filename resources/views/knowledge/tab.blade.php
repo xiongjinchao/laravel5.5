@@ -11,6 +11,7 @@
             <th>浏览</th>
             <th>收藏</th>
             <th>操作</th>
+            <th>流程</th>
         </tr>
     </thead>
     <tbody>
@@ -34,6 +35,18 @@
                             {{ method_field('DELETE') }}
                             <a class="btn btn-sm btn-danger btn-delete" href="{{ route('knowledge.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
                         </form>
+                    </td>
+                    <td class="operation">
+                        @if($item->status == \App\Models\Knowledge::STATUS_NEW || $item->status == \App\Models\Knowledge::STATUS_FAIL_AUDIT || $item->status == \App\Models\Knowledge::STATUS_OFFLINE)
+                            <a href="{{ route('knowledge.submit',['id'=>$item->id]) }}" class="btn btn-primary"><i class="fa fa-coffee"></i> 提交</a>
+                        @elseif($item->status == \App\Models\Knowledge::STATUS_WAIT_AUDIT)
+                            <a href="{{ route('knowledge.audit',['id'=>$item->id,'status'=>\App\Models\Knowledge::STATUS_WAIT_PUBLISH]) }}" class="btn btn-success"><i class="fa fa-check"></i> 审核</a>
+                            <a href="{{ route('knowledge.audit',['id'=>$item->id,'status'=>\App\Models\Knowledge::STATUS_FAIL_AUDIT]) }}" class="btn btn-default"><i class="fa fa-close"></i> 失败</a>
+                        @elseif($item->status == \App\Models\Knowledge::STATUS_WAIT_PUBLISH)
+                            <a href="{{ route('knowledge.publish',['id'=>$item->id,'status'=>\App\Models\Knowledge::STATUS_ONLINE]) }}" class="btn btn-success"><i class="fa fa-cloud-upload"></i> 发布</a>
+                        @elseif($item->status == \App\Models\Knowledge::STATUS_ONLINE)
+                            <a href="{{ route('knowledge.publish',['id'=>$item->id,'status'=>\App\Models\Knowledge::STATUS_OFFLINE]) }}" class="btn btn-default"><i class="fa fa-cloud-download"></i> 下线</a>
+                        @endif
                     </td>
                 </tr>
             @endforeach

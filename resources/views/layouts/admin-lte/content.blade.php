@@ -19,12 +19,13 @@
 
     <!-- Main content -->
     <section class="content container-fluid" style="min-height:820px;">
-
-        @if (request()->session()->has('success') || request()->session()->has('error'))
-            <div class="main-callout callout callout-{{request()->session()->has('success')?'info':'danger'}}">
-                <h4><i class="fa fa-lightbulb-o"></i> 操作提醒</h4>
-                {{request()->session()->has('success') ? request()->session()->get('success'):request()->session()->get('error')}}
-            </div>
+        @if(request()->hasSession())
+            @if (request()->session()->has('success') || request()->session()->has('error'))
+                <div class="main-callout callout callout-{{request()->session()->has('error')?'danger':'info'}}">
+                    <h4><i class="fa fa-lightbulb-o"></i> 操作提醒</h4>
+                    {{request()->session()->has('error') ? request()->session()->get('error'):request()->session()->get('success')}}
+                </div>
+            @endif
         @endif
         <!--------------------------
           | Your Page Content Here |
