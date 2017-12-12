@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="role-permission">
-                <p><a class="btn btn-primary" href="{{route('role.retrieve-permission',['id'=>$role->id])}}"><i class="fa fa-search"></i> 检索权限</a></p>
+                <p><a class="btn btn-primary" href="{{route('role.retrieve',['id'=>$role->id])}}"><i class="fa fa-search"></i> 检索权限</a></p>
 
                 <div class="box">
                     <div class="box-header with-border">
@@ -16,7 +16,7 @@
                     </div>
                     <div class="box-body">
                         <div class="content">
-                            <form action="{{ route('role.set-permission',['id'=>$role->id]) }}" method="POST">
+                            <form action="{{ route('role.permission',['id'=>$role->id]) }}" method="POST">
                                 {{ csrf_field() }}
                                 <div class="row">
                                     @foreach($controllerRoles as $key=>$item)

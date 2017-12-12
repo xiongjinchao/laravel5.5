@@ -14,9 +14,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
 
-        $methods = Route::current()->methods();
-        $permission = '['.$methods[0].']'. Route::current()->getActionName();
-        $this->middleware('permission:'.$permission);
+        $this->middleware('permission:'.Route::current()->getActionName());
 
         View::share('page',[
             'title' => '系统设置',
@@ -139,13 +137,13 @@ class UserController extends Controller
     }
 
     //用户列表数据
-    public function listing()
+    public function tab()
     {
         $data = [
             'users' => User::getlist(request()->all()),
             'roles' => Role::orderBy('name','DESC')->get()
         ];
-        $view = view('user.listing', $data)->render();
+        $view = view('user.tab', $data)->render();
         return ['status' => 'success', 'html' => $view];
     }
 

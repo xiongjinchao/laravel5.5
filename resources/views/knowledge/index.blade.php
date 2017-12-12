@@ -114,7 +114,7 @@
             $(".knowledge-index").on('click','.nav.nav-tabs a',function(e){
                 var href = $(this).attr('href');
 
-                var url = '{{route('knowledge.listing')}}';
+                var url = '{{route('knowledge.tab')}}';
                 if(e.originalEvent){
                     //重置select2
                     $(".search .select2").each(function(i,item){

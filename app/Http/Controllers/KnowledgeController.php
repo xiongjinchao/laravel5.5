@@ -15,9 +15,7 @@ class KnowledgeController extends Controller
     {
         $this->middleware('auth');
 
-        $methods = Route::current()->methods();
-        $permission = '['.$methods[0].']'. Route::current()->getActionName();
-        $this->middleware('permission:'.$permission);
+        $this->middleware('permission:'.Route::current()->getActionName());
 
         View::share('page',[
             'title' => '知识管理',
@@ -129,12 +127,12 @@ class KnowledgeController extends Controller
         return Redirect::route('knowledge.index');
     }
 
-    public function listing()
+    public function tab()
     {
         $data = [
             'knowledge' => Knowledge::getlist(request()->all())
         ];
-        $view = view('knowledge.listing', $data)->render();
+        $view = view('knowledge.tab', $data)->render();
         return ['status' => 'success', 'html' => $view];
     }
 

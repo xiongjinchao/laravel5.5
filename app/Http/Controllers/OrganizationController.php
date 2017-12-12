@@ -17,9 +17,7 @@ class OrganizationController extends Controller
     {
         $this->middleware('auth');
 
-        $methods = Route::current()->methods();
-        $permission = '['.$methods[0].']'. Route::current()->getActionName();
-        $this->middleware('permission:'.$permission);
+        $this->middleware('permission:'.Route::current()->getActionName());
 
         View::share('page',[
             'title' => '系统设置',

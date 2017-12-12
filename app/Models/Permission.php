@@ -9,14 +9,12 @@ class Permission extends EntrustPermission
     public static function getPermission($permission = null)
     {
         $arr = [
-            'index' => '入口页面',
-            'create' => '创建页面',
-            'store' => '创建保存',
-            'edit' => '编辑页面',
-            'update' => '编辑保存',
-            'show' => '查看详情',
+            'index' => '入口',
+            'create' => '创建',
+            'update' => '编辑',
+            'show' => '详情',
             'destroy' => '删除',
-            'listing' => '嵌套列表页',
+            'tab' => '标签',
             'copy' => '复制',
             'submit' => '提交',
             'audit' => '审核',
@@ -24,9 +22,9 @@ class Permission extends EntrustPermission
             'moveUp' => '上移',
             'moveDown' => '下移',
             'password' => '修改密码',
-            'permission' => '设置角色权限',
-            'setPermission' => '保存角色权限',
-            'retrievePermission' => '检索权限',
+            'permission' => '分配权限',
+            'retrieve' => '检索权限',
+            'assignment' => '分配角色',
         ];
 
         return isset($arr[$permission]) ? $arr[$permission] : '';

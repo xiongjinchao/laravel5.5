@@ -97,7 +97,7 @@
             $(".user-index").on('click','.nav.nav-tabs a',function(e){
                 var href = $(this).attr('href');
 
-                var url = '{{route('user.listing')}}';
+                var url = '{{route('user.tab')}}';
                 if(e.originalEvent){
                     //重置select2
                     $(".search .select2").each(function(i,item){

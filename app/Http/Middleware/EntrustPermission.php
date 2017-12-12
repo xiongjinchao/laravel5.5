@@ -41,6 +41,13 @@ class EntrustPermission extends \Zizaco\Entrust\Middleware\EntrustPermission
         if (!is_array($permissions)) {
             $permissions = explode(self::DELIMITER, $permissions);
         }
+        if(!empty($permissions)) {
+            foreach ($permissions as $key => $item) {
+                $controller = explode('@', $item)[0];
+                $action = explode('@', $item)[1];
+                $permissions[$key] = $controller . '@' . str_replace(['store', 'edit'], ['create', 'update'], $action);
+            }
+        }
 
         if ($this->auth->guest() || !$request->user()->can($permissions)) {
             if(Request::ajax()){
