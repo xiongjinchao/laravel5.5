@@ -44,7 +44,8 @@ Route::get('knowledge/publish/{id}/{status}', 'KnowledgeController@publish')->wh
 Route::get('knowledge/log/{id}', 'KnowledgeController@log')->name('knowledge.log');                                     //操作日志
 
 //上传
-Route::any('upload', 'UploadController@index')->name('upload');                                                         //百度编辑器上传地址
+Route::any('upload', 'UploadController@index')->name('upload');                                                         //上传地址
+Route::any('upload/delete/{id}/{model?}/{model_id?}', 'UploadController@destroy')->name('upload.delete');                                         //删除文件
 
 //知识目录
 Route::get('knowledge-category/move-up/{id}', 'KnowledgeCategoryController@moveUp')->name('knowledge-category.move-up');

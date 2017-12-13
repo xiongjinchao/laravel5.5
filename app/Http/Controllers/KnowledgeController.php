@@ -110,13 +110,12 @@ class KnowledgeController extends Controller
             'model' => 'Knowledge',
             'model_id' => $id,
         ]);
-        //print_r(json_encode(array_column($uploads, 'url')));exit;
         $data = [
             'breadcrumb' => [['url' => '#','label' => '更新' ]],
             'countries' => Country::all()->toArray(),
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
             'knowledge' => Knowledge::find($id),
-            'preview' => json_encode(array_column($uploads, 'url'),JSON_UNESCAPED_SLASHES),
+            'preview' => json_encode(array_column($uploads, 'downloadUrl'),JSON_UNESCAPED_SLASHES),
             'config' => json_encode($uploads,JSON_UNESCAPED_SLASHES)
         ];
         return view('knowledge.edit',$data);

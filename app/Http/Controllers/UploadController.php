@@ -154,10 +154,11 @@ class UploadController extends Controller
         //是否保存到数据库
         $use_database = isset($_GET["use_database"])&& $_GET["use_database"] = 1?1:0;
         if($result['state'] == 'SUCCESS' && $use_database){
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
             $upload = new Upload();
             $upload->caption = $result['original'];
-            $upload->type = mime_content_type($result['url']);
-            $upload->path = $result['url'];
+            $upload->type = finfo_file($finfo, public_path($result['url']));
+            $upload->url = $result['url'];
             $upload->size = $result['size'];
             $upload->operator = request()->user()->id;
             $upload->created_at = time();

@@ -157,7 +157,6 @@
                 initialPreview: preview,
                 initialPreviewAsData: true,
                 initialPreviewFileType: 'image', // image is the default and can be overridden in config below
-                initialPreviewDownloadUrl: '{filename}',
                 initialPreviewConfig:  config,
                 uploadExtraData: { _token:'{{ csrf_token() }}'}
             }).on('filesorted', function(e, params) {

@@ -39,6 +39,11 @@ class ModelUpload extends Model
                 $result[$key] = $item->hasOneUpload;
                 $result[$key]['key'] = $item->hasOneUpload->id;
                 $result[$key]['type'] = explode('/',$item->hasOneUpload->type)[0];
+                $result[$key]['url'] = $item->hasOneUpload->url;
+                $result[$key]['url'] = 'http://admin.laravel5.5.com'.$item->hasOneUpload->url;
+                $result[$key]['downloadUrl'] = $item->hasOneUpload->url;
+                //delete url
+                //$result[$key]['url'] = route('upload.delete',['id'=>$item->hasOneUpload->id,'model'=>$params['model'],'model_id'=>$params['model_id']]);
                 unset($result[$key]['id'],$result[$key]['operator'],$result[$key]['created_at']);
             }
         }
