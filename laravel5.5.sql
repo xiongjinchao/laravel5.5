@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-12 20:01:16
+Date: 2017-12-13 20:16:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -170,7 +170,7 @@ INSERT INTO `knowledge` VALUES ('18', '这些话将是一生所求的答案！',
 INSERT INTO `knowledge` VALUES ('19', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '4', '0', '0', '1', '1', '1513068347', '1513070271');
 INSERT INTO `knowledge` VALUES ('20', '切勿拿这些心灵鸡汤来教育孩子', '5', '42', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '1', '0', '0', '1', '1', '1513068354', '1513068354');
 INSERT INTO `knowledge` VALUES ('21', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '4', '0', '0', '1', '1', '1513068357', '1513070267');
-INSERT INTO `knowledge` VALUES ('22', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '2', '0', '0', '1', '1', '1513068361', '1513070253');
+INSERT INTO `knowledge` VALUES ('22', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '4', '0', '0', '1', '1', '1513068361', '1513146684');
 INSERT INTO `knowledge` VALUES ('23', '天上风筝在天上飞', '1', '23', '<p>天上风筝在天上飞天上风筝在天上飞</p>', '2', '0', '0', '1', '1', '1513075729', '1513079339');
 
 -- ----------------------------
@@ -220,10 +220,10 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` VALUES ('1', '2017_12_08_112305_entrust_setup_tables', '1');
 
 -- ----------------------------
--- Table structure for model_logs
+-- Table structure for model_log
 -- ----------------------------
-DROP TABLE IF EXISTS `model_logs`;
-CREATE TABLE `model_logs` (
+DROP TABLE IF EXISTS `model_log`;
+CREATE TABLE `model_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `model` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '' COMMENT '模型',
   `model_id` int(11) NOT NULL DEFAULT '0' COMMENT '模型ID',
@@ -231,15 +231,37 @@ CREATE TABLE `model_logs` (
   `operator` varchar(255) CHARACTER SET latin1 DEFAULT '',
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of model_logs
+-- Records of model_log
 -- ----------------------------
-INSERT INTO `model_logs` VALUES ('1', 'Knowledge', '23', '更新知识', '1', '2017-12-12 19:41:03');
-INSERT INTO `model_logs` VALUES ('2', 'Knowledge', '23', '提交审核', '1', '2017-12-12 19:48:29');
-INSERT INTO `model_logs` VALUES ('3', 'Knowledge', '23', '审核失败', '1', '2017-12-12 19:48:50');
-INSERT INTO `model_logs` VALUES ('4', 'Knowledge', '23', '提交审核', '1', '2017-12-12 19:49:00');
+INSERT INTO `model_log` VALUES ('1', 'Knowledge', '23', '更新知识', '1', '2017-12-12 19:41:03');
+INSERT INTO `model_log` VALUES ('2', 'Knowledge', '23', '提交审核', '1', '2017-12-12 19:48:29');
+INSERT INTO `model_log` VALUES ('3', 'Knowledge', '23', '审核失败', '1', '2017-12-12 19:48:50');
+INSERT INTO `model_log` VALUES ('4', 'Knowledge', '23', '提交审核', '1', '2017-12-12 19:49:00');
+INSERT INTO `model_log` VALUES ('5', 'Knowledge', '22', '审核成功', '1', '2017-12-13 14:31:24');
+
+-- ----------------------------
+-- Table structure for model_upload
+-- ----------------------------
+DROP TABLE IF EXISTS `model_upload`;
+CREATE TABLE `model_upload` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `model` varchar(255) NOT NULL DEFAULT '' COMMENT '模型',
+  `model_id` int(10) NOT NULL DEFAULT '0' COMMENT '模型ID',
+  `upload_id` int(10) NOT NULL DEFAULT '0' COMMENT '上传ID',
+  PRIMARY KEY (`id`),
+  KEY `model_id` (`model_id`) USING BTREE,
+  KEY `upload_id` (`upload_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of model_upload
+-- ----------------------------
+INSERT INTO `model_upload` VALUES ('1', 'Knowledge', '22', '1');
+INSERT INTO `model_upload` VALUES ('2', 'Knowledge', '22', '2');
+INSERT INTO `model_upload` VALUES ('3', 'Knowledge', '22', '3');
 
 -- ----------------------------
 -- Table structure for organization
@@ -550,7 +572,33 @@ CREATE TABLE `role_user` (
 -- Records of role_user
 -- ----------------------------
 INSERT INTO `role_user` VALUES ('1', '1');
+INSERT INTO `role_user` VALUES ('2', '2');
+INSERT INTO `role_user` VALUES ('2', '3');
+INSERT INTO `role_user` VALUES ('2', '4');
+INSERT INTO `role_user` VALUES ('2', '9');
 INSERT INTO `role_user` VALUES ('3', '9');
+
+-- ----------------------------
+-- Table structure for uploads
+-- ----------------------------
+DROP TABLE IF EXISTS `uploads`;
+CREATE TABLE `uploads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `caption` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL COMMENT '图片类型：jpg，gif，png',
+  `url` varchar(512) NOT NULL,
+  `size` int(11) NOT NULL DEFAULT '0' COMMENT '图片大小',
+  `operator` int(11) NOT NULL DEFAULT '0' COMMENT '上传图片者的ID',
+  `created_at` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of uploads
+-- ----------------------------
+INSERT INTO `uploads` VALUES ('1', '1474545436456379.jpg', 'image/jpg', '/uploads/file/20171213/1513159023.jpg', '56820', '1', '1513159023');
+INSERT INTO `uploads` VALUES ('2', 'xuan.mp4', 'video/mp4', '/uploads/file/20171213/1513159086.mp4', '1782098', '1', '1513159086');
+INSERT INTO `uploads` VALUES ('3', 'p28211519.jpg', 'image/jpg', '/uploads/file/20171213/1513159446.jpg', '114874', '1', '1513159446');
 
 -- ----------------------------
 -- Table structure for users
