@@ -43,6 +43,9 @@ Route::get('knowledge/audit/{id}/{status}', 'KnowledgeController@audit')->where(
 Route::get('knowledge/publish/{id}/{status}', 'KnowledgeController@publish')->where(['status' => '5|6'])->name('knowledge.publish');       //上线 或 下线
 Route::get('knowledge/log/{id}', 'KnowledgeController@log')->name('knowledge.log');                                     //操作日志
 
+//上传
+Route::any('UEditor', 'UEditorController@index')->name('UEditor.index');                                                //百度编辑器上传地址
+
 //知识目录
 Route::get('knowledge-category/move-up/{id}', 'KnowledgeCategoryController@moveUp')->name('knowledge-category.move-up');
 Route::get('knowledge-category/move-down/{id}', 'KnowledgeCategoryController@moveDown')->name('knowledge-category.move-down');

@@ -201,7 +201,7 @@ class RoleController extends Controller
         //将不存在的权限删除
         $routes = [];
         foreach (Route::getRoutes()->getRoutes() as $item){
-            if(!strstr($item->getActionName(),'Home') && !strstr($item->getActionName(),'Auth') && strstr($item->getActionName(),'Controllers')) {
+            if(!strstr($item->getActionName(),'HomeController') && !strstr($item->getActionName(),'UEditorController') && !strstr($item->getActionName(),'\\Auth\\') && strstr($item->getActionName(),'\\Controllers\\')) {
                 $controller = explode('@',$item->getActionName())[0];
                 $action = explode('@',$item->getActionName())[1];
                 $action = $controller.'@'.str_replace(['store','edit'],['create','update'],$action);
@@ -226,7 +226,7 @@ class RoleController extends Controller
 
         //将Controller加入到系统角色 & 将新路由添加到权限
         foreach (Route::getRoutes()->getRoutes() as $item){
-            if(!strstr($item->getActionName(),'Home') && !strstr($item->getActionName(),'Auth') && strstr($item->getActionName(),'Controllers')) {
+            if(!strstr($item->getActionName(),'HomeController') && !strstr($item->getActionName(),'UEditorController') && !strstr($item->getActionName(),'\\Auth\\') && strstr($item->getActionName(),'\\Controllers\\')) {
             	$controller = explode('@',$item->getActionName())[0];
             	$action = explode('@',$item->getActionName())[1];
                 $action = $controller.'@'.str_replace(['store','edit'],['create','update'],$action);

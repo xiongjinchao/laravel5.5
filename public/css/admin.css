@@ -7,7 +7,7 @@
 
 .permission-group .form-group{margin-bottom:5px;}
 .permission-group label{font-weight:normal}
-.content .icheckbox_minimal-blue,.content .iradio_square-blue{top:-2px;margin-right:5px;!important;}
+.content .icheckbox_minimal-blue,.content .iradio_square-blue,.content .icheckbox_square-blue{top:-1px;margin-right:5px;!important;}
 #modal-assignment-role label{font-weight:normal;margin-top:10px;}
 
 .popover{width:350px;max-width:350px;}

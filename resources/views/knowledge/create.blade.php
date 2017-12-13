@@ -86,7 +86,11 @@
             var ue = UE.getEditor('knowledge-content',{
                 autoHeightEnabled: false,
                 enableAutoSave:false,
-                //serverUrl: '/server/ueditor/controller.php'
+                serverUrl: '{{ route('UEditor.index') }}'
+            });
+            // 设置 CSRF token.
+            ue.ready(function() {
+                ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
             });
         })
     </script>
