@@ -9,7 +9,7 @@ namespace App\Tools;
  * Time: 上午11: 32
  * UEditor编辑器通用上传类
  */
-class UEditorUploader
+class Uploader
 {
     private $fileField; //文件域名
     private $file; //文件上传对象

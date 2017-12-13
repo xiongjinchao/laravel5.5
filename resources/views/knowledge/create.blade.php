@@ -86,11 +86,10 @@
             var ue = UE.getEditor('knowledge-content',{
                 autoHeightEnabled: false,
                 enableAutoSave:false,
-                serverUrl: '{{ route('UEditor.index') }}'
+                serverUrl: '{{ route('upload') }}'
             });
-            // 设置 CSRF token.
             ue.ready(function() {
-                ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
+                ue.execCommand('serverparam','_token','{{ csrf_token() }}');
             });
         })
     </script>

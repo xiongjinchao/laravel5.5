@@ -14,7 +14,7 @@ class ModelLog extends Model
      *
      * @var string
      */
-    protected $table = 'model_logs';
+    protected $table = 'model_log';
 
     //关联User
     public function hasOneUser()

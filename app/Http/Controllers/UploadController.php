@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Tools\UEditorUploader as Uploader;
+use App\Tools\Uploader;
+use App\Models\Upload;
+use App\Models\ModelUpload;
+use App\Models\ModelLog;
 use Config,DB,View,Route,Redirect;
 
-class UEditorController extends Controller
+class UploadController extends Controller
 {
 
     public $config;
@@ -79,6 +82,19 @@ class UEditorController extends Controller
         }
     }
 
+    public function destroy($id, $model = null, $model_id = null)
+    {
+        if($model != null && $model_id != null){
+            ModelUpload::where('model','=',$model)->where('model_id','=',$model_id)->where('upload_id','=',$id)->delete();
+            ModelLog::log([
+                'model' => $model,
+                'model_id' => $model_id,
+                'content' => '删除文件',
+            ]);
+        }
+        Upload::find($id)->delete();
+    }
+
     private function upload(){
         $base64 = "upload";
         switch (htmlspecialchars($_GET['action'])) {
@@ -134,8 +150,23 @@ class UEditorController extends Controller
          * )
          */
 
+        $result = $up->getFileInfo();
+        //是否保存到数据库
+        $use_database = isset($_GET["use_database"])&& $_GET["use_database"] = 1?1:0;
+        if($result['state'] == 'SUCCESS' && $use_database){
+            $upload = new Upload();
+            $upload->caption = $result['original'];
+            $upload->type = mime_content_type($result['url']);
+            $upload->path = $result['url'];
+            $upload->size = $result['size'];
+            $upload->operator = request()->user()->id;
+            $upload->created_at = time();
+            if($upload->save()){
+                $result['id'] = $upload->id;
+            }
+        }
         /* 返回数据 */
-        return json_encode($up->getFileInfo());
+        return json_encode($result);
     }
 
     private function show(){

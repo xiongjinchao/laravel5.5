@@ -3,6 +3,7 @@
 @section('css')
     <link rel="stylesheet" href="{{asset("AdminLTE/bower_components/select2/dist/css/select2.min.css")}}">
     <link rel="stylesheet" href="{{asset("AdminLTE/plugins/iCheck/all.css")}}">
+    <link href="{{asset("AdminLTE/bower_components/bootstrap-fileinput/css/fileinput.min.css")}}" media="all" rel="stylesheet" type="text/css"/>
 @endsection
 
 @section('content')
@@ -68,6 +69,17 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label>上传附件</label>
+                                        <div class="file-loading">
+                                            <input id="input-file" name="upfile" type="file" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label>状态</label>
                                         <p class="knowledge-status">
                                             @foreach($knowledge->getStatusOptions() as $key => $item)
@@ -108,6 +120,12 @@
     <script src="{{asset("AdminLTE/bower_components/ueditor/ueditor.config.js")}}"></script>
     <script src="{{asset("AdminLTE/bower_components/ueditor/ueditor.all.min.js")}}"></script>
     <script src="{{asset("AdminLTE/plugins/iCheck/icheck.min.js")}}"></script>
+
+    <script src="{{asset("AdminLTE/bower_components/bootstrap-fileinput/js/plugins/piexif.min.js")}}" type="text/javascript"></script>
+    <script src="{{asset("AdminLTE/bower_components/bootstrap-fileinput/js/plugins/sortable.min.js")}}" type="text/javascript"></script>
+    <script src="{{asset("AdminLTE/bower_components/bootstrap-fileinput/js/plugins/purify.min.js")}}" type="text/javascript"></script>
+    <script src="{{asset("AdminLTE/bower_components/bootstrap-fileinput/js/fileinput.min.js")}}"></script>
+    <script src="{{asset("AdminLTE/bower_components/bootstrap-fileinput/js/locales/zh.js")}}"></script>
     <script>
         $(function () {
             $('.select2').select2();
@@ -115,16 +133,38 @@
             var ue = UE.getEditor('knowledge-content',{
                 autoHeightEnabled: false,
                 enableAutoSave:false,
-                serverUrl: '{{ route('UEditor.index') }}'
+                serverUrl: '{{ route('upload') }}'
             });
-            // 设置 CSRF token.
             ue.ready(function() {
-                ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
+                ue.execCommand('serverparam','_token','{{ csrf_token() }}');
             });
 
             $('.knowledge-status input[type="radio"]').iCheck({
                 radioClass:'iradio_square-blue'
-            })
+            });
+
+            var preview = JSON.parse('{!!$preview!!}');
+            var config = JSON.parse('{!!$config!!}');
+            $("#input-file").fileinput({
+                uploadUrl: '{{ route('upload') }}?action=uploadfile&use_database=1',
+                language: 'zh',
+                initialCaption: '请选择附件',
+                maxFileSize: 2048,
+                uploadAsync: false,
+                minFileCount: 1,
+                maxFileCount: 5,
+                overwriteInitial: false,
+                initialPreview: preview,
+                initialPreviewAsData: true,
+                initialPreviewFileType: 'image', // image is the default and can be overridden in config below
+                initialPreviewDownloadUrl: '{filename}',
+                initialPreviewConfig:  config,
+                uploadExtraData: { _token:'{{ csrf_token() }}'}
+            }).on('filesorted', function(e, params) {
+                console.log('File sorted params', params);
+            }).on('fileuploaded', function(e, params) {
+                console.log('File uploaded params', params);
+            });
         })
     </script>
 @endsection
