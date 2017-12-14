@@ -13,3 +13,6 @@
 .popover{width:350px;max-width:350px;}
 .popover-title{padding:14px;front-size:16px;font-weight:bold;}
 .popover-footer{padding:8px 14px; background:#f7f7f7;border-top:1px solid #ebebeb}
+
+.content .krajee-default.file-preview-frame{box-shadow:none}
+.content .krajee-default.file-preview-frame:not(.file-preview-error):hover{box-shadow: 1px 1px 2px 0 #a2958a;}

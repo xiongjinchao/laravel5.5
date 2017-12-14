@@ -78,6 +78,28 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>知识标签</label>
+                                        <input class="form-control" name="tags" placeholder="请输入标签，多个标签使用英文,分隔">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>知识可见</label>
+                                        <select class="form-control select2" name="organization_id" style="width: 100%;">
+                                            @foreach($organizations as $key=>$item)
+                                                <option value="{{$key}}">{{$item}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> 保存知识</button>

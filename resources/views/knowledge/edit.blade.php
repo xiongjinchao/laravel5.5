@@ -83,6 +83,28 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label>知识标签</label>
+                                        <input class="form-control" name="tags" placeholder="请输入标签，多个标签使用英文,分隔" value="{{$knowledge->tags}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>知识可见</label>
+                                        <select class="form-control select2" name="organization_id" style="width: 100%;">
+                                            @foreach($organizations as $key=>$item)
+                                                <option value="{{$key}}" {{$knowledge->organization_id == $key?'selected':''}}>{{$item}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label>状态</label>
                                         <p class="knowledge-status">
                                             @foreach($knowledge->getStatusOptions() as $key => $item)

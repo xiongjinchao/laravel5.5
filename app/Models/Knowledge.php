@@ -22,7 +22,7 @@ class Knowledge extends Model
 
     protected $table = 'knowledge';
 
-    protected $fillable = ['title','category_id','country_id','content','status'];
+    protected $fillable = ['title','category_id','country_id','content','status','tags','organization_id'];
 
     public function fromDateTime($value)
     {

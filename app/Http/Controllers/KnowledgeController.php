@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\Knowledge;
 use App\Models\KnowledgeCategory;
+use App\Models\Organization;
 use App\Models\ModelLog;
 use App\Models\ModelUpload;
 use Illuminate\Http\Request;
@@ -55,6 +56,7 @@ class KnowledgeController extends Controller
             'breadcrumb' => [['url' => '#','label' => '更新' ]],
             'countries' => Country::all()->toArray(),
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
+            'organizations' => Organization::getOrganizationOptions(),
         ];
         return view('knowledge.create',$data);
     }
@@ -69,6 +71,7 @@ class KnowledgeController extends Controller
     {
         $knowledge = new Knowledge();
         $knowledge->fill($request->all());
+        $knowledge->tags = str_replace('，',',',$request->tags);
         $knowledge->operator = $request->user()->id;
         $knowledge->author = $request->user()->id;
         $knowledge->status = Knowledge::STATUS_NEW;
@@ -125,6 +128,7 @@ class KnowledgeController extends Controller
             'breadcrumb' => [['url' => '#','label' => '更新' ]],
             'countries' => Country::all()->toArray(),
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
+            'organizations' => Organization::getOrganizationOptions(),
             'knowledge' => Knowledge::find($id),
             'upload_id' => implode(',',array_column($uploads, 'key')),
             'preview' => json_encode(array_column($uploads, 'downloadUrl'),JSON_UNESCAPED_SLASHES),
@@ -144,6 +148,7 @@ class KnowledgeController extends Controller
     {
         $knowledge = Knowledge::find($id);
         $knowledge->fill($request->all());
+        $knowledge->tags = str_replace('，',',',$request->tags);
         $knowledge->operator = $request->user()->id;
         if($knowledge->save()){
 
