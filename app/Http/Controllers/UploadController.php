@@ -7,6 +7,7 @@ use App\Models\Upload;
 use App\Models\ModelUpload;
 use App\Models\ModelLog;
 use Config,DB,View,Route,Redirect;
+use Illuminate\Http\Response;
 
 class UploadController extends Controller
 {
@@ -93,6 +94,7 @@ class UploadController extends Controller
             ]);
         }
         Upload::find($id)->delete();
+        return response()->json(['status' => 'SUCCESS']);
     }
 
     private function upload(){

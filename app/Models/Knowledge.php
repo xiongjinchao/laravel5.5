@@ -64,6 +64,16 @@ class Knowledge extends Model
         $knowledge->operator = request()->user()->id;
         $knowledge->author = request()->user()->id;
         if($knowledge->save()){
+            $modelUploads  = ModelUpload::where('model','=','Knowledge')->where('model_id','=',$id)->get();
+            if($modelUploads != null){
+                foreach($modelUploads as $item){
+                    $modelUpload = new ModelUpload();
+                    $modelUpload->model = 'Knowledge';
+                    $modelUpload->model_id = $knowledge->id;
+                    $modelUpload->upload_id = $item->upload_id;
+                    $modelUpload->save();
+                }
+            }
             return $knowledge;
         }else{
             return false;

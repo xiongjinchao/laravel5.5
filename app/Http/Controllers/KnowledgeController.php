@@ -115,6 +115,7 @@ class KnowledgeController extends Controller
             'countries' => Country::all()->toArray(),
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
             'knowledge' => Knowledge::find($id),
+            'upload_id' => implode(',',array_column($uploads, 'key')),
             'preview' => json_encode(array_column($uploads, 'downloadUrl'),JSON_UNESCAPED_SLASHES),
             'config' => json_encode($uploads,JSON_UNESCAPED_SLASHES)
         ];
@@ -140,6 +141,19 @@ class KnowledgeController extends Controller
                 'model_id' => $knowledge->id,
                 'content' => '更新知识',
             ]);
+
+
+            ModelUpload::where('model', '=', 'Knowledge')->where('model_id', '=', $knowledge->id)->delete();
+            if(!empty($request->upload_id)){
+                $ids = explode(',',$request->upload_id);
+                foreach($ids as $id){
+                    $modelUpload = new ModelUpload();
+                    $modelUpload->model = 'Knowledge';
+                    $modelUpload->model_id = $knowledge->id;
+                    $modelUpload->upload_id = $id;
+                    $modelUpload->save();
+                }
+            }
 
             $request->session()->flash('success','知识编辑成功');
         }else{

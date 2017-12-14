@@ -859,7 +859,7 @@
                     zoomIcon: '<i class="glyphicon glyphicon-zoom-in"></i>',
                     zoomClass: 'btn btn-kv btn-default btn-outline-secondary',
                     zoomTitle: 'View Details',
-                    dragIcon: '<i class="glyphicon glyphicon-move"></i>',
+                    dragIcon: '<i class="fa fa-arrows"></i>',
                     dragClass: 'text-info',
                     dragTitle: 'Move / Rearrange',
                     dragSettings: {},
