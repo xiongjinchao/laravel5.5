@@ -62,6 +62,8 @@ class ModelUpload extends Model
             return 'image/'.$extension;
         }else if(in_array($extension,['pdf','html','text'])){
             return '';
+        }else{
+            return '';
         }
     }
 
@@ -76,6 +78,8 @@ class ModelUpload extends Model
         }else if(in_array($extension,['jpg','png','gif','jepg','bmp'])){
             return 'image';
         }else if(in_array($extension,['pdf','html','text'])){
+            return $extension;
+        }else{
             return $extension;
         }
     }
