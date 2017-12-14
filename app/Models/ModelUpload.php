@@ -80,7 +80,7 @@ class ModelUpload extends Model
         }else if(in_array($extension,['pdf','html','text'])){
             return $extension;
         }else{
-            return $extension;
+            return 'other';
         }
     }
 

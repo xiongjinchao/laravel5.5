@@ -151,6 +151,7 @@
                 initialPreviewFileType: 'image', // image is the default and can be overridden in config below
                 initialPreviewConfig: [],
                 preferIconicPreview: true, // this will force thumbnails to display icons for following file extensions
+                previewFileIcon: '<i class="glyphicon glyphicon-file"></i>',
                 previewFileIconSettings: { // configure your icon file extensions
                     'doc': '<i class="fa fa-file-word-o text-primary"></i>',
                     'xls': '<i class="fa fa-file-excel-o text-success"></i>',
