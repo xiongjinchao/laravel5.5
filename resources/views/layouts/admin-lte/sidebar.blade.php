@@ -45,7 +45,19 @@
                     <li><a href="{{ route("knowledge.index") }}"><i class="fa fa-graduation-cap text-blue"></i> <span>知识管理</span></a></li>
                 </ul>
             </li>
-            <li><a href="{{ route("faq.index") }}"><i class="fa fa-bookmark"></i> <span>FAQ管理</span></a></li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-wechat"></i>
+                    <span>FAQ管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route("faq-category.index") }}"><i class="fa fa-th-list text-red"></i> <span>FAQ分类</span></a></li>
+                    <li><a href="{{ route("faq.index") }}"><i class="fa fa-question-circle text-red"></i> <span>FAQ管理</span></a></li>
+                </ul>
+            </li>
             <li><a href="{{ route("notice.index") }}"><i class="fa fa-rss"></i> <span>公告管理</span></a></li>
             <li class="header">系统</li>
             <li class="treeview">

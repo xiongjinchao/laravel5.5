@@ -51,6 +51,10 @@ Route::any('upload/delete/{id}/{model?}/{model_id?}', 'UploadController@destroy'
 Route::get('knowledge-category/move-up/{id}', 'KnowledgeCategoryController@moveUp')->name('knowledge-category.move-up');
 Route::get('knowledge-category/move-down/{id}', 'KnowledgeCategoryController@moveDown')->name('knowledge-category.move-down');
 
+//FAQ分类管理
+Route::get('faq-category/move-up/{id}', 'FAQCategoryController@moveUp')->name('faq-category.move-up');
+Route::get('faq-category/move-down/{id}', 'FAQCategoryController@moveDown')->name('faq-category.move-down');
+
 //用户管理
 Route::resource('user', 'UserController', ['except' => ['show']]);
 
@@ -60,7 +64,11 @@ Route::resource('organization', 'OrganizationController', ['except' => ['show']]
 //知识目录
 Route::resource('knowledge-category', 'KnowledgeCategoryController', ['except' => ['show']]);
 
+//知识管理
 Route::resource('knowledge', 'KnowledgeController', ['except' => ['show']]);
+
+//FAQ分类管理
+Route::resource('faq-category', 'FAQCategoryController', ['except' => ['show']]);
 
 //FAQ管理
 Route::resource('faq', 'FAQController', ['except' => ['show']]);
