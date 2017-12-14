@@ -80,6 +80,17 @@ class KnowledgeController extends Controller
                 'content' => '创建知识',
             ]);
 
+            if(!empty($request->upload_id)){
+                $ids = explode(',',$request->upload_id);
+                foreach($ids as $id){
+                    $modelUpload = new ModelUpload();
+                    $modelUpload->model = 'Knowledge';
+                    $modelUpload->model_id = $knowledge->id;
+                    $modelUpload->upload_id = $id;
+                    $modelUpload->save();
+                }
+            }
+
             $request->session()->flash('success','知识创建成功');
         }else{
             $request->session()->flash('error','知识创建失败');
@@ -141,7 +152,6 @@ class KnowledgeController extends Controller
                 'model_id' => $knowledge->id,
                 'content' => '更新知识',
             ]);
-
 
             ModelUpload::where('model', '=', 'Knowledge')->where('model_id', '=', $knowledge->id)->delete();
             if(!empty($request->upload_id)){
