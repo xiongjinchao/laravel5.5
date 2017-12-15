@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FAQ;
+use App\Models\FAQCategory;
+use App\Models\Organization;
 use Illuminate\Http\Request;
 use View,Route,Redirect;
 
@@ -13,6 +16,15 @@ class FAQController extends Controller
         $this->middleware('auth');
 
         $this->middleware('permission:'.Route::current()->getActionName());
+
+        View::share('page',[
+            'title' => 'FAQ管理',
+            'subTitle' => 'FAQ管理',
+            'breadcrumb' => [
+                ['url' => '#','label' => 'FAQ管理' ],
+                ['url' => route('faq.index'),'label' => 'FAQ管理' ]
+            ]
+        ]);
     }
 
     /**
@@ -22,7 +34,13 @@ class FAQController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'statuses' => FAQ::getStatusOptions(),
+            'faqCategories' => FAQCategory::getFAQCategoryOptions(),
+            'organizations' => Organization::orderBy('lft', 'ASC')->get(),
+            'faqs' => FAQ::getList(request()->all()),
+        ];
+        return view('faq.index', $data);
     }
 
     /**

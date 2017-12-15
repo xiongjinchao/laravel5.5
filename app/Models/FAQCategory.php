@@ -52,7 +52,7 @@ class FAQCategory extends Model
         return self::where(['parent'=>$this->parent])->where(['depth'=>$this->depth])->orderBy('rgt', 'DESC')->first();
     }
 
-    //知识目录列表用于下拉控件
+    //FAQ分类列表用于下拉控件
     public static function getFAQCategoryOptions()
     {
         $arr = [];
@@ -63,7 +63,7 @@ class FAQCategory extends Model
         return $arr;
     }
 
-    //获取知识目录路径
+    //获取FAQ分类路径
     public static function getFAQCategoryPath($category_id)
     {
         $path = '';

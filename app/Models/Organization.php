@@ -26,6 +26,11 @@ class Organization extends Model
         return $this->hasOne('App\User', 'id', 'operator');
     }
 
+    public function hasManyUsers()
+    {
+        return $this->hasMany('App\User', 'organization_id', 'id');
+    }
+
     //获取深度对应的符号
     public function getSpace()
     {
