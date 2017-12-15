@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-14 19:49:17
+Date: 2017-12-15 18:18:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -144,7 +144,7 @@ CREATE TABLE `faq` (
   `ask_at` int(11) NOT NULL DEFAULT '0',
   `answer_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of faq
@@ -288,7 +288,7 @@ CREATE TABLE `model_log` (
   `operator` varchar(255) CHARACTER SET latin1 DEFAULT '',
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of model_log
@@ -315,6 +315,7 @@ INSERT INTO `model_log` VALUES ('19', 'Knowledge', '25', '更新知识', '1', '2
 INSERT INTO `model_log` VALUES ('20', 'Knowledge', '25', '更新知识', '1', '2017-12-14 19:01:08');
 INSERT INTO `model_log` VALUES ('21', 'Knowledge', '25', '更新知识', '1', '2017-12-14 19:01:15');
 INSERT INTO `model_log` VALUES ('22', 'Knowledge', '25', '更新知识', '1', '2017-12-14 19:02:02');
+INSERT INTO `model_log` VALUES ('23', 'Knowledge', '25', '更新知识', '1', '2017-12-14 19:52:03');
 
 -- ----------------------------
 -- Table structure for model_upload
@@ -328,7 +329,7 @@ CREATE TABLE `model_upload` (
   PRIMARY KEY (`id`),
   KEY `model_id` (`model_id`) USING BTREE,
   KEY `upload_id` (`upload_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of model_upload
@@ -339,7 +340,8 @@ INSERT INTO `model_upload` VALUES ('3', 'Knowledge', '22', '3');
 INSERT INTO `model_upload` VALUES ('4', 'Knowledge', '23', '5');
 INSERT INTO `model_upload` VALUES ('12', 'Knowledge', '24', '5');
 INSERT INTO `model_upload` VALUES ('13', 'Knowledge', '24', '47');
-INSERT INTO `model_upload` VALUES ('19', 'Knowledge', '25', '48');
+INSERT INTO `model_upload` VALUES ('20', 'Knowledge', '25', '48');
+INSERT INTO `model_upload` VALUES ('21', 'Knowledge', '25', '49');
 
 -- ----------------------------
 -- Table structure for organization
@@ -688,7 +690,7 @@ CREATE TABLE `uploads` (
   `operator` int(11) NOT NULL DEFAULT '0' COMMENT '上传图片者的ID',
   `created_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of uploads
@@ -737,6 +739,7 @@ INSERT INTO `uploads` VALUES ('44', '1474545436456379.jpg', 'image/jpeg', '/uplo
 INSERT INTO `uploads` VALUES ('45', '1474545436456379.jpg', 'image/jpeg', '/uploads/file/20171214/1513240989.jpg', '56820', '1', '1513240989');
 INSERT INTO `uploads` VALUES ('47', 'hotelimg.jpg', 'image/jpeg', '/uploads/file/20171214/1513241319.jpg', '13334', '1', '1513241319');
 INSERT INTO `uploads` VALUES ('48', '1474545436456379.jpg', 'image/jpeg', '/uploads/file/20171214/1513241673.jpg', '56820', '1', '1513241673');
+INSERT INTO `uploads` VALUES ('49', '201600612一期各分公司需求及优化.zip', 'application/zip', '/uploads/file/20171214/1513252320.zip', '1396706', '1', '1513252320');
 
 -- ----------------------------
 -- Table structure for users
@@ -762,5 +765,5 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES ('1', '总旋风', '31', 'admin@baicheng.com', '15911006066', '$2y$10$q4BPwflIuQ5hf3gmX1eS.Of11KYKvRRixDquSNoJbJkZGQf3aZ7.G', 'LzscCPJKYGtmr7YDoE4NKYbGhewVxzhe0oKwNYkqAzPdZCQLCSWpJRDhUXmd', '1', '1', '2017-11-28 18:22:29', '2017-12-07 17:18:56');
-INSERT INTO `users` VALUES ('2', '孙小坦', '0', 'sunxiaotan@baicheng.com', '18611911257', '$2y$10$Hx69y2xvLFVmIeTXBsMDpu..TrWieVG02yjPS20o5tbPB7tPRBtr6', null, '1', '2', '2017-12-07 17:25:06', '2017-12-07 17:30:48');
+INSERT INTO `users` VALUES ('2', '孙小坦', '30', 'sunxiaotan@baicheng.com', '18611911257', '$2y$10$Hx69y2xvLFVmIeTXBsMDpu..TrWieVG02yjPS20o5tbPB7tPRBtr6', null, '1', '2', '2017-12-07 17:25:06', '2017-12-15 17:26:11');
 INSERT INTO `users` VALUES ('3', '刘丽君', '32', 'liulijun@baicheng.com', '13801060351', '$2y$10$/cvLK8W1oWgR8KQo/trerODPUnpNGNqdVGWEnWE4FtIRqtssQmcki', null, '1', '2', '2017-12-07 17:30:17', '2017-12-07 17:30:17');
