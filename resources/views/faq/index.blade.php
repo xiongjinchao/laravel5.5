@@ -26,32 +26,29 @@
                             </div>
                         </div>
 
-                        @if(!empty($faqCategories))
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label>问题分类</label>
-                                    <select class="form-control select2" name="category_id" style="width: 100%;">
-                                        <option value="">请选择</option>
-                                        @foreach($faqCategories as $key=>$item)
-                                            <option value="{{$key}}" {{request()->category_id == $key?'selected':''}}>{{$item}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>问题分类</label>
+                                <select class="form-control select2" name="category_id" style="width: 100%;">
+                                    <option value="">请选择</option>
+                                    @foreach(\App\Models\FAQCategory::getFAQCategoryOptions() as $key=>$item)
+                                        <option value="{{$key}}" {{request()->category_id == $key?'selected':''}}>{{$item}}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                        @endif
-                        @if(!empty($statuses))
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label>问题状态</label>
-                                    <select class="form-control select2" name="status" style="width: 100%;">
-                                        <option value="">请选择</option>
-                                        @foreach($statuses as $key => $item)
-                                            <option value="{{$key}}" {{request()->status == $key?'selected':''}}>{{$item}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>问题状态</label>
+                                <select class="form-control select2" name="status" style="width: 100%;">
+                                    <option value="">请选择</option>
+                                    @foreach(\App\Models\FAQ::getStatusOptions() as $key => $item)
+                                        <option value="{{$key}}" {{request()->status == $key?'selected':''}}>{{$item}}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                        @endif
+                        </div>
 
                         @if(!empty($organizations))
                         <div class="col-md-3">
@@ -206,14 +203,18 @@
                     daysOfWeek:["日","一","二","三","四","五","六"],
                     monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
                 }
-            }).val('');
+            });
 
             @if(request()->ask_time_range)
                 $('#ask-time-range').val('{{request()->ask_time_range}}');
+            @else
+                $('#ask-time-range').val('');
             @endif
 
             @if(request()->answer_time_range)
-                $('#answer-time-range').val('{{request()->ask_time_range}}');
+                $('#answer-time-range').val('{{request()->answer_time_range}}');
+            @else
+                $('#answer-time-range').val('');
             @endif
 
             $(".btn-reset").on('click',function(){

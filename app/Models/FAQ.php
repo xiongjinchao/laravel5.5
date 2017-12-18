@@ -73,7 +73,7 @@ class FAQ extends Model
             $query->where('ask_at','>=',strtotime($askTimeRange[0]))->where('ask_at','<=',strtotime($askTimeRange[1]));
         }
         if(array_get($params, 'answer_time_range') != ''){
-            $answerTimeRange = explode('~',$params['ask_time_range']);
+            $answerTimeRange = explode('~',$params['answer_time_range']);
             $query->where('answer_at','>=',strtotime($answerTimeRange[0]))->where('answer_at','<=',strtotime($answerTimeRange[1]));
         }
         return $query->orderBy('id', 'DESC')->paginate(15);

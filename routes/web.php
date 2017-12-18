@@ -55,6 +55,9 @@ Route::get('knowledge-category/move-down/{id}', 'KnowledgeCategoryController@mov
 Route::get('faq-category/move-up/{id}', 'FAQCategoryController@moveUp')->name('faq-category.move-up');
 Route::get('faq-category/move-down/{id}', 'FAQCategoryController@moveDown')->name('faq-category.move-down');
 
+//FAQ管理
+Route::get('faq/log/{id}', 'FAQController@log')->name('faq.log');                                                       //操作日志
+
 //用户管理
 Route::resource('user', 'UserController', ['except' => ['show']]);
 

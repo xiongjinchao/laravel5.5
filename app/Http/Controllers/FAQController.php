@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FAQ;
-use App\Models\FAQCategory;
+use App\Models\ModelLog;
 use App\Models\Organization;
 use Illuminate\Http\Request;
 use View,Route,Redirect;
@@ -35,8 +35,6 @@ class FAQController extends Controller
     public function index()
     {
         $data = [
-            'statuses' => FAQ::getStatusOptions(),
-            'faqCategories' => FAQCategory::getFAQCategoryOptions(),
             'organizations' => Organization::orderBy('lft', 'ASC')->get(),
             'faqs' => FAQ::getList(request()->all()),
         ];
@@ -83,7 +81,11 @@ class FAQController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'faq' => FAQ::find($id),
+            'organizations' => Organization::orderBy('lft', 'ASC')->get(),
+        ];
+        return view('faq.edit', $data);
     }
 
     /**
@@ -95,7 +97,22 @@ class FAQController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $faq = FAQ::find($id);
+        $faq->fill($request->all());
+        $faq->operator = $request->user()->id;
+        if($faq->save()){
+
+            ModelLog::log([
+                'model' => 'FAQ',
+                'model_id' => $faq->id,
+                'content' => '更新FAQ',
+            ]);
+
+            $request->session()->flash('success','FAQ编辑成功');
+        }else{
+            $request->session()->flash('error','FAQ编辑失败');
+        }
+        return Redirect::route('faq.index');
     }
 
     /**
@@ -107,5 +124,16 @@ class FAQController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    //操作日志
+    public function log($id)
+    {
+        $data = [
+            'breadcrumb' => [['url' => '#','label' => '查看日志' ]],
+            'logs' => ModelLog::where('model','=','FAQ')->where('model_id','=',$id)->orderBy('id','ASC')->get()
+        ];
+        return view('faq.log',$data);
     }
 }

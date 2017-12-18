@@ -115,6 +115,35 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>操作人</label>
+                                        <input class="form-control" value="{{$knowledge->hasOneUser!=null?$knowledge->hasOneUser->name:''}}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>创建时间</label>
+                                        <input class="form-control" value="{{$knowledge->created_at}}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if($knowledge->updated_at != '')
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>更新时间</label>
+                                            <input class="form-control" value="{{$knowledge->updated_at}}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
                         </div>
                         <div class="box-footer">
                             <a href="{{ route('knowledge.log',['id'=>$knowledge->id]) }}" class="btn btn-default pull-right"><i class="fa fa-calendar"></i> 操作日志</a>
