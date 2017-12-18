@@ -25,7 +25,12 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>目录名称</label>
-                                        <input class="form-control" name="name" value="{{$knowledgeCategory->name}}">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-header"></i>
+                                            </div>
+                                            <input class="form-control" name="name" value="{{$knowledgeCategory->name}}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -33,12 +38,17 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>所属目录</label>
-                                        <select class="form-control select2" name="parent" style="width: 100%;">
-                                            <option value="0">设为主目录</option>
-                                            @foreach($knowledgeCategories as $key=>$item)
-                                                <option {{$knowledgeCategory->parent == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
-                                            @endforeach
-                                        </select>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-sitemap"></i>
+                                            </div>
+                                            <select class="form-control select2" name="parent" style="width: 100%;">
+                                                <option value="0">设为主目录</option>
+                                                @foreach($knowledgeCategories as $key=>$item)
+                                                    <option {{$knowledgeCategory->parent == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

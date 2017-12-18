@@ -31,7 +31,7 @@
                     <td class="operation">
                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
                         <a class="btn btn-sm btn-success btn-assignment-role" href="{{ route('user.assignment',[$item->id]) }}" data-has-roles="{{json_encode(\App\Models\User::getRoles($item->id))}}" title="分配角色"><i class="fa fa-gear"></i> 分配角色</a>
-                        <a class="btn btn-sm btn-warning btn-reset-password" href="{{ route('user.password',[$item->id]) }}" title="重置密码"><i class="fa fa-refresh"></i> 重置密码</a>
+                        <a class="btn btn-sm btn-warning btn-reset-password" href="{{ route('user.password',[$item->id]) }}" title="修改密码"><i class="fa fa-refresh"></i> 修改密码</a>
                         <form action="" method="POST" style="display: inline">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
@@ -126,7 +126,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>设置新密码</label>
-                                <input type="password" class="form-control" name="password" placeholder="请输新密码" value="123456">
+                                <input type="password" class="form-control" name="password" placeholder="请输新密码">
                             </div>
                         </div>
                     </div>
@@ -172,6 +172,11 @@
         var action = $(this).attr('href');
         $("#modal-reset-password form").attr('action',action);
         $("#modal-reset-password").modal();
+    });
+
+    //默认密码
+    $("#modal-reset-password").on('show.bs.modal',function(){
+        $("input[name=password]").val('123456');
     });
 
     $("#modal-reset-password .confirm-reset-password").on('click',function(){

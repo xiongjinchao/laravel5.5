@@ -25,7 +25,12 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>分类名称</label>
-                                        <input class="form-control" name="name" value="{{$faqCategory->name}}">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-header"></i>
+                                            </div>
+                                            <input class="form-control" name="name" value="{{$faqCategory->name}}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -33,12 +38,17 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>所属分类</label>
-                                        <select class="form-control select2" name="parent" style="width: 100%;">
-                                            <option value="0">设为主分类</option>
-                                            @foreach($faqCategories as $key=>$item)
-                                                <option {{$faqCategory->parent == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
-                                            @endforeach
-                                        </select>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-sitemap"></i>
+                                            </div>
+                                            <select class="form-control select2" name="parent" style="width: 100%;">
+                                                <option value="0">设为主分类</option>
+                                                @foreach($faqCategories as $key=>$item)
+                                                    <option {{$faqCategory->parent == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

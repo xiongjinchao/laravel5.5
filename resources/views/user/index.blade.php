@@ -21,31 +21,51 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>组织架构</label>
-                                <select class="form-control select2" name="organization_id" style="width: 100%;">
-                                    <option value="">请选择</option>
-                                    @foreach($organizations as $key=>$item)
-                                        <option value="{{$key}}">{{$item}}</option>
-                                    @endforeach
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-sitemap"></i>
+                                    </div>
+                                    <select class="form-control select2" name="organization_id" style="width: 100%;">
+                                        <option value="">请选择</option>
+                                        @foreach($organizations as $key=>$item)
+                                            <option value="{{$key}}">{{$item}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     @endif
                     <div class="col-md-2">
                         <div class="form-group">
                             <label>中文姓名</label>
-                            <input type="text" class="form-control" name="name">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <input type="text" class="form-control" name="name">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label>邮箱</label>
-                            <input type="text" class="form-control" name="email">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <input type="text" class="form-control" name="email">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label>电话号码</label>
-                            <input type="text" class="form-control" name="mobile">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <input type="text" class="form-control" name="mobile">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3">

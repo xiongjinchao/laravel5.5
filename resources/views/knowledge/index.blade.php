@@ -20,12 +20,17 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>知识目录</label>
-                                <select class="form-control select2" name="category_id" style="width: 100%;">
-                                    <option value="">请选择</option>
-                                    @foreach($knowledgeCategories as $key=>$item)
-                                        <option value="{{$key}}">{{$item}}</option>
-                                    @endforeach
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-sitemap"></i>
+                                    </div>
+                                    <select class="form-control select2" name="category_id" style="width: 100%;">
+                                        <option value="">请选择</option>
+                                        @foreach($knowledgeCategories as $key=>$item)
+                                            <option value="{{$key}}">{{$item}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -33,12 +38,17 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>选择国家</label>
-                                <select class="form-control select2" name="country_id" style="width: 100%;">
-                                    <option value="">请选择</option>
-                                    @foreach($countries as $item)
-                                        <option {{$item['audit'] == 1?'disabled="disabled"':''}} value="{{$item['id']}}">{{$item['country'].' '.$item['country_name_en'].''}}</option>
-                                    @endforeach
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <select class="form-control select2" name="country_id" style="width: 100%;">
+                                        <option value="">请选择</option>
+                                        @foreach($countries as $item)
+                                            <option {{$item['audit'] == 1?'disabled="disabled"':''}} value="{{$item['id']}}">{{$item['country'].' '.$item['country_name_en'].''}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     @endif

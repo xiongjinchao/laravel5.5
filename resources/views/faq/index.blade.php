@@ -22,31 +22,46 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>问题编号</label>
-                                <input class="form-control" name="id">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-key"></i>
+                                    </div>
+                                    <input class="form-control" name="id">
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>问题分类</label>
-                                <select class="form-control select2" name="category_id" style="width: 100%;">
-                                    <option value="">请选择</option>
-                                    @foreach(\App\Models\FAQCategory::getFAQCategoryOptions() as $key=>$item)
-                                        <option value="{{$key}}" {{request()->category_id == $key?'selected':''}}>{{$item}}</option>
-                                    @endforeach
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-sitemap"></i>
+                                    </div>
+                                    <select class="form-control select2" name="category_id" style="width: 100%;">
+                                        <option value="">请选择</option>
+                                        @foreach(\App\Models\FAQCategory::getFAQCategoryOptions() as $key=>$item)
+                                            <option value="{{$key}}" {{request()->category_id == $key?'selected':''}}>{{$item}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>问题状态</label>
-                                <select class="form-control select2" name="status" style="width: 100%;">
-                                    <option value="">请选择</option>
-                                    @foreach(\App\Models\FAQ::getStatusOptions() as $key => $item)
-                                        <option value="{{$key}}" {{request()->status == $key?'selected':''}}>{{$item}}</option>
-                                    @endforeach
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-th-list"></i>
+                                    </div>
+                                    <select class="form-control select2" name="status" style="width: 100%;">
+                                        <option value="">请选择</option>
+                                        @foreach(\App\Models\FAQ::getStatusOptions() as $key => $item)
+                                            <option value="{{$key}}" {{request()->status == $key?'selected':''}}>{{$item}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
@@ -54,17 +69,22 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>提问人</label>
-                                <select class="form-control select2" name="ask_user_id" style="width: 100%;">
-                                    <option value="">请选择</option>
-                                    @foreach($organizations as $item)
-                                        <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
-                                        @if($item->hasManyUsers!=null)
-                                            @foreach($item->hasManyUsers as $user)
-                                                <option value="{{$user->id}}" {{request()->ask_user_id == $user->id?'selected':''}}>{{'┃ '.$item->getSpace().$user->name}}</option>
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <select class="form-control select2" name="ask_user_id" style="width: 100%;">
+                                        <option value="">请选择</option>
+                                        @foreach($organizations as $item)
+                                            <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
+                                            @if($item->hasManyUsers!=null)
+                                                @foreach($item->hasManyUsers as $user)
+                                                    <option value="{{$user->id}}" {{request()->ask_user_id == $user->id?'selected':''}}>{{'┃ '.$item->getSpace().$user->name}}</option>
+                                                @endforeach
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         @endif
@@ -73,17 +93,22 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>回答人</label>
-                                    <select class="form-control select2" name="answer_user_id" style="width: 100%;">
-                                        <option value="">请选择</option>
-                                        @foreach($organizations as $item)
-                                            <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
-                                            @if($item->hasManyUsers!=null)
-                                                @foreach($item->hasManyUsers as $user)
-                                                    <option value="{{$user->id}}" {{request()->answer_user_id == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
-                                                @endforeach
-                                            @endif
-                                        @endforeach
-                                    </select>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <select class="form-control select2" name="answer_user_id" style="width: 100%;">
+                                            <option value="">请选择</option>
+                                            @foreach($organizations as $item)
+                                                <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
+                                                @if($item->hasManyUsers!=null)
+                                                    @foreach($item->hasManyUsers as $user)
+                                                        <option value="{{$user->id}}" {{request()->answer_user_id == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
+                                                    @endforeach
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         @endif

@@ -26,7 +26,12 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>中文姓名</label>
-                                        <input class="form-control" name="name" placeholder="请输入用户姓名" value="{{$user->name}}">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user"></i>
+                                            </div>
+                                            <input class="form-control" name="name" placeholder="请输入用户姓名" value="{{$user->name}}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -34,12 +39,17 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>所属组织架构</label>
-                                        <select class="form-control select2" name="organization_id" style="width: 100%;">
-                                            <option value="0">请选择</option>
-                                            @foreach($organizations as $key=>$item)
-                                                <option {{$user->organization_id == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
-                                            @endforeach
-                                        </select>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-sitemap"></i>
+                                            </div>
+                                            <select class="form-control select2" name="organization_id" style="width: 100%;">
+                                                <option value="0">请选择</option>
+                                                @foreach($organizations as $key=>$item)
+                                                    <option {{$user->organization_id == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                         <span class="help-block">{{\App\Models\Organization::getOrganizationPath($user->organization_id)}}</span>
                                     </div>
                                 </div>
@@ -48,7 +58,12 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>邮箱</label>
-                                        <input class="form-control" name="email" placeholder="请输入邮箱" value="{{$user->email}}">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-envelope"></i>
+                                            </div>
+                                            <input class="form-control" name="email" placeholder="请输入邮箱" value="{{$user->email}}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +71,12 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>手机号码</label>
-                                        <input class="form-control" name="mobile" placeholder="请输入手机号码" value="{{$user->mobile}}">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </div>
+                                            <input class="form-control" name="mobile" placeholder="请输入手机号码" value="{{$user->mobile}}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +121,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>设置新密码</label>
-                                    <input type="password" class="form-control" name="password" placeholder="请输新密码" value="123456">
+                                    <input type="password" class="form-control" name="password" placeholder="请输新密码">
                                 </div>
                             </div>
                         </div>
@@ -126,6 +146,11 @@
 
             $('.user-status input[type="radio"]').iCheck({
                 radioClass:'iradio_square-blue'
+            });
+
+            //默认密码
+            $("#modal-reset-password").on('show.bs.modal',function(){
+                $("input[name=password]").val('123456');
             });
 
             $("#modal-reset-password .confirm-reset-password").on('click',function(){
