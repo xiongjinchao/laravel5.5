@@ -30,7 +30,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-header"></i>
                                             </div>
-                                            <input class="form-control" name="ask_title" value="{{$faq->ask_title}}">
+                                            <input class="form-control" name="title" value="{{$faq->title}}">
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>回答</label>
-                                        <textarea id="faq_answer" name="answer" rows="3" placeholder="请输入回答内容" style="height:300px;">{{$faq->answer}}</textarea>
+                                        <textarea id="faq-answer" name="answer" rows="3" placeholder="请输入回答内容" style="height:300px;">{{$faq->answer}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                                         <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
                                                         @if($item->hasManyUsers!=null)
                                                             @foreach($item->hasManyUsers as $user)
-                                                                <option value="{{$user->id}}" {{$faq->ask_user_id == $user->id?'selected':''}}>{{'┃ '.$item->getSpace().$user->name}}</option>
+                                                                <option value="{{$user->id}}" {{$faq->ask_user_id == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
                                                             @endforeach
                                                         @endif
                                                     @endforeach
@@ -116,7 +116,7 @@
                                                         <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
                                                         @if($item->hasManyUsers!=null)
                                                             @foreach($item->hasManyUsers as $user)
-                                                                <option value="{{$user->id}}" {{$faq->assign_user_id == $user->id?'selected':''}}>{{'┃ '.$item->getSpace().$user->name}}</option>
+                                                                <option value="{{$user->id}}" {{$faq->assign_user_id == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
                                                             @endforeach
                                                         @endif
                                                     @endforeach
@@ -142,7 +142,7 @@
                                                         <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
                                                         @if($item->hasManyUsers!=null)
                                                             @foreach($item->hasManyUsers as $user)
-                                                                <option value="{{$user->id}}" {{$faq->answer_user_id == $user->id?'selected':''}}>{{'┃ '.$item->getSpace().$user->name}}</option>
+                                                                <option value="{{$user->id}}" {{$faq->answer_user_id == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
                                                             @endforeach
                                                         @endif
                                                     @endforeach
@@ -222,7 +222,7 @@
             $('.select2').select2();
             $('.select2[name=ask_user_id],.select2[name=operator]').select2({"disabled":true});
 
-            var ue = UE.getEditor('faq_answer',{
+            var ue = UE.getEditor('faq-answer',{
                 autoHeightEnabled: false,
                 enableAutoSave:false,
                 serverUrl: '{{ route('upload') }}'

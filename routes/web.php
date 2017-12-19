@@ -56,7 +56,12 @@ Route::get('faq-category/move-up/{id}', 'FAQCategoryController@moveUp')->name('f
 Route::get('faq-category/move-down/{id}', 'FAQCategoryController@moveDown')->name('faq-category.move-down');
 
 //FAQ管理
+Route::any('faq/change/{id}', 'FAQController@change')->name('faq.change');                                              //转换为知识
 Route::get('faq/log/{id}', 'FAQController@log')->name('faq.log');                                                       //操作日志
+
+//公告管理
+Route::any('notice/change/{id}', 'NoticeController@change')->name('notice.change');                                     //转换为知识
+Route::get('notice/log/{id}', 'NoticeController@log')->name('notice.log');                                              //操作日志
 
 //用户管理
 Route::resource('user', 'UserController', ['except' => ['show']]);

@@ -21,7 +21,7 @@ class FAQ extends Model
 
     protected $table = 'faq';
 
-    protected $fillable = ['ask_title','category_id','answer','status','ask_user_id','assign_user_id','answer_user_id','operator'];
+    protected $fillable = ['title','category_id','answer','status','ask_user_id','assign_user_id','answer_user_id','operator'];
 
     //关联User
     public function hasOneUser()
@@ -70,11 +70,11 @@ class FAQ extends Model
         }
         if(array_get($params, 'ask_time_range') != ''){
             $askTimeRange = explode('~',$params['ask_time_range']);
-            $query->where('ask_at','>=',strtotime($askTimeRange[0]))->where('ask_at','<=',strtotime($askTimeRange[1]));
+            $query->where('ask_at','>=',strtotime($askTimeRange[0]))->where('ask_at','<=',strtotime($askTimeRange[1])+3600*24);
         }
         if(array_get($params, 'answer_time_range') != ''){
             $answerTimeRange = explode('~',$params['answer_time_range']);
-            $query->where('answer_at','>=',strtotime($answerTimeRange[0]))->where('answer_at','<=',strtotime($answerTimeRange[1]));
+            $query->where('answer_at','>=',strtotime($answerTimeRange[0]))->where('answer_at','<=',strtotime($answerTimeRange[1])+3600*24);
         }
         return $query->orderBy('id', 'DESC')->paginate(15);
     }

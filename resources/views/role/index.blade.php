@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="role-index">
-        <p><a class="btn btn-success popover-create-role" data-toggle="popover"><i class="fa fa-plus-circle"></i> 创建角色</a></p>
+        <p>
+            <a class="btn btn-primary" href="{{route('role.retrieve')}}"><i class="fa fa-search"></i> 检索权限</a>
+            <a class="btn btn-success popover-create-role" data-toggle="popover"><i class="fa fa-plus-circle"></i> 创建角色</a>
+        </p>
 
         <div class="box">
             <div class="box-header with-border">

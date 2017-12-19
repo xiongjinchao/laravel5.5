@@ -8,11 +8,10 @@
     <div class="row">
         <div class="col-md-12">
 
-            <div class="faq-category-create">
+            <div class="faq-edit">
                 <div class="box">
-                    <form action="{{ route('faq-category.update',['id'=>$faqCategory->id]) }}" method="POST">
+                    <form action="{{ route('faq.store') }}" method="POST">
                         {{ csrf_field() }}
-                        {{ method_field('PUT') }}
                         <div class="box-header with-border">
                             <h3 class="box-title">{{$page['subTitle'] or ''}}</h3>
                             <div class="box-tools pull-right">
@@ -24,16 +23,17 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>分类名称</label>
+                                        <label>问题标题</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-header"></i>
                                             </div>
-                                            <input class="form-control" name="name" value="{{$faqCategory->name}}">
+                                            <input class="form-control" name="title">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -42,10 +42,10 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-sitemap"></i>
                                             </div>
-                                            <select class="form-control select2" name="parent" style="width: 100%;">
-                                                <option value="0">设为主分类</option>
-                                                @foreach($faqCategories as $key=>$item)
-                                                    <option {{$faqCategory->parent == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
+                                            <select class="form-control select2" name="category_id" style="width: 100%;">
+                                                <option value="0">请选择</option>
+                                                @foreach(\App\Models\FAQCategory::getFAQCategoryOptions() as $key=>$item)
+                                                    <option value="{{$key}}">{{$item}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -56,48 +56,31 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>操作人</label>
+                                        <label>指派人</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-user"></i>
                                             </div>
-                                            <input class="form-control" value="{{$faqCategory->hasOneUser!=null?$faqCategory->hasOneUser->name:''}}" readonly>
+                                            <select class="form-control select2" name="assign_user_id" style="width: 100%;">
+                                                <option value="">请选择</option>
+                                                @if(!empty($organizations))
+                                                    @foreach($organizations as $item)
+                                                        <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
+                                                        @if($item->hasManyUsers!=null)
+                                                            @foreach($item->hasManyUsers as $user)
+                                                                <option value="{{$user->id}}">{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>创建时间</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input class="form-control" value="{{$faqCategory->created_at}}" readonly>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            @if($faqCategory->updated_at != '')
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>更新时间</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input class="form-control" value="{{$faqCategory->updated_at}}" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
 
                         </div>
+
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> 保存</button>
                         </div>

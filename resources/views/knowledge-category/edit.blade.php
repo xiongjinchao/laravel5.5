@@ -52,6 +52,51 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>操作人</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user"></i>
+                                            </div>
+                                            <input class="form-control" value="{{$knowledgeCategory->hasOneUser!=null?$knowledgeCategory->hasOneUser->name:''}}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>创建时间</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input class="form-control" value="{{$knowledgeCategory->created_at}}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @if($knowledgeCategory->updated_at != '')
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>更新时间</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input class="form-control" value="{{$knowledgeCategory->updated_at}}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> 保存</button>

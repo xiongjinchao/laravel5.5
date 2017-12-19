@@ -8,21 +8,21 @@
 @endsection
 
 @section('content')
-    <div class="faq-index">
+    <div class="notice-index">
         <div class="box search">
             <div class="box-header with-border">
-                <h3 class="box-title">{{$page['subTitle'] or ''}}</h3>
+                <h3 class="box-title">{{$page['title'] or ''}}</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
                 </div>
             </div>
             <div class="box-body">
-                <form action="{{ route('faq.index') }}" method="GET">
+                <form action="{{ route('notice.index') }}" method="GET">
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label>问题编号</label>
+                                <label>公告编号</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-key"></i>
@@ -34,31 +34,26 @@
 
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label>问题分类</label>
+                                <label>公告名称</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
-                                        <i class="fa fa-sitemap"></i>
+                                        <i class="fa fa-header"></i>
                                     </div>
-                                    <select class="form-control select2" name="category_id" style="width: 100%;">
-                                        <option value="">请选择</option>
-                                        @foreach(\App\Models\FAQCategory::getFAQCategoryOptions() as $key=>$item)
-                                            <option value="{{$key}}" {{request('category_id') == $key?'selected':''}}>{{$item}}</option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" name="title" value="{{request('title')}}">
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label>问题状态</label>
+                                <label>公告状态</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-th-list"></i>
                                     </div>
                                     <select class="form-control select2" name="status" style="width: 100%;">
                                         <option value="">请选择</option>
-                                        @foreach(\App\Models\FAQ::getStatusOptions() as $key => $item)
+                                        @foreach(\App\Models\Notice::getStatusOptions() as $key => $item)
                                             <option value="{{$key}}" {{request('status') == $key?'selected':''}}>{{$item}}</option>
                                         @endforeach
                                     </select>
@@ -69,18 +64,18 @@
                         @if(!empty($organizations))
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>提问人</label>
+                                <label>创建人</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-user"></i>
                                     </div>
-                                    <select class="form-control select2" name="ask_user_id" style="width: 100%;">
+                                    <select class="form-control select2" name="author" style="width: 100%;">
                                         <option value="">请选择</option>
                                         @foreach($organizations as $item)
                                             <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
                                             @if($item->hasManyUsers!=null)
                                                 @foreach($item->hasManyUsers as $user)
-                                                    <option value="{{$user->id}}" {{request('ask_user_id') == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
+                                                    <option value="{{$user->id}}" {{request('author') == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
                                                 @endforeach
                                             @endif
                                         @endforeach
@@ -90,61 +85,26 @@
                         </div>
                         @endif
 
-                        @if(!empty($organizations))
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>回答人</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </div>
-                                        <select class="form-control select2" name="answer_user_id" style="width: 100%;">
-                                            <option value="">请选择</option>
-                                            @foreach($organizations as $item)
-                                                <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
-                                                @if($item->hasManyUsers!=null)
-                                                    @foreach($item->hasManyUsers as $user)
-                                                        <option value="{{$user->id}}" {{request('answer_user_id') == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
-                                                    @endforeach
-                                                @endif
-                                            @endforeach
-                                        </select>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>创建时间</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
                                     </div>
+                                    <input type="text" name="created_time_range" class="form-control pull-right" id="created-time-range">
                                 </div>
                             </div>
-                        @endif
+                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>提问时间</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" name="ask_time_range" class="form-control pull-right" id="ask-time-range">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>回答时间</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" name="answer_time_range" class="form-control pull-right" id="answer-time-range">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
                                 <label>&nbsp;</label><br/>
-                                <button class="btn btn-primary btn-search"><i class="fa fa-search"></i> 搜索FAQ</button>
+                                <button class="btn btn-primary btn-search"><i class="fa fa-search"></i> 搜索公告</button>
                                 <a class="btn btn-warning btn-reset" href="javascript:void(0)"><i class="fa fa-remove"></i> 清空条件</a>
-                                <a class="btn btn-success" href="{{route("faq.create")}}"><i class="fa fa-plus-circle"></i> 创建FAQ</a>
+                                <a class="btn btn-success" href="{{route("notice.create")}}"><i class="fa fa-plus-circle"></i> 创建公告</a>
                             </div>
                         </div>
 
@@ -155,55 +115,40 @@
 
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">{{$page['subTitle'] or ''}}</h3>
+                <h3 class="box-title">{{$page['title'] or ''}}</h3>
             </div>
             <div class="box-body">
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>提问</th>
+                        <th>标题</th>
                         <th>状态</th>
-                        <th>分类</th>
-                        {{--<th>回答</th>--}}
-                        <th>提问人</th>
-                        <th>指派人</th>
-                        <th>回答人</th>
-                        <th>提问时间</th>
-                        <th>回答时间</th>
+                        <th>操作人</th>
+                        <th>是否有附件</th>
+                        <th>创建时间</th>
+                        <th>更新时间</th>
                         <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if($faqs->count() > 0)
-                        @foreach($faqs as $key=>$item)
+                    @if($notices->count() > 0)
+                        @foreach($notices as $key=>$item)
                             <tr>
                                 <td><b>{{$key+1}}</b></td>
                                 <td>{{$item->title}}</td>
-                                <td>{{$item->getStatusOptions($item->status)}}</td>
-                                <td>{{\App\Models\FAQCategory::getFAQCategoryPath($item->category_id)}}</td>
-                                {{--<td>{{$item->answer}}</td>--}}
-                                <td>{{$item->hasOneAsk!=null?$item->hasOneAsk->name:''}}</td>
-                                <td>{{$item->hasOneAssign!=null?$item->hasOneAssign->name:''}}</td>
-                                <td>{{$item->hasOneAnswer!=null?$item->hasOneAnswer->name:''}}</td>
-                                <td>{{date("Y-m-d H:i:s",$item->ask_at)}}</td>
-                                <td>{{$item->answer_at >0 ?date("Y-m-d H:i:s",$item->answer_at):''}}</td>
+                                <td>{{\App\Models\Notice::getStatusOptions($item->status)}}</td>
+                                <td>{{$item->hasOneUser!=null?$item->hasOneUser->name:''}}</td>
+                                <td>{{count(\App\Models\ModelUpload::getUploads(['model'=>'Notice','model_id'=>$item->id]))>0?'有附件':'无附件'}}</td>
+                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->updated_at}}</td>
                                 <td class="operation">
-                                    @if($item->status != \App\Models\FAQ::STATUS_DELETE)
-                                        <a class="btn btn-sm btn-primary" href="{{ route('faq.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                                        <form action="" method="POST" style="display: inline">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <a class="btn btn-sm btn-danger btn-delete" href="{{ route('faq.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
-                                        </form>
-                                    @else
-                                        <a class="btn btn-sm btn-primary disabled" href="{{ route('faq.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                                        <a class="btn btn-sm btn-danger disabled" href="{{ route('faq.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
-                                    @endif
-
-                                    @if($item->status == \App\Models\FAQ::STATUS_HAS_REPLY)
-                                        <a class="btn btn-sm btn-success btn-change" href="{{ route('faq.change',[$item->id]) }}" title="转为知识"><i class="fa fa-refresh"></i> 转为知识</a>
-                                    @endif
+                                    <a class="btn btn-sm btn-primary" href="{{ route('notice.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
+                                    <form action="" method="POST" style="display: inline">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <a class="btn btn-sm btn-danger btn-delete" href="{{ route('notice.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -211,7 +156,7 @@
                     </tbody>
                 </table>
                 <div class="clearfix">
-                    {{$faqs->links()}}
+                    {{$notices->links()}}
                 </div>
             </div>
         </div>
@@ -256,7 +201,7 @@
         $(function () {
             $('.select2').select2();
 
-            $('#ask-time-range,#answer-time-range').daterangepicker({
+            $('#created-time-range').daterangepicker({
                 startDate:moment().subtract('days', 29),
                 endDate:moment(),
                 maxDate:moment(),
@@ -270,17 +215,17 @@
                 }
             });
 
-            @if(request('ask_time_range'))
-                $('#ask-time-range').val('{{request('ask_time_range')}}');
+            @if(request('created_time_range'))
+                $('#created-time-range').val('{{request('created_time_range')}}');
             @else
-                $('#ask-time-range').val('');
+                $('#created-time-range').val('');
             @endif
 
-            @if(request('answer_time_range'))
-                $('#answer-time-range').val('{{request('answer_time_range')}}');
-            @else
-                $('#answer-time-range').val('');
-            @endif
+            $(".btn-reset").on('click',function(){
+                $(this).closest('form').find('input').val('');
+                $("select[name=author],select[name=status]").val('').trigger('change.select2');
+                $('#created-time-range').val('');
+            });
 
             //转换为知识
             $(".btn-change").on('click',function(e){
@@ -303,7 +248,7 @@
                     success: function(data){
                         if(data.status == 'success') {
                             $("#modal-change .modal-body").html(data.html);
-                            // 绑定各种插件
+
                             $('#modal-change .select2').select2();
 
                             var ue = UE.getEditor('knowledge-content',{
@@ -398,6 +343,7 @@
                                     });
                                     $("input[name=upload_id]").val(upload_id.join(','));
                                 }else{
+                                    alert(data.response.state);
                                     $("#"+previewId).remove();
                                 }
 
@@ -414,7 +360,6 @@
                                 $("input[name=upload_id]").val(upload_id.join(','));
 
                             });
-                            // 绑定各种插件
                         }else{
                             $("#modal-change .modal-body").html('<div class="callout callout-danger"><h4>操作提醒</h4>'+data.message+'</div>');
                         }
@@ -423,12 +368,6 @@
                         $("#modal-change .modal-body").html('<div class="callout callout-danger"><h4>操作提醒</h4>'+data.responseJSON.message+'</div>');
                     }
                 });
-            });
-
-            $(".btn-reset").on('click',function(){
-                $(this).closest('form').find('input').val('');
-                $("select[name=category_id],select[name=status],select[name=ask_user_id],select[name=answer_user_id]").val('').trigger('change.select2');
-                $('#ask-time-range,#answer-time-range').val('');
             });
 
             $("#modal-change .confirm-change").on('click',function(){

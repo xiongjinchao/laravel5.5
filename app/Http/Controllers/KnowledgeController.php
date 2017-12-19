@@ -53,7 +53,7 @@ class KnowledgeController extends Controller
     public function create()
     {
         $data = [
-            'breadcrumb' => [['url' => '#','label' => '更新' ]],
+            'breadcrumb' => [['url' => '#','label' => '创建' ]],
             'countries' => Country::all()->toArray(),
             'knowledgeCategories' => KnowledgeCategory::getKnowledgeCategoryOptions(),
             'organizations' => Organization::getOrganizationOptions(),
@@ -85,11 +85,11 @@ class KnowledgeController extends Controller
 
             if(!empty($request->upload_id)){
                 $ids = explode(',',$request->upload_id);
-                foreach($ids as $id){
+                foreach($ids as $item){
                     $modelUpload = new ModelUpload();
                     $modelUpload->model = 'Knowledge';
                     $modelUpload->model_id = $knowledge->id;
-                    $modelUpload->upload_id = $id;
+                    $modelUpload->upload_id = $item;
                     $modelUpload->save();
                 }
             }
@@ -161,11 +161,11 @@ class KnowledgeController extends Controller
             ModelUpload::where('model', '=', 'Knowledge')->where('model_id', '=', $knowledge->id)->delete();
             if(!empty($request->upload_id)){
                 $ids = explode(',',$request->upload_id);
-                foreach($ids as $id){
+                foreach($ids as $item){
                     $modelUpload = new ModelUpload();
                     $modelUpload->model = 'Knowledge';
                     $modelUpload->model_id = $knowledge->id;
-                    $modelUpload->upload_id = $id;
+                    $modelUpload->upload_id = $item;
                     $modelUpload->save();
                 }
             }

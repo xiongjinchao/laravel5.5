@@ -35,6 +35,12 @@ class Knowledge extends Model
         return $this->hasOne('App\User', 'id', 'operator');
     }
 
+    //关联User
+    public function hasOneAuthor()
+    {
+        return $this->hasOne('App\User', 'id', 'author');
+    }
+
     //获取知识列表
     public static function getList($params)
     {
