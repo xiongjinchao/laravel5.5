@@ -69,6 +69,10 @@ class KnowledgeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
         $knowledge = new Knowledge();
         $knowledge->fill($request->all());
         $knowledge->tags = str_replace('，',',',$request->tags);
@@ -146,6 +150,10 @@ class KnowledgeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+        ]);
         $knowledge = Knowledge::find($id);
         $knowledge->fill($request->all());
         $knowledge->tags = str_replace('，',',',$request->tags);

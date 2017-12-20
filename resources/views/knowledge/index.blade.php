@@ -134,7 +134,7 @@
                     $(this).attr('data-page',1);
                 }
                 var page = $(this).attr('data-page');
-                url += '?category_id='+$("select[name=category_id]").val()+'&country_id='+$("select[name=country_id]").val()+'&status='+$(this).attr('data-status')+'&page='+page;
+                url += '?title={{request('title')}}&category_id='+$("select[name=category_id]").val()+'&country_id='+$("select[name=country_id]").val()+'&status='+$(this).attr('data-status')+'&page='+page;
                 $.ajax({
                     type: "GET",
                     url: url,

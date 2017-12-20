@@ -50,6 +50,9 @@ class Knowledge extends Model
             $id = KnowledgeCategory::where('lft','>=',$category->lft)->where('rgt','<=',$category->rgt)->pluck('id')->toArray();
             $query->whereIn('category_id',$id);
         }
+        if(array_get($params, 'title') != ''){
+            $query->where('title','like','%'.$params['title'].'%');
+        }
         if(array_get($params, 'country_id') > 0){
             $query->where('country_id','=',$params['country_id']);
         }
