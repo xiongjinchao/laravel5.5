@@ -197,8 +197,8 @@
                                             <a class="btn btn-sm btn-danger btn-delete" href="{{ route('faq.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
                                         </form>
                                     @else
-                                        <a class="btn btn-sm btn-primary disabled" href="{{ route('faq.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
-                                        <a class="btn btn-sm btn-danger disabled" href="{{ route('faq.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
+                                        <a class="btn btn-sm btn-default disabled" href="{{ route('faq.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>
+                                        <a class="btn btn-sm btn-default disabled" href="{{ route('faq.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
                                     @endif
 
                                     @if($item->status == \App\Models\FAQ::STATUS_HAS_REPLY)

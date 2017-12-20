@@ -16,5 +16,6 @@
 
 .content .krajee-default.file-preview-frame{box-shadow:none}
 .content .krajee-default.file-preview-frame:not(.file-preview-error):hover{box-shadow: 1px 1px 2px 0 #a2958a;}
+.content .krajee-default.file-preview-frame .kv-file-content{height:auto;}
 
 .content .input-group-addon i.fa{width:14px;!important;}

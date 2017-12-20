@@ -337,6 +337,7 @@
                     });
                     $("input[name=upload_id]").val(upload_id.join(','));
                 }else{
+                    alert(data.response.state);
                     $("#"+previewId).remove();
                 }
 

@@ -149,6 +149,10 @@
                                         {{ method_field('DELETE') }}
                                         <a class="btn btn-sm btn-danger btn-delete" href="{{ route('notice.destroy',[$item->id]) }}" title="删除"><i class="fa fa-trash"></i> 删除</a>
                                     </form>
+
+                                    @if($item->status == \App\Models\Notice::STATUS_PUBLISHED)
+                                        <a class="btn btn-sm btn-success btn-change" href="{{ route('notice.change',[$item->id]) }}" title="转为知识"><i class="fa fa-refresh"></i> 转为知识</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -260,6 +264,9 @@
                                 ue.execCommand('serverparam','_token','{{ csrf_token() }}');
                             });
 
+                            var preview = JSON.parse($("#preview").val());
+                            var config = JSON.parse($("#config").val());
+
                             $("#input-file").fileinput({
                                 uploadUrl: '{{ route('upload') }}?action=uploadfile&use_database=1',
                                 language: 'zh',
@@ -271,10 +278,10 @@
                                 minFileCount: 1,
                                 maxFileCount: 5,
                                 overwriteInitial: false,
-                                initialPreview: [],
+                                initialPreview: preview,
                                 initialPreviewAsData: true,
                                 initialPreviewFileType: 'image', // image is the default and can be overridden in config below
-                                initialPreviewConfig: [],
+                                initialPreviewConfig: config,
                                 preferIconicPreview: true, // this will force thumbnails to display icons for following file extensions
                                 previewFileIcon: '<i class="glyphicon glyphicon-file"></i>',
                                 previewFileIconSettings: { // configure your icon file extensions
