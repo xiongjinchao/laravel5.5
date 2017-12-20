@@ -118,9 +118,29 @@ class Knowledge extends Model
     //热门国家
     public static function getHotCountries()
     {
-        $knowledge = (new Knowledge())->getTable();
-        $country = (new Country())->getTable();
-        $query = DB::select('SELECT k.country_id, c.country, COUNT(k.country_id) AS count FROM '.$knowledge.' AS k LEFT JOIN '.$country.' AS c ON( k.country_id = c.id) GROUP BY K.country_id,C.country ORDER BY count DESC,c.id ASC LIMIT 5');
+        $knowledgeTable = DB::getTablePrefix() . (new Knowledge())->getTable();
+        $countryTable = DB::getTablePrefix() . (new Country())->getTable();
+        $query = DB::select('SELECT k.country_id, c.country, COUNT(k.country_id) AS count FROM '.$knowledgeTable.' AS k LEFT JOIN '.$countryTable.' AS c ON( k.country_id = c.id) GROUP BY K.country_id,C.country ORDER BY count DESC,c.id ASC LIMIT 5');
         return $query;
+    }
+
+    //获取知识分布
+    public static function getDistribution()
+    {
+        $result = [];
+        $knowledgeTable = DB::getTablePrefix() . (new Knowledge())->getTable();
+        $data = DB::select("SELECT DATE_FORMAT(FROM_UNIXTIME(created_at),'%Y-%m') as month, count(id) as count FROM ".$knowledgeTable." WHERE created_at > UNIX_TIMESTAMP(DATE_SUB(CURDATE(), INTERVAL 1 YEAR)) GROUP BY DATE_FORMAT(FROM_UNIXTIME(created_at),'%Y-%m')");
+        for($i = 11; $i >= 0; $i--){
+            $result['months'][] = date("Y-m", strtotime('-'.$i.' month'));
+            $result['value'][] = 0;
+        }
+        foreach($data as $item){
+            foreach($result['months'] as $key =>$month){
+                if($item->month == $month){
+                    $result['value'][$key] = $item->count;
+                }
+            }
+        }
+        return $result;
     }
 }

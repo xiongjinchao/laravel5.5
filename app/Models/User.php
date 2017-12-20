@@ -7,7 +7,7 @@ use Config,DB;
 class User extends \App\User
 {
     //未加入组织
-    const INORGANIZATION = 1;
+    const STATUS_OUT_ORGANIZATION = 1;
 
     const STATUS_ENABLED = 1;
     const STATUS_DISABLED = 2;
@@ -23,9 +23,9 @@ class User extends \App\User
     }
 
     //获取列表
-    public static function getList($params)
+    public static function getList($params, $size = 15)
     {
-        if(array_get($params, 'status_inorganization') == self::INORGANIZATION){
+        if(array_get($params, 'status_out_organization') == self::STATUS_OUT_ORGANIZATION){
             //未分配到组织架构的查询
             $useTable = DB::getTablePrefix() . (new User())->getTable();
             $query =  DB::table($useTable)
@@ -62,7 +62,7 @@ class User extends \App\User
             if (array_get($params, 'mobile') != '') {
                 $query->where('mobile', 'like', '%'.$params['mobile'].'%');
             }
-            return $query->orderBy('status', 'ASC')->orderBy('id', 'DESC')->paginate(15);
+            return $query->orderBy('status', 'ASC')->orderBy('id', 'DESC')->paginate($size);
         }
     }
 
@@ -91,5 +91,40 @@ class User extends \App\User
     {
         $roleUserTable = Config::get('entrust.role_user_table');
         return DB::table($roleUserTable)->where('user_id','=',$id)->pluck('role_id')->toArray();
+    }
+
+    //获取各个组织的人数分布
+    public static function getDistribution()
+    {
+        $result = [];
+        $useTable = DB::getTablePrefix() . (new User())->getTable();
+        $organizationTable = DB::getTablePrefix() . (new Organization())->getTable();
+        $users = DB::select("SELECT count(".$useTable.".organization_id) as count, ".$organizationTable.".name, ".$organizationTable.".id FROM ".$useTable." LEFT JOIN ".$organizationTable." ON(".$useTable.".organization_id = ".$organizationTable.".id) GROUP BY ".$useTable.".organization_id Order By count DESC");
+        $color = [
+            '#C71585',
+            '#FFA500',
+            '#FFFF00',
+            '#228B22',
+            '#800000',
+            '#808000',
+            '#008000',
+            '#000080',
+            '#FF0000',
+            '#0000FF',
+            '#800080',
+            '#008080',
+            '#FF00FF',
+            '#00FFFF',
+            '#00FF00',
+        ];
+        foreach($users as $key => $item)
+        {
+            $result[] = [
+                'label' => $item->id>0?$item->name:'未分配组织',
+                'value' => $item->count,
+                'color' => isset($color[$key])?$color[$key]:'gray',
+            ];
+        }
+        return $result;
     }
 }

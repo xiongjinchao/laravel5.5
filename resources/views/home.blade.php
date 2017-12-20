@@ -1,275 +1,204 @@
 @extends('layouts.admin-lte')
 
 @section('content')
-    <div class="user-index">
-        <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title">{{$page['subTitle'] or ''}}</h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
+    <div class="home-index">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="small-box bg-blue">
+                    <div class="inner">
+                        <h3>{{App\Models\User::all()->count()}}</h3>
+                        <p>用户数量</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="{{ route('user.index') }}" class="small-box-footer">
+                        所有用户 <i class="fa fa-arrow-circle-right"></i>
+                    </a>
                 </div>
             </div>
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>Minimal</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <!-- /.form-group -->
-                        <div class="form-group">
-                            <label>Disabled</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <!-- /.form-group -->
+            <div class="col-md-3">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>{{App\Models\Knowledge::all()->count()}}</h3>
+                        <p>知识数量</p>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>Multiple</label>
-                            <select class="form-control">
-                                <option>Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
-                        </div>
-                        <!-- /.form-group -->
-                        <div class="form-group">
-                            <label>Disabled Result</label>
-                            <select class="form-control">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option disabled="disabled">California (disabled)</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
-                        </div>
-                        <!-- /.form-group -->
+                    <div class="icon">
+                        <i class="fa fa-graduation-cap"></i>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>Minimal</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <!-- /.form-group -->
-                        <div class="form-group">
-                            <label>Disabled</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <!-- /.form-group -->
+                    <a href="{{ route('knowledge.index') }}" class="small-box-footer">
+                        所有知识 <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>{{App\Models\Notice::all()->count()}}</h3>
+                        <p>公告数量</p>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>Multiple</label>
-                            <select class="form-control">
-                                <option>Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
-                        </div>
-                        <!-- /.form-group -->
-                        <div class="form-group">
-                            <label>Disabled Result</label>
-                            <select class="form-control">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option disabled="disabled">California (disabled)</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
-                        </div>
-                        <!-- /.form-group -->
+                    <div class="icon">
+                        <i class="fa fa-send"></i>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>Minimal</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <!-- /.form-group -->
-                        <div class="form-group">
-                            <label>Disabled</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <!-- /.form-group -->
+                    <a href="{{ route('notice.index') }}" class="small-box-footer">
+                        所有公告 <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>{{App\Models\FAQ::all()->count()}}</h3>
+                        <p>FAQ数量</p>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>Multiple</label>
-                            <select class="form-control">
-                                <option>Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
+                    <div class="icon">
+                        <i class="fa fa-weixin"></i>
+                    </div>
+                    <a href="{{ route('faq.index') }}" class="small-box-footer">
+                        所有FAQ <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">用户分布</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
                         </div>
-                        <!-- /.form-group -->
-                        <div class="form-group">
-                            <label>Disabled Result</label>
-                            <select class="form-control">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option disabled="disabled">California (disabled)</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
-                        </div>
-                        <!-- /.form-group -->
+                    </div>
+                    <div class="box-body">
+                            <canvas id="chart-area" style="height: 150px;"/></canvas>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <a class="btn btn-info" href="/product/goods/create"><i class="fa fa-plus-circle"></i> 搜索用户</a>
-                        <a class="btn btn-success" href="/product/goods/create"><i class="fa fa-plus-circle"></i> 创建用户</a>
+            </div>
+
+            <div class="col-md-6">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">知识分布</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <canvas id="chart-bar" style="height: 150px; width:100%"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="box box-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">未分配的用户</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        @if(!empty($outOrganizationUser))
+                            <table class="table table-striped table-bordered table-hover">
+                                @foreach($outOrganizationUser as $item)
+                                    <tr>
+                                        <td><a href="{{ route('user.edit',['id' => $item->id]) }}">{{$item->name}}</a></td>
+                                        <td class="text-right">{{$item->created_at}}</td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <h3 class="box-title">{{$page['subTitle'] or ''}}</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">最新公告</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        @if($lastNotice->count() > 0)
+                            <table class="table table-striped table-bordered table-hover">
+                                @foreach($lastNotice as $item)
+                                    <tr>
+                                        <td><a href="{{ route('notice.edit',['id' => $item->id]) }}">{{$item->title}}</a></td>
+                                        <td class="text-right">{{$item->hasOneAuthor!=null?$item->hasOneAuthor->name:''}}</td>
+                                        <td class="text-right">{{$item->created_at}}</td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        @endif
+                    </div>
+                </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <table class="table table-bordered">
-                    <tbody><tr>
-                        <th style="width: 10px">#</th>
-                        <th>Task</th>
-                        <th>Progress</th>
-                        <th style="width: 40px">Label</th>
-                    </tr>
-                    <tr>
-                        <td>1.</td>
-                        <td>Update software</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-red">55%</span></td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Clean database</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-yellow">70%</span></td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td>Cron job running</td>
-                        <td>
-                            <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-light-blue">30%</span></td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>Fix and squish bugs</td>
-                        <td>
-                            <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-green">90%</span></td>
-                    </tr>
-                    </tbody></table>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-                <ul class="pagination pagination-sm no-margin pull-right">
-                    <li><a href="#">«</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">»</a></li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#activity" data-toggle="tab" aria-expanded="true">Activity</a></li>
-                <li class=""><a href="#timeline" data-toggle="tab" aria-expanded="false">Timeline</a></li>
-                <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">Settings</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="activity">
-                    <table class="table table-bordered">
-                        <tbody><tr>
-                            <th style="width: 10px">#</th>
-                            <th>Task</th>
-                            <th>Progress</th>
-                            <th style="width: 40px">Label</th>
-                        </tr>
-                        <tr>
-                            <td>1.</td>
-                            <td>Update software</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-red">55%</span></td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Clean database</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-yellow">70%</span></td>
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td>Cron job running</td>
-                            <td>
-                                <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-light-blue">30%</span></td>
-                        </tr>
-                        <tr>
-                            <td>4.</td>
-                            <td>Fix and squish bugs</td>
-                            <td>
-                                <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-green">90%</span></td>
-                        </tr>
-                        </tbody></table>
+            <div class="col-md-6">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">未回复的问题</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        @if($waitReplyFAQ->count() > 0)
+                            <table class="table table-striped table-bordered table-hover">
+                                @foreach($waitReplyFAQ as $item)
+                                    <tr>
+                                        <td><a href="{{ route('faq.edit',['id' => $item->id]) }}">{{$item->title}}</a></td>
+                                        <td class="text-right">{{$item->hasOneASK!=null?$item->hasOneASK->name:''}}</td>
+                                        <td class="text-right">{{date("Y-m-d H:i:s",$item->asked_at)}}</td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{asset("AdminLTE/bower_components/chart.js/Chart.min.js")}}"></script>
+    <script>
+        $(function () {
+            var pieData = JSON.parse('{!!json_encode($organizationDistribution,JSON_UNESCAPED_UNICODE)!!}');
+            var areaChartCanvas = $("#chart-area").get(0).getContext("2d");
+            new Chart(areaChartCanvas).Pie(pieData);
+
+
+            var barData = {
+                labels: JSON.parse('{!!json_encode($knowledgeDistribution['months'])!!}'),
+                datasets: [
+                    {
+                        label: "知识数量",
+                        fillColor: "#337ab7",
+                        strokeColor: "#337ab7",
+                        pointColor: "#337ab7",
+                        pointStrokeColor: "#c1c7d1",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: JSON.parse('{!!json_encode($knowledgeDistribution['value'])!!}')
+                    }
+                ]
+            };
+
+            var barChartCanvas = $("#chart-bar").get(0).getContext("2d");
+            new Chart(barChartCanvas).Bar(barData);
+        })
+    </script>
 @endsection

@@ -72,7 +72,7 @@ class FAQController extends Controller
         $faq->ask_user_id = $request->user()->id;
         $faq->operator = $request->user()->id;
         $faq->status = FAQ::STATUS_NOT_REPLY;
-        $faq->ask_at = time();
+        $faq->asked_at = time();
         if($faq->save()){
 
             ModelLog::log([
@@ -127,6 +127,11 @@ class FAQController extends Controller
         $faq = FAQ::find($id);
         $faq->fill($request->all());
         $faq->operator = $request->user()->id;
+        if($faq->content == '' && request('content')!=''){
+            $faq->answer_user_id = $request->user()->id;
+            $faq->status = FAQ::STATUS_HAS_REPLY;
+            $faq->answered_at = time();
+        }
         if($faq->save()){
 
             ModelLog::log([

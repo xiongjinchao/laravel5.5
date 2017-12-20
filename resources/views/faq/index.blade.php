@@ -186,8 +186,8 @@
                                 <td>{{$item->hasOneAsk!=null?$item->hasOneAsk->name:''}}</td>
                                 <td>{{$item->hasOneAssign!=null?$item->hasOneAssign->name:''}}</td>
                                 <td>{{$item->hasOneAnswer!=null?$item->hasOneAnswer->name:''}}</td>
-                                <td>{{date("Y-m-d H:i:s",$item->ask_at)}}</td>
-                                <td>{{$item->answer_at >0 ?date("Y-m-d H:i:s",$item->answer_at):''}}</td>
+                                <td>{{date("Y-m-d H:i:s",$item->asked_at)}}</td>
+                                <td>{{$item->answered_at >0 ?date("Y-m-d H:i:s",$item->answered_at):''}}</td>
                                 <td class="operation">
                                     @if($item->status != \App\Models\FAQ::STATUS_DELETE)
                                         <a class="btn btn-sm btn-primary" href="{{ route('faq.edit',[$item->id]) }}" title="更新"><i class="fa fa-edit"></i> 更新</a>

@@ -175,13 +175,13 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input class="form-control" value="{{date('Y-m-d H:i:s',$faq->ask_at)}}" readonly>
+                                            <input class="form-control" value="{{date('Y-m-d H:i:s',$faq->asked_at)}}" readonly>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            @if($faq->answer_at != '')
+                            @if($faq->answered_at > 0 )
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -190,7 +190,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </div>
-                                                <input class="form-control" value="{{date('Y-m-d H:i:s',$faq->answer_at)}}" readonly>
+                                                <input class="form-control" value="{{date('Y-m-d H:i:s',$faq->answered_at)}}" readonly>
                                             </div>
                                         </div>
                                     </div>

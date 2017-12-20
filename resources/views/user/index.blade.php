@@ -81,8 +81,8 @@
 
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#activity" data-toggle="tab" data-status_inorganization="">全部用户</a></li>
-                <li class=""><a href="#inorganization" data-toggle="tab" data-status_inorganization="{{\App\Models\User::INORGANIZATION}}">未分配到组织架构</a></li>
+                <li class="active"><a href="#activity" data-toggle="tab" data-status_out_organization="">全部用户</a></li>
+                <li class=""><a href="#inorganization" data-toggle="tab" data-status_out_organization="{{\App\Models\User::STATUS_OUT_ORGANIZATION}}">未分配到组织架构</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="activity">
@@ -127,7 +127,7 @@
                     $(this).attr('data-page',1);
                 }
                 var page = $(this).attr('data-page');
-                url += '?organization_id='+$("select[name=organization_id]").val()+'&name='+$("input[name=name]").val()+'&mobile='+$("input[name=mobile]").val()+'&email='+$("input[name=email]").val()+'&status_inorganization='+$(this).attr('data-status_inorganization')+'&page='+page;
+                url += '?organization_id='+$("select[name=organization_id]").val()+'&name='+$("input[name=name]").val()+'&mobile='+$("input[name=mobile]").val()+'&email='+$("input[name=email]").val()+'&status_out_organization='+$(this).attr('data-status_out_organization')+'&page='+page;
                 $.ajax({
                     type: "GET",
                     url: url,
