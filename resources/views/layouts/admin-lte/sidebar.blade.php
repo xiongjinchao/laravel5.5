@@ -18,7 +18,7 @@
         <!-- search form (Optional) -->
         <form action="{{ route('knowledge.index') }}" method="get" class="sidebar-form">
             <div class="input-group">
-                <input type="text" name="title" class="form-control" placeholder="搜索...">
+                <input type="text" name="title" class="form-control" placeholder="搜索知识">
                 <span class="input-group-btn">
               <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
               </button>

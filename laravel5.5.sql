@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-12-15 18:18:17
+Date: 2017-12-21 14:17:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -133,7 +133,7 @@ INSERT INTO `country` VALUES ('145', '2', 'LU', '卢森堡', 'lusenbao', 'lsb', 
 DROP TABLE IF EXISTS `faq`;
 CREATE TABLE `faq` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `ask_title` varchar(200) NOT NULL DEFAULT '' COMMENT '提问',
+  `title` varchar(200) NOT NULL DEFAULT '' COMMENT '提问',
   `category_id` tinyint(4) DEFAULT '0' COMMENT 'FAQ分类',
   `answer` text COMMENT '回答',
   `status` tinyint(4) DEFAULT '0' COMMENT '状态 1未回复 2已回复 3已删除',
@@ -141,17 +141,17 @@ CREATE TABLE `faq` (
   `assign_user_id` int(11) DEFAULT '0' COMMENT '指派人',
   `answer_user_id` int(11) DEFAULT '0' COMMENT '回答人',
   `operator` int(11) NOT NULL DEFAULT '0' COMMENT '操作人',
-  `ask_at` int(11) NOT NULL DEFAULT '0',
-  `answer_at` int(11) NOT NULL DEFAULT '0',
+  `asked_at` int(11) NOT NULL DEFAULT '0',
+  `answered_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of faq
 -- ----------------------------
-INSERT INTO `faq` VALUES ('1', '切勿拿这些心灵鸡汤来教育孩子', '5', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '3', '1', '23', '1', '1', '1443586647', '1513065224');
-INSERT INTO `faq` VALUES ('2', '这些话将是一生所求的答案！', '6', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '5', '1', '0', '1', '1', '1443586649', '1512475296');
-INSERT INTO `faq` VALUES ('4', '为什么白天必须要结束？', '2', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '4', '1', '22', '1', '1', '1443586650', '1513067356');
+INSERT INTO `faq` VALUES ('1', '切勿拿这些心灵鸡汤来教育孩子', '5', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '1', '1', '23', '1', '1', '1443586647', '1513065224');
+INSERT INTO `faq` VALUES ('2', '这些话将是一生所求的答案！', '6', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '2', '1', '0', '1', '1', '1443586649', '1512475296');
+INSERT INTO `faq` VALUES ('4', '为什么白天必须要结束？', '2', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '3', '1', '3', '1', '1', '1443586650', '1513067356');
 
 -- ----------------------------
 -- Table structure for faq_category
@@ -200,7 +200,7 @@ CREATE TABLE `knowledge` (
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of knowledge
@@ -228,7 +228,7 @@ INSERT INTO `knowledge` VALUES ('21', '这些话将是一生所求的答案！',
 INSERT INTO `knowledge` VALUES ('22', '这些话将是一生所求的答案！', '6', '73', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '4', '0', '0', '1', '1', '', '1', '1513068361', '1513146684');
 INSERT INTO `knowledge` VALUES ('23', '天上风筝在天上飞', '1', '23', '<p>天上风筝在天上飞天上风筝在天上飞</p>', '2', '0', '0', '1', '1', '', '1', '1513075729', '1513079339');
 INSERT INTO `knowledge` VALUES ('24', '天上风筝在天上飞', '1', '23', '<p>天上风筝在天上飞天上风筝在天上飞</p>', '1', '0', '0', '1', '1', '', '1', '1513239757', '1513239757');
-INSERT INTO `knowledge` VALUES ('25', '测试', '1', '0', '<p>测试</p>', '1', '0', '0', '1', '1', '人力,测试', '2', '1513241724', '1513249322');
+INSERT INTO `knowledge` VALUES ('31', '这些话将是一生所求的答案！', '0', '0', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '1', '0', '0', '1', '1', '百程', '1', '1513740311', '1513836103');
 
 -- ----------------------------
 -- Table structure for knowledge_category
@@ -288,7 +288,7 @@ CREATE TABLE `model_log` (
   `operator` varchar(255) CHARACTER SET latin1 DEFAULT '',
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of model_log
@@ -316,6 +316,42 @@ INSERT INTO `model_log` VALUES ('20', 'Knowledge', '25', '更新知识', '1', '2
 INSERT INTO `model_log` VALUES ('21', 'Knowledge', '25', '更新知识', '1', '2017-12-14 19:01:15');
 INSERT INTO `model_log` VALUES ('22', 'Knowledge', '25', '更新知识', '1', '2017-12-14 19:02:02');
 INSERT INTO `model_log` VALUES ('23', 'Knowledge', '25', '更新知识', '1', '2017-12-14 19:52:03');
+INSERT INTO `model_log` VALUES ('24', 'FAQ', '4', '更新FAQ', '1', '2017-12-18 14:18:09');
+INSERT INTO `model_log` VALUES ('25', 'FAQ', '4', '更新FAQ', '1', '2017-12-18 14:18:27');
+INSERT INTO `model_log` VALUES ('26', 'FAQ', '4', '更新FAQ', '1', '2017-12-18 14:18:47');
+INSERT INTO `model_log` VALUES ('27', 'FAQ', '5', '创建FAQ', '1', '2017-12-19 14:44:19');
+INSERT INTO `model_log` VALUES ('28', 'FAQ', '2', '转换知识', '1', '2017-12-19 15:49:53');
+INSERT INTO `model_log` VALUES ('29', 'Knowledge', '26', 'FAQ转换', '1', '2017-12-19 15:49:54');
+INSERT INTO `model_log` VALUES ('30', 'FAQ', '6', '创建FAQ', '1', '2017-12-19 17:12:37');
+INSERT INTO `model_log` VALUES ('31', 'FAQ', '5', '删除公告', '1', '2017-12-19 19:01:34');
+INSERT INTO `model_log` VALUES ('32', 'FAQ', '2', '转换知识', '1', '2017-12-19 19:55:39');
+INSERT INTO `model_log` VALUES ('33', 'Knowledge', '27', 'FAQ转换', '1', '2017-12-19 19:55:39');
+INSERT INTO `model_log` VALUES ('34', 'FAQ', '2', '转换知识', '1', '2017-12-19 19:56:18');
+INSERT INTO `model_log` VALUES ('35', 'Knowledge', '28', 'FAQ转换', '1', '2017-12-19 19:56:18');
+INSERT INTO `model_log` VALUES ('36', 'Knowledge', '27', '删除知识', '1', '2017-12-19 19:56:29');
+INSERT INTO `model_log` VALUES ('37', 'Notice', '4', '更新公告', '1', '2017-12-19 20:00:49');
+INSERT INTO `model_log` VALUES ('38', 'Notice', '4', '更新公告', '1', '2017-12-19 20:03:11');
+INSERT INTO `model_log` VALUES ('39', 'Notice', '4', '更新公告', '1', '2017-12-19 20:04:01');
+INSERT INTO `model_log` VALUES ('40', 'Notice', '4', '更新公告', '1', '2017-12-19 20:04:35');
+INSERT INTO `model_log` VALUES ('41', 'Notice', '5', '创建公告', '1', '2017-12-20 10:24:36');
+INSERT INTO `model_log` VALUES ('42', 'FAQ', '5', '删除公告', '1', '2017-12-20 10:25:32');
+INSERT INTO `model_log` VALUES ('43', 'Notice', '6', '创建公告', '1', '2017-12-20 10:25:52');
+INSERT INTO `model_log` VALUES ('44', 'FAQ', '6', '删除公告', '1', '2017-12-20 10:26:09');
+INSERT INTO `model_log` VALUES ('45', 'Notice', '7', '创建公告', '1', '2017-12-20 10:26:33');
+INSERT INTO `model_log` VALUES ('46', 'FAQ', '7', '删除公告', '1', '2017-12-20 11:03:44');
+INSERT INTO `model_log` VALUES ('47', 'Notice', '2', '更新公告', '1', '2017-12-20 11:14:33');
+INSERT INTO `model_log` VALUES ('48', 'Notice', '2', '转换知识', '1', '2017-12-20 11:17:40');
+INSERT INTO `model_log` VALUES ('49', 'Notice', '29', '公告转换', '1', '2017-12-20 11:17:40');
+INSERT INTO `model_log` VALUES ('50', 'Knowledge', '25', '删除知识', '1', '2017-12-20 11:19:15');
+INSERT INTO `model_log` VALUES ('51', 'Knowledge', '26', '删除知识', '1', '2017-12-20 11:19:32');
+INSERT INTO `model_log` VALUES ('52', 'Knowledge', '28', '删除知识', '1', '2017-12-20 11:19:35');
+INSERT INTO `model_log` VALUES ('53', 'Notice', '2', '转换知识', '1', '2017-12-20 11:20:44');
+INSERT INTO `model_log` VALUES ('54', 'Notice', '30', '公告转换', '1', '2017-12-20 11:20:44');
+INSERT INTO `model_log` VALUES ('55', 'Knowledge', '30', '删除知识', '1', '2017-12-20 11:21:12');
+INSERT INTO `model_log` VALUES ('56', 'Knowledge', '29', '删除知识', '1', '2017-12-20 11:24:53');
+INSERT INTO `model_log` VALUES ('57', 'Notice', '2', '转换知识', '1', '2017-12-20 11:25:11');
+INSERT INTO `model_log` VALUES ('58', 'Notice', '31', '公告转换', '1', '2017-12-20 11:25:11');
+INSERT INTO `model_log` VALUES ('59', 'Knowledge', '31', '更新知识', '1', '2017-12-21 14:01:43');
 
 -- ----------------------------
 -- Table structure for model_upload
@@ -329,7 +365,7 @@ CREATE TABLE `model_upload` (
   PRIMARY KEY (`id`),
   KEY `model_id` (`model_id`) USING BTREE,
   KEY `upload_id` (`upload_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of model_upload
@@ -342,6 +378,35 @@ INSERT INTO `model_upload` VALUES ('12', 'Knowledge', '24', '5');
 INSERT INTO `model_upload` VALUES ('13', 'Knowledge', '24', '47');
 INSERT INTO `model_upload` VALUES ('20', 'Knowledge', '25', '48');
 INSERT INTO `model_upload` VALUES ('21', 'Knowledge', '25', '49');
+INSERT INTO `model_upload` VALUES ('22', 'Knowledge', '28', '50');
+INSERT INTO `model_upload` VALUES ('24', 'Notice', '4', '51');
+INSERT INTO `model_upload` VALUES ('25', 'Notice', '7', '52');
+INSERT INTO `model_upload` VALUES ('26', 'Notice', '2', '53');
+INSERT INTO `model_upload` VALUES ('27', 'Knowledge', '30', '53');
+INSERT INTO `model_upload` VALUES ('29', 'Knowledge', '31', '53');
+
+-- ----------------------------
+-- Table structure for notice
+-- ----------------------------
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE `notice` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) NOT NULL DEFAULT '' COMMENT '提问',
+  `content` text COMMENT '回答',
+  `author` int(11) NOT NULL DEFAULT '0' COMMENT '作者',
+  `operator` int(11) NOT NULL DEFAULT '0' COMMENT '操作人',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态 1未发布 2已发布',
+  `created_at` int(11) NOT NULL DEFAULT '0',
+  `updated_at` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of notice
+-- ----------------------------
+INSERT INTO `notice` VALUES ('1', '切勿拿这些心灵鸡汤来教育孩子', '<p>请你准备好纸和笔，跟随下面这13个问题，进行一趟心灵的探索之旅，找到你的人生方向吧！</p><p>一、立足当下</p><p>我现在正在做的事情是什么？我喜欢它吗？我热爱它吗？我全身心得为这件事投入过吗？就像不需要报酬、不需要喝彩、不需要成就一样，而只是因为我喜欢做这件事吗？</p><p>二、反省</p><p>如果我不喜欢我正在做的事，那需要思考的是，当初我为什么会做了这样的“选择”？比起怨天尤人，我肯为我的“选择”负起责任吗？如果非要为上天也同意我做这件事找一个理由，那上天希望我从这件事中学习哪些能力呢？想锻炼我的什么品质呢？</p><p>三、接受现状的实相</p><p>抱着对生命旅途臣服的心，去思考——如果我将现在正在做的事情做到极致，我能为这个世界创造一份怎样的价值？那会是怎样的景象？我会为自己书写一个怎样的故事？</p><p>四、价值需求</p><p>我期望从此生得到的是什么？我认为人生中最重要的是什么？还有更多吗？为什么？</p><p>五、厘清身份</p><p>在我看来，什么样的人容易获得这些价值？而我是怎样一个人？</p><p>六、觉察使命</p><p>我本身所具备的天赋、才华与世界的需求之间有哪些交汇呢？如果我身兼一个使命而来，那个使命是什么？</p>', '1', '1', '1', '1443586647', '1513065224');
+INSERT INTO `notice` VALUES ('2', '这些话将是一生所求的答案！', '<p>1.亦舒说:</p><p>人们日常所犯最大的错误，是对陌生人太客气，而对亲密的人太苛刻，</p><p>把这个坏习惯改过来，天下太平。</p><p>2.郭敬明说:</p><p>我终于发现自己看人的眼光太过简单，我从来没有去想面具下面是一张怎样的面容，</p><p>我总是直接把面具当做面孔来对待，却忘记了笑脸面具下往往都是一张流着泪的脸。</p><p>3.刘心武说:</p><p>对不起是一种真诚，没关系是一种风度。</p><p>如果你付出了真诚，却得不到风度，那只能说明对方的无知与粗俗！</p><p>4.韩寒说:</p><p>再累再苦就当自己是二百五再难再险就当自己是二皮脸。</p><p>5.安妮宝贝说:</p><p>当一个女子在看天空的时候，她并不想寻找什么。</p><p>她只是寂寞。</p>', '1', '1', '2', '1443586649', '1512475296');
+INSERT INTO `notice` VALUES ('4', '为什么白天必须要结束？', '<p>金黄色的大太阳已经照了一整天，白天就要结束了。</p><p>小男孩看到白天结束非常伤心。</p><p>现在，他的妈妈来向他道晚安。</p><p>“为什么白天必须要结束呢？”他问妈妈。</p><p>“这样，夜晚才能开始啊。”</p><p>“可是，白天结束时，太阳到哪里去了呢？”</p><p>“白天其实没有结束，它会在别处开始，太阳将会在那里发光。这时夜晚会在这里开始。什么都不会结束。”</p><p>“真的什么都不会结束？”</p><p>“什么都不会，它会在另一个地方以另一种方式开始。”</p><p>小男孩躺在被窝里，妈妈坐在他身边。</p><p>“风停之后，风到哪里去了呢？”他继续问。</p><p>“它吹到别的地方，让那里的树跳舞去了。”</p>', '1', '1', '1', '1443586650', '1513067356');
 
 -- ----------------------------
 -- Table structure for organization
@@ -365,7 +430,7 @@ CREATE TABLE `organization` (
 -- ----------------------------
 -- Records of organization
 -- ----------------------------
-INSERT INTO `organization` VALUES ('1', '北京百程国际旅游股份有限公司', '1', '64', '0', '1', '1', '1512542240', '1512638958');
+INSERT INTO `organization` VALUES ('1', '百程旅游', '1', '64', '0', '1', '1', '1512542240', '1513828770');
 INSERT INTO `organization` VALUES ('2', '北京总部', '2', '51', '1', '2', '1', '1512542380', '1512638958');
 INSERT INTO `organization` VALUES ('3', '广州分公司', '52', '53', '1', '2', '1', '1512542481', '1512638958');
 INSERT INTO `organization` VALUES ('4', '沈阳分公司', '54', '55', '1', '2', '1', '1512542498', '1512638958');
@@ -429,7 +494,7 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permissions_name_unique` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of permissions
@@ -483,6 +548,10 @@ INSERT INTO `permissions` VALUES ('53', 'App\\Http\\Controllers\\FAQCategoryCont
 INSERT INTO `permissions` VALUES ('54', 'App\\Http\\Controllers\\FAQCategoryController@create', 'App\\Http\\Controllers\\FAQCategoryController@create', 'faq-category/create', '2017-12-14 19:43:36', '2017-12-14 19:43:36');
 INSERT INTO `permissions` VALUES ('55', 'App\\Http\\Controllers\\FAQCategoryController@update', 'App\\Http\\Controllers\\FAQCategoryController@update', 'faq-category/{faq_category}/edit', '2017-12-14 19:43:36', '2017-12-14 19:43:36');
 INSERT INTO `permissions` VALUES ('56', 'App\\Http\\Controllers\\FAQCategoryController@destroy', 'App\\Http\\Controllers\\FAQCategoryController@destroy', 'faq-category/{faq_category}', '2017-12-14 19:43:36', '2017-12-14 19:43:36');
+INSERT INTO `permissions` VALUES ('57', 'App\\Http\\Controllers\\FAQController@log', 'App\\Http\\Controllers\\FAQController@log', 'faq/log/{id}', '2017-12-18 14:26:38', '2017-12-18 14:26:38');
+INSERT INTO `permissions` VALUES ('58', 'App\\Http\\Controllers\\FAQController@change', 'App\\Http\\Controllers\\FAQController@change', 'faq/change/{id}', '2017-12-19 15:32:11', '2017-12-19 15:32:11');
+INSERT INTO `permissions` VALUES ('59', 'App\\Http\\Controllers\\NoticeController@change', 'App\\Http\\Controllers\\NoticeController@change', 'notice/change/{id}', '2017-12-20 10:05:25', '2017-12-20 10:05:25');
+INSERT INTO `permissions` VALUES ('60', 'App\\Http\\Controllers\\NoticeController@log', 'App\\Http\\Controllers\\NoticeController@log', 'notice/log/{id}', '2017-12-20 10:05:25', '2017-12-20 10:05:25');
 
 -- ----------------------------
 -- Table structure for permission_role
@@ -624,6 +693,14 @@ INSERT INTO `permission_role` VALUES ('55', '1');
 INSERT INTO `permission_role` VALUES ('55', '10');
 INSERT INTO `permission_role` VALUES ('56', '1');
 INSERT INTO `permission_role` VALUES ('56', '10');
+INSERT INTO `permission_role` VALUES ('57', '1');
+INSERT INTO `permission_role` VALUES ('57', '7');
+INSERT INTO `permission_role` VALUES ('58', '1');
+INSERT INTO `permission_role` VALUES ('58', '7');
+INSERT INTO `permission_role` VALUES ('59', '1');
+INSERT INTO `permission_role` VALUES ('59', '8');
+INSERT INTO `permission_role` VALUES ('60', '1');
+INSERT INTO `permission_role` VALUES ('60', '8');
 
 -- ----------------------------
 -- Table structure for roles
@@ -690,7 +767,7 @@ CREATE TABLE `uploads` (
   `operator` int(11) NOT NULL DEFAULT '0' COMMENT '上传图片者的ID',
   `created_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of uploads
@@ -740,6 +817,10 @@ INSERT INTO `uploads` VALUES ('45', '1474545436456379.jpg', 'image/jpeg', '/uplo
 INSERT INTO `uploads` VALUES ('47', 'hotelimg.jpg', 'image/jpeg', '/uploads/file/20171214/1513241319.jpg', '13334', '1', '1513241319');
 INSERT INTO `uploads` VALUES ('48', '1474545436456379.jpg', 'image/jpeg', '/uploads/file/20171214/1513241673.jpg', '56820', '1', '1513241673');
 INSERT INTO `uploads` VALUES ('49', '201600612一期各分公司需求及优化.zip', 'application/zip', '/uploads/file/20171214/1513252320.zip', '1396706', '1', '1513252320');
+INSERT INTO `uploads` VALUES ('50', 'head.jpg', 'image/jpeg', '/uploads/file/20171219/1513684511.jpg', '49943', '1', '1513684511');
+INSERT INTO `uploads` VALUES ('51', 'head.jpg', 'image/jpeg', '/uploads/file/20171219/1513685036.jpg', '49943', '1', '1513685036');
+INSERT INTO `uploads` VALUES ('52', 'head.jpg', 'image/jpeg', '/uploads/file/20171220/1513736792.jpg', '49943', '1', '1513736792');
+INSERT INTO `uploads` VALUES ('53', 'head.jpg', 'image/jpeg', '/uploads/file/20171220/1513739671.jpg', '49943', '1', '1513739671');
 
 -- ----------------------------
 -- Table structure for users
@@ -759,11 +840,14 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email_unique` (`email`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '总旋风', '31', 'admin@baicheng.com', '15911006066', '$2y$10$q4BPwflIuQ5hf3gmX1eS.Of11KYKvRRixDquSNoJbJkZGQf3aZ7.G', 'LzscCPJKYGtmr7YDoE4NKYbGhewVxzhe0oKwNYkqAzPdZCQLCSWpJRDhUXmd', '1', '1', '2017-11-28 18:22:29', '2017-12-07 17:18:56');
+INSERT INTO `users` VALUES ('1', '系统管理员', '1', 'admin@baicheng.com', '15911006066', '$2y$10$q4BPwflIuQ5hf3gmX1eS.Of11KYKvRRixDquSNoJbJkZGQf3aZ7.G', 'LzscCPJKYGtmr7YDoE4NKYbGhewVxzhe0oKwNYkqAzPdZCQLCSWpJRDhUXmd', '1', '1', '2017-11-28 18:22:29', '2017-12-07 17:18:56');
 INSERT INTO `users` VALUES ('2', '孙小坦', '30', 'sunxiaotan@baicheng.com', '18611911257', '$2y$10$Hx69y2xvLFVmIeTXBsMDpu..TrWieVG02yjPS20o5tbPB7tPRBtr6', null, '1', '2', '2017-12-07 17:25:06', '2017-12-15 17:26:11');
 INSERT INTO `users` VALUES ('3', '刘丽君', '32', 'liulijun@baicheng.com', '13801060351', '$2y$10$/cvLK8W1oWgR8KQo/trerODPUnpNGNqdVGWEnWE4FtIRqtssQmcki', null, '1', '2', '2017-12-07 17:30:17', '2017-12-07 17:30:17');
+INSERT INTO `users` VALUES ('4', '李佳', '0', 'lijia@baicheng.com', '13520869504', '$2y$10$lRC5JKyrTm6eKpbkBBL5Gucg8lsbyMvmWMJybWYvN9EwOA6HwVJfu', null, '1', '1', '2017-12-20 15:24:05', '2017-12-21 14:09:53');
+INSERT INTO `users` VALUES ('5', '韩雪', '31', 'hanxue@baicheng.com', '18610294794', '$2y$10$V5qoDf1tok1Zxom/UV9GeOcdtdZcYnES/7bGHusEk3h347DFfCfli', null, '1', '2', '2017-12-21 14:06:44', '2017-12-21 14:06:44');
+INSERT INTO `users` VALUES ('6', '熊进超', '30', 'xiongjinchao@baicheng.com', '15911006066', '$2y$10$TFsnYyyPYSN7qmppEhz7hOD75hu.puyjFj4b6zLzeKwSifTCheiEa', null, '1', '1', '2017-12-21 14:07:28', '2017-12-21 14:07:28');

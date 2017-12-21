@@ -12,7 +12,7 @@
                     <thead>
                         <tr>
                             <th style="width: 10px">#</th>
-                            <th>名称</th>
+                            <th width="50%">名称</th>
                             <th>操作人</th>
                             <th>操作时间</th>
                             <th>操作</th>

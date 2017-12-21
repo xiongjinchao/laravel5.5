@@ -23,13 +23,19 @@ class User extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => 'required|max:255',
             'password' => 'required|min:6|max:16',
             'organization_id' => 'required',
             'email' => 'required|email',
-            'mobile' => 'required|size:11|integer',
+            'mobile' => 'required|regex:/^1[34578][0-9]{9}$/',
         ];
+        if(request()->isMethod('post')){
+            return $rules;
+        }else{
+            unset($rules['password']);
+            return $rules;
+        }
     }
 
     public function messages()
@@ -44,8 +50,7 @@ class User extends FormRequest
             'email.required' => '请输入邮箱',
             'email.email' => '邮箱格式不合法',
             'mobile.required' => '请输入手机号码',
-            'mobile.size' => '手机号码只能是11位',
-            'mobile.integer' => '手机号码必须是数字',
+            'mobile.regex' => '手机号码格式不合法',
         ];
     }
 }

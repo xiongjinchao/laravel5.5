@@ -51,7 +51,7 @@ class Knowledge extends Model
             $query->whereIn('category_id',$id);
         }
         if(array_get($params, 'title') != ''){
-            $query->where('title','like','%'.$params['title'].'%');
+            $query->where('title','like','%'.$params['title'].'%')->orWhere('tags','like','%'.$params['title'].'%');
         }
         if(array_get($params, 'country_id') > 0){
             $query->where('country_id','=',$params['country_id']);
