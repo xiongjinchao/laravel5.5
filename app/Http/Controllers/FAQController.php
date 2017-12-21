@@ -62,10 +62,10 @@ class FAQController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\FAQ  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(\App\Http\Requests\FAQ $request)
     {
         $faq = new FAQ();
         $faq->fill($request->all());
@@ -118,19 +118,22 @@ class FAQController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\FAQ  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(\App\Http\Requests\FAQ $request, $id)
     {
         $faq = FAQ::find($id);
         $faq->fill($request->all());
         $faq->operator = $request->user()->id;
         if($faq->content == '' && request('content')!=''){
-            $faq->answer_user_id = $request->user()->id;
             $faq->status = FAQ::STATUS_HAS_REPLY;
             $faq->answered_at = time();
+        }else if($faq->content != '' && request('content')==''){
+            $faq->answer_user_id = 0;
+            $faq->status = FAQ::STATUS_NOT_REPLY;
+            $faq->answered_at = 0;
         }
         if($faq->save()){
 

@@ -29,7 +29,8 @@
         @endif
 
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="callout callout-danger">
+                <h4><i class="fa fa-lightbulb-o"></i> 操作提醒</h4>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

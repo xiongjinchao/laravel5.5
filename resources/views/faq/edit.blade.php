@@ -30,7 +30,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-header"></i>
                                             </div>
-                                            <input class="form-control" name="title" value="{{$faq->title}}">
+                                            <input class="form-control" name="title" value="{{ old('title',$faq->title)}}">
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>回答</label>
-                                        <textarea id="faq-answer" name="answer" rows="3" placeholder="请输入回答内容" style="height:300px;">{{$faq->answer}}</textarea>
+                                        <textarea id="faq-answer" name="answer" rows="3" placeholder="请输入回答内容" style="height:300px;">{{ old('answer',$faq->answer) }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -52,9 +52,9 @@
                                                 <i class="fa fa-sitemap"></i>
                                             </div>
                                             <select class="form-control select2" name="category_id" style="width: 100%;">
-                                                <option value="0">请选择</option>
+                                                <option value="">请选择</option>
                                                 @foreach(\App\Models\FAQCategory::getFAQCategoryOptions() as $key=>$item)
-                                                    <option {{$faq->category_id == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
+                                                    <option {{old('category_id',$faq->category_id) == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -90,7 +90,7 @@
                                                         <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
                                                         @if($item->hasManyUsers!=null)
                                                             @foreach($item->hasManyUsers as $user)
-                                                                <option value="{{$user->id}}" {{$faq->ask_user_id == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
+                                                                <option value="{{$user->id}}" {{old('ask_user_id',$faq->ask_user_id) == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
                                                             @endforeach
                                                         @endif
                                                     @endforeach
@@ -116,7 +116,7 @@
                                                         <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
                                                         @if($item->hasManyUsers!=null)
                                                             @foreach($item->hasManyUsers as $user)
-                                                                <option value="{{$user->id}}" {{$faq->assign_user_id == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
+                                                                <option value="{{$user->id}}" {{old('assign_user_id',$faq->assign_user_id) == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
                                                             @endforeach
                                                         @endif
                                                     @endforeach
@@ -135,14 +135,14 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-user"></i>
                                             </div>
-                                            <select class="form-control select2" name="assign_user_id" style="width: 100%;">
+                                            <select class="form-control select2" name="answer_user_id" style="width: 100%;">
                                                 <option value="">请选择</option>
                                                 @if(!empty($organizations))
                                                     @foreach($organizations as $item)
                                                         <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
                                                         @if($item->hasManyUsers!=null)
                                                             @foreach($item->hasManyUsers as $user)
-                                                                <option value="{{$user->id}}" {{$faq->answer_user_id == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
+                                                                <option value="{{$user->id}}" {{old('answer_user_id',$faq->answer_user_id) == $user->id?'selected':''}}>{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
                                                             @endforeach
                                                         @endif
                                                     @endforeach

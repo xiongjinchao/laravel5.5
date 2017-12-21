@@ -64,15 +64,11 @@ class KnowledgeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Knowledge  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(\App\Http\Requests\Knowledge $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'content' => 'required',
-        ]);
         $knowledge = new Knowledge();
         $knowledge->fill($request->all());
         $knowledge->tags = str_replace('，',',',$request->tags);
@@ -144,16 +140,12 @@ class KnowledgeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Knowledge  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(\App\Http\Requests\Knowledge $request, $id)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'content' => 'required',
-        ]);
         $knowledge = Knowledge::find($id);
         $knowledge->fill($request->all());
         $knowledge->tags = str_replace('，',',',$request->tags);

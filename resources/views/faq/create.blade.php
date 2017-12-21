@@ -28,7 +28,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-header"></i>
                                             </div>
-                                            <input class="form-control" name="title">
+                                            <input class="form-control" name="title" value="{{ old('title') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -43,9 +43,9 @@
                                                 <i class="fa fa-sitemap"></i>
                                             </div>
                                             <select class="form-control select2" name="category_id" style="width: 100%;">
-                                                <option value="0">请选择</option>
+                                                <option value="">请选择</option>
                                                 @foreach(\App\Models\FAQCategory::getFAQCategoryOptions() as $key=>$item)
-                                                    <option value="{{$key}}">{{$item}}</option>
+                                                    <option {{ old('category_id') == $key?'selected':'' }} value="{{$key}}">{{$item}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -68,7 +68,7 @@
                                                         <option disabled="disabled">{{$item->getSpace().$item->name}}</option>
                                                         @if($item->hasManyUsers!=null)
                                                             @foreach($item->hasManyUsers as $user)
-                                                                <option value="{{$user->id}}">{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
+                                                                <option {{ old('assign_user_id') == $user->id?'selected':'' }} value="{{$user->id}}">{{'┃ '.str_replace('┗ ','┣ ',$item->getSpace()).$user->name}}</option>
                                                             @endforeach
                                                         @endif
                                                     @endforeach
