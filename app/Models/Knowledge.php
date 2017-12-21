@@ -42,7 +42,7 @@ class Knowledge extends Model
     }
 
     //获取知识列表
-    public static function getList($params)
+    public static function getList($params, $size = 15)
     {
         $query = self::where('id', '>', '0');
         if(array_get($params, 'category_id') > 0){
@@ -59,7 +59,7 @@ class Knowledge extends Model
         if(array_get($params, 'status') > 0){
             $query->where('status','=',$params['status']);
         }
-        return $query->orderBy('id', 'DESC')->paginate(15);
+        return $query->orderBy('id', 'DESC')->paginate($size);
     }
 
     //复制数据

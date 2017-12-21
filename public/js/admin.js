@@ -1,4 +1,46 @@
+//AJAX 填充头部的铃铛提醒数据
+$.get('/home/notice',{},function(result){
+    if(result.status == 'SUCCESS'){
+        if(result.data.outOrganizationUser.count >0)
+        {
+            $("#notice-out-organization-user span.label").text(result.data.outOrganizationUser.count);
+            $("#notice-out-organization-user li.header").text('有 '+result.data.outOrganizationUser.count+' 位用户没有分配到组织架构中');
+            $("#notice-out-organization-user li.footer").html('<a href="'+result.data.outOrganizationUser.link+'">查看所有用户</a>');
+            $("#notice-out-organization-user .menu").html('');
+            $.each(result.data.outOrganizationUser.list.data,function(i,item){
+                $("#notice-out-organization-user .menu").append('<li><a href="/user/'+item.id+'/edit"><span class="pull-right">'+item.created_at+'</span><i class="fa fa-user text-primary"></i> '+item.name+'</a></li>')
+            })
+        }else{
+            $("#notice-out-organization-user").remove();
+        }
 
+        if(result.data.waitAuditKnowledge.count >0)
+        {
+            $("#notice-wait-audit-knowledge span.label").text(result.data.waitAuditKnowledge.count);
+            $("#notice-wait-audit-knowledge li.header").text('有 '+result.data.waitAuditKnowledge.count+' 篇知识等待审核');
+            $("#notice-wait-audit-knowledge li.footer").html('<a href="'+result.data.waitAuditKnowledge.link+'">查看所有知识</a>');
+            $("#notice-wait-audit-knowledge .menu").html('');
+            $.each(result.data.waitAuditKnowledge.list,function(i,item){
+                $("#notice-wait-audit-knowledge .menu").append('<li><a href="/knowledge/'+item.id+'/edit"><i class="fa fa-file-text text-primary"></i> '+item.title+'</a></li>')
+            })
+        }else{
+            $("#notice-wait-audit-knowledge").remove();
+        }
+
+        if(result.data.waitReplyFAQ.count >0)
+        {
+            $("#notice-wait-reply-faq span.label").text(result.data.waitReplyFAQ.count);
+            $("#notice-wait-reply-faq li.header").text('有 '+result.data.waitReplyFAQ.count+' 篇FAQ尚未回复');
+            $("#notice-wait-reply-faq li.footer").html('<a href="'+result.data.waitReplyFAQ.link+'">查看未回复的FAQ</a>');
+            $("#notice-wait-reply-faq .menu").html('');
+            $.each(result.data.waitReplyFAQ.list,function(i,item){
+                $("#notice-wait-reply-faq .menu").append('<li><a href="/faq/'+item.id+'/edit"><i class="fa fa-question-circle text-primary"></i> '+item.title+'</a></li>')
+            })
+        }else{
+            $("#notice-wait-reply-faq").remove();
+        }
+    }
+});
 //POST 退出登录
 $(".logout-link").on('click',function(e){
     e.preventDefault();

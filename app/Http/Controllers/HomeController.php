@@ -7,7 +7,8 @@ use App\Models\Notice;
 use App\Models\FAQ;
 use Illuminate\Http\Request;
 use \App\Models\User;
-use View;
+use Illuminate\Http\Response;
+use DB,View;
 
 class HomeController extends Controller
 {
@@ -44,5 +45,30 @@ class HomeController extends Controller
             'waitReplyFAQ' => FAQ::where('status','=',FAQ::STATUS_NOT_REPLY)->orderBy('id','DESC')->get()->take(5),
         ];
         return view('home', $data);
+    }
+
+    //AJAX 获取页面头部的消息
+    public function notice()
+    {
+        return \response()->json([
+            'status'=>'SUCCESS',
+            'data' => [
+                'outOrganizationUser' => [
+                    'count' => User::getList(['status_out_organization' => User::STATUS_OUT_ORGANIZATION],1000)->count(),
+                    'list' => User::getList(['status_out_organization' => User::STATUS_OUT_ORGANIZATION],1000),
+                    'link' => route('user.index'),
+                ],
+                'waitAuditKnowledge' => [
+                    'count' => Knowledge::where('status','=',Knowledge::STATUS_WAIT_AUDIT)->orderBy('id','DESC')->count(),
+                    'list' => Knowledge::where('status','=',Knowledge::STATUS_WAIT_AUDIT)->orderBy('id','DESC')->get()->take(5),
+                    'link' => route('knowledge.index'),
+                ],
+                'waitReplyFAQ' => [
+                    'count' => FAQ::where('status','=',FAQ::STATUS_NOT_REPLY)->orderBy('id','DESC')->count(),
+                    'list' => FAQ::where('status','=',FAQ::STATUS_NOT_REPLY)->orderBy('id','DESC')->get()->take(5),
+                    'link' => route('faq.index').'?status='.FAQ::STATUS_NOT_REPLY,
+                ],
+            ]
+        ]);
     }
 }

@@ -21,6 +21,7 @@ Auth::routes();
 
 //控制面板
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/notice', 'HomeController@notice')->name('home.notice');                                               //头部提醒信息
 
 //组织架构
 Route::get('organization/move-up/{id}', 'OrganizationController@moveUp')->name('organization.move-up');

@@ -18,7 +18,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
-                <li class="dropdown messages-menu">
+                <li class="dropdown messages-menu" id="notice-out-organization-user">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
@@ -54,7 +54,7 @@
                 <!-- /.messages-menu -->
 
                 <!-- Notifications Menu -->
-                <li class="dropdown notifications-menu">
+                <li class="dropdown notifications-menu" id="notice-wait-audit-knowledge">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
@@ -77,7 +77,7 @@
                     </ul>
                 </li>
                 <!-- Tasks Menu -->
-                <li class="dropdown tasks-menu">
+                <li class="dropdown tasks-menu" id="notice-wait-reply-faq">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-flag-o"></i>
