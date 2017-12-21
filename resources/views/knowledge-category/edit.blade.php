@@ -29,7 +29,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-header"></i>
                                             </div>
-                                            <input class="form-control" name="name" value="{{$knowledgeCategory->name}}">
+                                            <input class="form-control" name="name" value="{{ old('name',$knowledgeCategory->name) }}">
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                             <select class="form-control select2" name="parent" style="width: 100%;">
                                                 <option value="0">设为主目录</option>
                                                 @foreach($knowledgeCategories as $key=>$item)
-                                                    <option {{$knowledgeCategory->parent == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
+                                                    <option {{ old('parent',$knowledgeCategory->parent) == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

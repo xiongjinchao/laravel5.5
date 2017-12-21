@@ -28,7 +28,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-header"></i>
                                             </div>
-                                            <input class="form-control" name="name">
+                                            <input class="form-control" name="name" value="{{ old('name') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                                             <select class="form-control select2" name="parent" style="width: 100%;">
                                                 <option value="">设为主分类</option>
                                                 @foreach($faqCategories as $key=>$item)
-                                                    <option value="{{$key}}">{{$item}}</option>
+                                                    <option {{old('parent') == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

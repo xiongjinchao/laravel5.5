@@ -30,7 +30,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-user"></i>
                                             </div>
-                                            <input class="form-control" name="name" placeholder="请输入用户姓名" value="{{$user->name}}">
+                                            <input class="form-control" name="name" placeholder="请输入用户姓名" value="{{ old('name',$user->name) }}">
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                             <select class="form-control select2" name="organization_id" style="width: 100%;">
                                                 <option value="0">请选择</option>
                                                 @foreach($organizations as $key=>$item)
-                                                    <option {{$user->organization_id == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
+                                                    <option {{old('organization_id',$user->organization_id) == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -62,7 +62,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-envelope"></i>
                                             </div>
-                                            <input class="form-control" name="email" placeholder="请输入邮箱" value="{{$user->email}}">
+                                            <input class="form-control" name="email" placeholder="请输入邮箱" value="{{old('email',$user->email)}}">
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-phone"></i>
                                             </div>
-                                            <input class="form-control" name="mobile" placeholder="请输入手机号码" value="{{$user->mobile}}">
+                                            <input class="form-control" name="mobile" placeholder="请输入手机号码" value="{{old('mobile',$user->mobile)}}">
                                         </div>
                                     </div>
                                 </div>

@@ -31,7 +31,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-header"></i>
                                             </div>
-                                            <input class="form-control" name="title" value="{{$notice->title}}">
+                                            <input class="form-control" name="title" value="{{ old('title',$notice->title) }}">
                                         </div>
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>公告内容</label>
-                                        <textarea id="notice-content" name="content" rows="3" placeholder="请输入公告内容" style="height:300px;">{{$notice->content}}</textarea>
+                                        <textarea id="notice-content" name="content" rows="3" placeholder="请输入公告内容" style="height:300px;">{{ old('content',$notice->content) }}</textarea>
                                     </div>
                                 </div>
                             </div>

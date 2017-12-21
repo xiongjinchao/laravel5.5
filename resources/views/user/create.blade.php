@@ -29,7 +29,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-user"></i>
                                             </div>
-                                            <input class="form-control" name="name" placeholder="请输入用户姓名">
+                                            <input class="form-control" name="name" placeholder="请输入用户姓名" value="{{old('name')}}">
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                             <select class="form-control select2" name="organization_id" style="width: 100%;">
                                                 <option value="0">请选择</option>
                                                 @foreach($organizations as $key=>$item)
-                                                    <option value="{{$key}}">{{$item}}</option>
+                                                    <option {{old('organization_id') == $key?'selected':''}} value="{{$key}}">{{$item}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -60,7 +60,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-envelope"></i>
                                             </div>
-                                            <input class="form-control" name="email" placeholder="请输入邮箱">
+                                            <input class="form-control" name="email" placeholder="请输入邮箱" value="{{old('email')}}">
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-phone"></i>
                                             </div>
-                                            <input class="form-control" name="mobile" placeholder="请输入手机号码">
+                                            <input class="form-control" name="mobile" placeholder="请输入手机号码" value="{{old('mobile')}}">
                                         </div>
                                     </div>
                                 </div>
