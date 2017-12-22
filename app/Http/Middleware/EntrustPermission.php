@@ -49,7 +49,7 @@ class EntrustPermission extends \Zizaco\Entrust\Middleware\EntrustPermission
             }
         }
 
-        if ($this->auth->guest() || !$request->user()->can($permissions)) {
+        if ($request->user()->id>1 && ($this->auth->guest() || !$request->user()->can($permissions))) {
             if(Request::ajax()){
                 return Response::json(['status' => 'error','message'=>'（#403）抱歉，您没有权限访问']);
             }else{

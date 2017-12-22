@@ -123,7 +123,7 @@ class Knowledge extends Model
     {
         $knowledgeTable = DB::getTablePrefix() . (new Knowledge())->getTable();
         $countryTable = DB::getTablePrefix() . (new Country())->getTable();
-        $query = DB::select('SELECT k.country_id, c.country, COUNT(k.country_id) AS count FROM '.$knowledgeTable.' AS k LEFT JOIN '.$countryTable.' AS c ON( k.country_id = c.id) GROUP BY K.country_id,C.country ORDER BY count DESC,c.id ASC LIMIT 5');
+        $query = DB::select('SELECT k.country_id, c.country, COUNT(k.country_id) AS count FROM '.$knowledgeTable.' AS k LEFT JOIN '.$countryTable.' AS c ON( k.country_id = c.id) GROUP BY k.country_id ORDER BY count DESC,c.id ASC LIMIT 5');
         return $query;
     }
 
