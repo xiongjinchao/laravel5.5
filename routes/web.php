@@ -13,7 +13,7 @@
 
 //欢迎页面
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 //登录注册
