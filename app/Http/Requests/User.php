@@ -30,12 +30,10 @@ class User extends FormRequest
             'email' => 'required|email',
             'mobile' => 'required|regex:/^1[34578][0-9]{9}$/',
         ];
-        if(request()->isMethod('post')){
-            return $rules;
-        }else{
+        if(request()->isMethod('post') != true){
             unset($rules['password']);
-            return $rules;
         }
+        return $rules;
     }
 
     public function messages()
