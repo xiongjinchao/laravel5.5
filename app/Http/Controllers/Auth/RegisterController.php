@@ -49,8 +49,17 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'mobile' => 'required|digits:11',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+        ],[
+            'name.required' => '请输入中文名',
+            'mobile.required' => '请输入手机号码',
+            'email.required' => '请输入邮箱',
+            'email.email' => '该邮箱不合法',
+            'email.unique' => '该邮箱已经存在',
+            'password.required' => '请输入密码',
+            'password.confirmed' => '两次密码不一样',
         ]);
     }
 
@@ -64,6 +73,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'mobile' => $data['mobile'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

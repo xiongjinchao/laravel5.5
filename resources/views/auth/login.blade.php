@@ -38,13 +38,25 @@
 
         <form method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
-            <div class="form-group has-feedback">
+            <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
                 <input type="email" name="email" class="form-control" placeholder="邮箱" value="{{ old('email') }}">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+
+                @if ($errors->has('email'))
+                    <p class="help-block">
+                        {{ $errors->first('email') }}
+                    </p>
+                @endif
             </div>
-            <div class="form-group has-feedback">
+            <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
                 <input type="password" name="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+                @if ($errors->has('password'))
+                    <p class="help-block">
+                        {{ $errors->first('password') }}
+                    </p>
+                @endif
             </div>
             <div class="row">
                 <div class="col-xs-8">
