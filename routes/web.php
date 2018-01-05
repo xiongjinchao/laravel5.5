@@ -11,16 +11,11 @@
 |
 */
 
-//欢迎页面
-Route::get('/', function () {
-    return redirect()->route('home');
-});
-
 //登录注册
 Auth::routes();
 
 //控制面板
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home/notice', 'HomeController@notice')->name('home.notice');                                               //头部提醒信息
 
 //组织架构

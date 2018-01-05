@@ -48,11 +48,15 @@ $(".logout-link").on('click',function(e){
 });
 
 //SIDEBAR 当前菜单
-$(".sidebar-menu a").each(function(i,item){
-    if(($(item).attr('href')+'/').indexOf($(".sidebar-menu").attr('data-current-controller')) >= 0){
-        $(item).parents('li').addClass('active');
-    }
-});
+if($(".sidebar-menu").attr('data-current-controller') == '/home/'){
+    $(".sidebar-menu li").eq(0).addClass('active');
+} else {
+    $(".sidebar-menu a").each(function (i, item) {
+        if (($(item).attr('href') + '/').indexOf($(".sidebar-menu").attr('data-current-controller')) >= 0) {
+            $(item).parents('li').addClass('active');
+        }
+    });
+}
 
 //列表中删除按钮
 $(".content").on('click','.btn-delete',function(e){
