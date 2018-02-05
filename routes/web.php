@@ -82,3 +82,11 @@ Route::resource('notice', 'NoticeController', ['except' => ['show']]);
 
 //角色管理
 Route::resource('role', 'RoleController', ['except' => ['show','create','edit']]);
+
+//澳大利亚
+Route::get('aussie-index', 'AussieController@index')->name('aussie.index'); //继续
+Route::get('aussie-logout', 'AussieController@logout')->name('aussie.logout'); //退出登录
+Route::get('aussie-login', 'AussieController@login')->name('aussie.login'); //登录
+Route::get('aussie-continuation', 'AussieController@continuation')->name('aussie.continuation'); //继续
+Route::get('aussie-account', 'AussieController@account')->name('aussie.account'); //账号信息
+Route::get('aussie-tourist-visa', 'AussieController@touristVisa')->name('aussie.tourist-visa'); //旅游签证

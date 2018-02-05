@@ -28,7 +28,7 @@
             @endif
         @endif
 
-        @if ($errors->any())
+        @if (isset($errors) && $errors->any())
             <div class="callout callout-danger">
                 <h4><i class="fa fa-lightbulb-o"></i> 操作提醒</h4>
                 <ul>

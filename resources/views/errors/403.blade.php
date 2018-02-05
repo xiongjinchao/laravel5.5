@@ -7,7 +7,7 @@ $page = [
     ]
 ];
 ?>
-@extends('layouts.admin-lte')
+@extends('layouts.admin-lte.error')
 
 @section('content')
     <div class="error-page" style="margin-top:200px;">
