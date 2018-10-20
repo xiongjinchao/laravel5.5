@@ -142,7 +142,7 @@
 
 <script>
     $('#modal-assignment-role input[type=checkbox]').iCheck({
-        checkboxClass: 'icheckbox_square-blue'
+        checkboxClass: 'icheckbox_minimal-blue'
     });
 
     $(".btn-assignment-role").on('click',function(e){

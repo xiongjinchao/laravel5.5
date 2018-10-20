@@ -97,7 +97,7 @@
             });
 
             $('.notice-status input[type="radio"]').iCheck({
-                radioClass:'iradio_square-blue'
+                radioClass:'iradio_minimal-blue'
             });
 
             $("#input-file").fileinput({

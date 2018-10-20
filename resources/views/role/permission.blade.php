@@ -64,7 +64,7 @@
     <script>
         $(function () {
             $('.role-permission input[type=checkbox]').iCheck({
-                checkboxClass: 'icheckbox_square-blue'
+                checkboxClass: 'icheckbox_minimal-blue'
             });
 
             $(".check-all").on('ifChecked',function(){
