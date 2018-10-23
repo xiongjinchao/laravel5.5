@@ -189,7 +189,7 @@
             $('.select2').select2();
 
             $('.user-status input[type="radio"]').iCheck({
-                radioClass:'iradio_square-blue'
+                radioClass:'iradio_minimal-blue'
             });
 
             //默认密码

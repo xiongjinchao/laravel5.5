@@ -29,8 +29,8 @@
                             <tr>
                                 <td><b>{{$key+1}}</b></td>
                                 <td><a href="javascript:void(0)" class="popover-edit-role" data-toggle="popover" data-display_name="{{$item->display_name}}" data-name="{{$item->name}}" data-description="{{$item->description}}" data-update_url="{{ route('role.update',['id'=>$item->id]) }}">{{$item->display_name}}</a></td>
-                                <td>{!!$item->description == '系统'?'<del>'.$item->name.'</del>':$item->name!!}</td>
-                                <td>{!!$item->description == '系统'?'<del>'.$item->description.'</del>':$item->description!!}</td>
+                                <td>{!!$item->description == '系统'?'<span class="text-muted">'.$item->name.'</span>':$item->name!!}</td>
+                                <td>{!!$item->description == '系统'?'<span class="text-muted">'.$item->description.'</span>':$item->description!!}</td>
                                 <td>{{$item->updated_at}}</td>
                                 <td class="operation">
                                     @if($item->description == '系统')

@@ -255,6 +255,8 @@
 
                             $('#modal-change .select2').select2();
 
+                            //先删除Ueditor实例，再重新实例化
+                            UE.getEditor('knowledge-content').destroy();
                             var ue = UE.getEditor('knowledge-content',{
                                 autoHeightEnabled: false,
                                 enableAutoSave:false,

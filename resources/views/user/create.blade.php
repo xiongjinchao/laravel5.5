@@ -125,7 +125,7 @@
             $('.select2').select2();
 
             $('.knowledge-status input[type="radio"]').iCheck({
-                radioClass   : 'iradio_square-blue'
+                radioClass   : 'iradio_minimal-blue'
             })
         })
     </script>
