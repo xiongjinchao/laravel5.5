@@ -31,7 +31,7 @@ CREATE TABLE `country` (
   `operator` int(11) NOT NULL DEFAULT '0' COMMENT '操作人',
   `audit` tinyint(4) NOT NULL DEFAULT '1' COMMENT '审核 1未通过 2 通过',
   `sort` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_country_code` (`country_code`) USING BTREE,
