@@ -45,7 +45,7 @@ class User extends \App\User
             if (array_get($params, 'mobile') != '') {
                 $query->where($useTable.'.mobile', 'like', '%'.$params['mobile'].'%');
             }
-            return $query->orderBy($useTable.'.status', 'ASC')->orderBy($useTable.'.id', 'DESC')->paginate(15);
+            return $query->orderBy($useTable.'.status', 'ASC')->orderBy($useTable.'.id', 'DESC')->paginate($size);
         }else {
             $query = self::where('id', '>', '1');
             if (array_get($params, 'organization_id') > 0) {
