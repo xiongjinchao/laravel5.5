@@ -430,10 +430,11 @@ declare module 'fullcalendar/Theme' {
 	export default Default;
 }
 declare module 'fullcalendar/src/moment-ext' {
-	import * as moment from 'moment'; module 'moment' {
+	import * as moment from 'moment';
+	type MomentExtDuration = moment.Duration; module 'moment' {
 	    interface Moment {
 	        hasTime(): boolean;
-	        time(): moment.Duration;
+	        time(): MomentExtDuration;
 	        stripZone(): any;
 	        stripTime(): any;
 	    }
@@ -1337,7 +1338,7 @@ declare module 'fullcalendar/View' {
 	    reportExternalDrop(singleEventDef: any, isEvent: any, isSticky: any, el: any, ev: any, ui: any): void;
 	    triggerExternalDrop(singleEventDef: any, isEvent: any, el: any, ev: any, ui: any): void;
 	    reportEventResize(eventInstance: any, eventMutation: any, el: any, ev: any): void;
-	    triggerEventResize(eventInstance: any, durationDelta: any, undoFunc: any, el: any, ev: any): void;
+	    triggerEventResize(eventInstance: any, resizeDelta: any, undoFunc: any, el: any, ev: any): void;
 	    select(footprint: any, ev?: any): void;
 	    renderSelectionFootprint(footprint: any): void;
 	    reportSelection(footprint: any, ev?: any): void;
@@ -1417,6 +1418,7 @@ declare module 'fullcalendar/src/types/input-types' {
 	    icon?: string;
 	    themeIcon?: string;
 	    bootstrapGlyphicon?: string;
+	    bootstrapFontAwesome?: string;
 	    click(element: JQuery): void;
 	}
 	export interface ButtonIconsInput {
@@ -1459,6 +1461,11 @@ declare module 'fullcalendar/src/types/input-types' {
 	    start: moment.Moment;
 	    end: moment.Moment;
 	}
+	export interface SelectInfo {
+	    start: moment.Moment;
+	    end: moment.Moment;
+	    resourceId?: string;
+	}
 	export interface OptionsInputBase {
 	    header?: boolean | ToolbarInput;
 	    footer?: boolean | ToolbarInput;
@@ -1466,9 +1473,10 @@ declare module 'fullcalendar/src/types/input-types' {
 	        [name: string]: CustomButtonInput;
 	    };
 	    buttonIcons?: boolean | ButtonIconsInput;
-	    themeSystem?: 'standard' | 'bootstrap3' | 'jquery-ui';
+	    themeSystem?: 'standard' | 'bootstrap3' | 'bootstrap4' | 'jquery-ui';
 	    themeButtonIcons?: boolean | ButtonIconsInput;
 	    bootstrapGlyphicons?: boolean | ButtonIconsInput;
+	    bootstrapFontAwesome?: boolean | ButtonIconsInput;
 	    firstDay?: number;
 	    isRTL?: boolean;
 	    weekends?: boolean;
@@ -1512,7 +1520,10 @@ declare module 'fullcalendar/src/types/input-types' {
 	    dayCount?: number;
 	    locale?: string;
 	    timeFormat?: string;
-	    columnFormat?: string;
+	    columnHeader?: boolean;
+	    columnHeaderFormat?: string;
+	    columnHeaderText?: string | ((date: MomentInput) => string);
+	    columnHeaderHtml?: string | ((date: MomentInput) => string);
 	    titleFormat?: string;
 	    monthNames?: string[];
 	    monthNamesShort?: string[];
@@ -1532,6 +1543,7 @@ declare module 'fullcalendar/src/types/input-types' {
 	    unselectCancel?: string;
 	    selectOverlap?: boolean | ((event: EventObjectInput) => boolean);
 	    selectConstraint?: ConstraintInput;
+	    selectAllow?: ((selectInfo: SelectInfo) => boolean);
 	    events?: EventSourceInput;
 	    eventSources?: EventSourceInput[];
 	    allDayDefault?: boolean;
@@ -1553,7 +1565,7 @@ declare module 'fullcalendar/src/types/input-types' {
 	    dragScroll?: boolean;
 	    eventOverlap?: boolean | ((stillEvent: EventObjectInput, movingEvent: EventObjectInput) => boolean);
 	    eventConstraint?: ConstraintInput;
-	    eventAllow?: ((dropInfo: DropInfo, draggedEvent: Event) => boolean);
+	    eventAllow?: ((dropInfo: DropInfo, draggedEvent: EventObjectInput) => boolean);
 	    longPressDelay?: number;
 	    eventLongPressDelay?: number;
 	    droppable?: boolean;
@@ -1728,6 +1740,77 @@ declare module 'fullcalendar/DragListener' {
 	    endAutoScroll(): void;
 	    handleDebouncedScroll(): void;
 	    handleScrollEnd(): void;
+	}
+	export default Default;
+}
+declare module 'fullcalendar/HitDragListener' {
+	import DragListener from 'fullcalendar/DragListener';
+	export class Default extends DragListener {
+	    component: any;
+	    origHit: any;
+	    hit: any;
+	    coordAdjust: any;
+	    constructor(component: any, options: any);
+	    handleInteractionStart(ev: any): void;
+	    handleDragStart(ev: any): void;
+	    handleDrag(dx: any, dy: any, ev: any): void;
+	    handleDragEnd(ev: any): void;
+	    handleHitOver(hit: any): void;
+	    handleHitOut(): void;
+	    handleHitDone(): void;
+	    handleInteractionEnd(ev: any, isCancelled: any): void;
+	    handleScrollEnd(): void;
+	    queryHit(left: any, top: any): any;
+	}
+	export default Default;
+}
+declare module 'fullcalendar/MouseFollower' {
+	import { ListenerInterface } from 'fullcalendar/ListenerMixin';
+	export class Default {
+	    listenTo: ListenerInterface['listenTo'];
+	    stopListeningTo: ListenerInterface['stopListeningTo'];
+	    options: any;
+	    sourceEl: any;
+	    el: any;
+	    parentEl: any;
+	    top0: any;
+	    left0: any;
+	    y0: any;
+	    x0: any;
+	    topDelta: any;
+	    leftDelta: any;
+	    isFollowing: boolean;
+	    isHidden: boolean;
+	    isAnimating: boolean;
+	    constructor(sourceEl: any, options: any);
+	    start(ev: any): void;
+	    stop(shouldRevert: any, callback: any): void;
+	    getEl(): any;
+	    removeElement(): void;
+	    updatePosition(): void;
+	    handleMove(ev: any): void;
+	    hide(): void;
+	    show(): void;
+	}
+	export default Default;
+}
+declare module 'fullcalendar/Popover' {
+	import { ListenerInterface } from 'fullcalendar/ListenerMixin';
+	export class Default {
+	    listenTo: ListenerInterface['listenTo'];
+	    stopListeningTo: ListenerInterface['stopListeningTo'];
+	    isHidden: boolean;
+	    options: any;
+	    el: any;
+	    margin: number;
+	    constructor(options: any);
+	    show(): void;
+	    hide(): void;
+	    render(): void;
+	    documentMousedown(ev: any): void;
+	    removeElement(): void;
+	    position(): void;
+	    trigger(name: any): void;
 	}
 	export default Default;
 }
@@ -1906,27 +1989,6 @@ declare module 'fullcalendar/HelperRenderer' {
 	}
 	export default Default;
 }
-declare module 'fullcalendar/HitDragListener' {
-	import DragListener from 'fullcalendar/DragListener';
-	export class Default extends DragListener {
-	    component: any;
-	    origHit: any;
-	    hit: any;
-	    coordAdjust: any;
-	    constructor(component: any, options: any);
-	    handleInteractionStart(ev: any): void;
-	    handleDragStart(ev: any): void;
-	    handleDrag(dx: any, dy: any, ev: any): void;
-	    handleDragEnd(ev: any): void;
-	    handleHitOver(hit: any): void;
-	    handleHitOut(): void;
-	    handleHitDone(): void;
-	    handleInteractionEnd(ev: any, isCancelled: any): void;
-	    handleScrollEnd(): void;
-	    queryHit(left: any, top: any): any;
-	}
-	export default Default;
-}
 declare module 'fullcalendar/Interaction' {
 	export class Default {
 	    view: any;
@@ -1983,36 +2045,6 @@ declare module 'fullcalendar/EventPointing' {
 	    handleMouseover(seg: any, ev: any): void;
 	    handleMouseout(seg: any, ev?: any): void;
 	    end(): void;
-	}
-	export default Default;
-}
-declare module 'fullcalendar/MouseFollower' {
-	import { ListenerInterface } from 'fullcalendar/ListenerMixin';
-	export class Default {
-	    listenTo: ListenerInterface['listenTo'];
-	    stopListeningTo: ListenerInterface['stopListeningTo'];
-	    options: any;
-	    sourceEl: any;
-	    el: any;
-	    parentEl: any;
-	    top0: any;
-	    left0: any;
-	    y0: any;
-	    x0: any;
-	    topDelta: any;
-	    leftDelta: any;
-	    isFollowing: boolean;
-	    isHidden: boolean;
-	    isAnimating: boolean;
-	    constructor(sourceEl: any, options: any);
-	    start(ev: any): void;
-	    stop(shouldRevert: any, callback: any): void;
-	    getEl(): any;
-	    removeElement(): void;
-	    updatePosition(): void;
-	    handleMove(ev: any): void;
-	    hide(): void;
-	    show(): void;
 	}
 	export default Default;
 }
@@ -2190,26 +2222,6 @@ declare module 'fullcalendar/TimeGrid' {
 	    unrenderEventResize(): void;
 	    renderSelectionFootprint(componentFootprint: any): void;
 	    unrenderSelection(): void;
-	}
-	export default Default;
-}
-declare module 'fullcalendar/Popover' {
-	import { ListenerInterface } from 'fullcalendar/ListenerMixin';
-	export class Default {
-	    listenTo: ListenerInterface['listenTo'];
-	    stopListeningTo: ListenerInterface['stopListeningTo'];
-	    isHidden: boolean;
-	    options: any;
-	    el: any;
-	    margin: number;
-	    constructor(options: any);
-	    show(): void;
-	    hide(): void;
-	    render(): void;
-	    documentMousedown(ev: any): void;
-	    removeElement(): void;
-	    position(): void;
-	    trigger(name: any): void;
 	}
 	export default Default;
 }
@@ -2455,23 +2467,34 @@ declare module 'fullcalendar/ListView' {
 declare module 'fullcalendar/src/exports' {
 	export const version = "<%= version %>";
 	export const internalApiVersion = 12;
-	export { EventObjectInput, BusinessHoursInput, EventOptionsBase } from 'fullcalendar/src/types/input-types';
-	export { applyAll, debounce, isInt, htmlEscape, cssToStr, proxy, capitaliseFirstLetter, getOuterRect, getClientRect, getContentRect, getScrollbarWidths, preventDefault, parseFieldSpecs, compareByFieldSpecs, compareByFieldSpec, flexibleCompare, computeGreatestUnit, divideRangeByDuration, divideDurationByDuration, multiplyDuration, durationHasTime, log, warn, removeExact, intersectRects } from 'fullcalendar/src/util';
+	export { BusinessHoursInput, EventOptionsBase, OptionsInput, OptionsInputBase, RangeInput, ToolbarInput, ViewOptionsInput, ButtonIconsInput, ButtonTextCompoundInput, CellInfo, EventObjectInput } from 'fullcalendar/src/types/input-types';
+	export { applyAll, debounce, isInt, htmlEscape, cssToStr, proxy, capitaliseFirstLetter, getOuterRect, getClientRect, getContentRect, getScrollbarWidths, preventDefault, parseFieldSpecs, compareByFieldSpecs, compareByFieldSpec, flexibleCompare, computeGreatestUnit, divideRangeByDuration, divideDurationByDuration, multiplyDuration, durationHasTime, log, warn, removeExact, intersectRects, allowSelection, attrsToStr, compareNumbers, compensateScroll, computeDurationGreatestUnit, constrainPoint, copyOwnProps, diffByUnit, diffDay, diffDayTime, diffPoints, disableCursor, distributeHeight, enableCursor, firstDefined, getEvIsTouch, getEvX, getEvY, getRectCenter, getScrollParent, hasOwnProp, isArraysEqual, isNativeDate, isPrimaryMouseButton, isTimeString, matchCellWidths, mergeProps, preventSelection, removeMatching, stripHtmlEntities, subtractInnerElHeight, uncompensateScroll, undistributeHeight, dayIDs, unitsDesc } from 'fullcalendar/src/util';
 	export { formatDate, formatRange, queryMostGranularFormatUnit } from 'fullcalendar/src/date-formatting';
-	export { datepickerLocale, locale } from 'fullcalendar/src/locale';
+	export { datepickerLocale, locale, getMomentLocaleData, populateInstanceComputableOptions } from 'fullcalendar/src/locale';
+	export { eventDefsToEventInstances, eventFootprintToComponentFootprint, eventInstanceToEventRange, eventInstanceToUnzonedRange, eventRangeToEventFootprint } from 'fullcalendar/src/models/event/util';
 	export { default as moment } from 'fullcalendar/src/moment-ext';
 	export { default as EmitterMixin, EmitterInterface } from 'fullcalendar/EmitterMixin';
 	export { default as ListenerMixin, ListenerInterface } from 'fullcalendar/ListenerMixin';
 	export { default as Model } from 'fullcalendar/Model';
 	export { default as Constraints } from 'fullcalendar/Constraints';
+	export { default as DateProfileGenerator } from 'fullcalendar/DateProfileGenerator';
 	export { default as UnzonedRange } from 'fullcalendar/UnzonedRange';
 	export { default as ComponentFootprint } from 'fullcalendar/ComponentFootprint';
 	export { default as BusinessHourGenerator } from 'fullcalendar/BusinessHourGenerator';
+	export { default as EventPeriod } from 'fullcalendar/EventPeriod';
+	export { default as EventManager } from 'fullcalendar/EventManager';
 	export { default as EventDef } from 'fullcalendar/EventDef';
 	export { default as EventDefMutation } from 'fullcalendar/EventDefMutation';
+	export { default as EventDefParser } from 'fullcalendar/EventDefParser';
+	export { default as EventInstance } from 'fullcalendar/EventInstance';
+	export { default as EventRange } from 'fullcalendar/EventRange';
+	export { default as RecurringEventDef } from 'fullcalendar/RecurringEventDef';
+	export { default as SingleEventDef } from 'fullcalendar/SingleEventDef';
+	export { default as EventDefDateMutation } from 'fullcalendar/EventDefDateMutation';
+	export { default as EventDateProfile } from 'fullcalendar/EventDateProfile';
 	export { default as EventSourceParser } from 'fullcalendar/EventSourceParser';
 	export { default as EventSource } from 'fullcalendar/EventSource';
-	export { defineThemeSystem } from 'fullcalendar/ThemeRegistry';
+	export { defineThemeSystem, getThemeSystemClass } from 'fullcalendar/ThemeRegistry';
 	export { default as EventInstanceGroup } from 'fullcalendar/EventInstanceGroup';
 	export { default as ArrayEventSource } from 'fullcalendar/ArrayEventSource';
 	export { default as FuncEventSource } from 'fullcalendar/FuncEventSource';
@@ -2480,12 +2503,18 @@ declare module 'fullcalendar/src/exports' {
 	export { default as Class } from 'fullcalendar/Class';
 	export { default as Mixin } from 'fullcalendar/Mixin';
 	export { default as CoordCache } from 'fullcalendar/CoordCache';
+	export { default as Iterator } from 'fullcalendar/Iterator';
 	export { default as DragListener } from 'fullcalendar/DragListener';
+	export { default as HitDragListener } from 'fullcalendar/HitDragListener';
+	export { default as MouseFollower } from 'fullcalendar/MouseFollower';
+	export { default as ParsableModelMixin, ParsableModelInterface } from 'fullcalendar/ParsableModelMixin';
+	export { default as Popover } from 'fullcalendar/Popover';
 	export { default as Promise } from 'fullcalendar/Promise';
 	export { default as TaskQueue } from 'fullcalendar/TaskQueue';
 	export { default as RenderQueue } from 'fullcalendar/RenderQueue';
 	export { default as Scroller } from 'fullcalendar/Scroller';
 	export { default as Theme } from 'fullcalendar/Theme';
+	export { default as Component } from 'fullcalendar/Component';
 	export { default as DateComponent } from 'fullcalendar/DateComponent';
 	export { default as InteractiveDateComponent } from 'fullcalendar/InteractiveDateComponent';
 	export { default as Calendar } from 'fullcalendar/Calendar';
@@ -2501,26 +2530,59 @@ declare module 'fullcalendar/src/exports' {
 	export { default as EventPointing } from 'fullcalendar/EventPointing';
 	export { default as EventDragging } from 'fullcalendar/EventDragging';
 	export { default as DateSelecting } from 'fullcalendar/DateSelecting';
+	export { default as DateClicking } from 'fullcalendar/DateClicking';
+	export { default as Interaction } from 'fullcalendar/Interaction';
 	export { default as StandardInteractionsMixin } from 'fullcalendar/StandardInteractionsMixin';
 	export { default as AgendaView } from 'fullcalendar/AgendaView';
 	export { default as TimeGrid } from 'fullcalendar/TimeGrid';
+	export { default as TimeGridEventRenderer } from 'fullcalendar/TimeGridEventRenderer';
+	export { default as TimeGridFillRenderer } from 'fullcalendar/TimeGridFillRenderer';
+	export { default as TimeGridHelperRenderer } from 'fullcalendar/TimeGridHelperRenderer';
 	export { default as DayGrid } from 'fullcalendar/DayGrid';
+	export { default as DayGridEventRenderer } from 'fullcalendar/DayGridEventRenderer';
+	export { default as DayGridFillRenderer } from 'fullcalendar/DayGridFillRenderer';
+	export { default as DayGridHelperRenderer } from 'fullcalendar/DayGridHelperRenderer';
 	export { default as BasicView } from 'fullcalendar/BasicView';
+	export { default as BasicViewDateProfileGenerator } from 'fullcalendar/BasicViewDateProfileGenerator';
 	export { default as MonthView } from 'fullcalendar/MonthView';
+	export { default as MonthViewDateProfileGenerator } from 'fullcalendar/MonthViewDateProfileGenerator';
 	export { default as ListView } from 'fullcalendar/ListView';
+	export { default as ListEventPointing } from 'fullcalendar/ListEventPointing';
+	export { default as ListEventRenderer } from 'fullcalendar/ListEventRenderer';
 }
-declare module 'fullcalendar/BootstrapTheme' {
+declare module 'fullcalendar/src/models/event-source/config' {
+	export {};
+}
+declare module 'fullcalendar/Bootstrap3Theme' {
 	import Theme from 'fullcalendar/Theme';
 	export class Default extends Theme {
 	}
 	export default Default;
+}
+declare module 'fullcalendar/Bootstrap4Theme' {
+	import Theme from 'fullcalendar/Theme';
+	export class Default extends Theme {
+	}
+	export default Default;
+}
+declare module 'fullcalendar/src/theme/config' {
+	export {};
+}
+declare module 'fullcalendar/src/basic/config' {
+	export {};
+}
+declare module 'fullcalendar/src/agenda/config' {
+	export {};
+}
+declare module 'fullcalendar/src/list/config' {
+	export {};
 }
 declare module 'fullcalendar/src/types/jquery-hooks' {
 	import * as moment from 'moment';
 	import Calendar from 'fullcalendar/Calendar';
 	import View from 'fullcalendar/View';
 	import EventSource from 'fullcalendar/EventSource';
-	import { RangeInput, MomentInput, OptionsInput, EventObjectInput, EventSourceInput } from 'fullcalendar/src/types/input-types'; global  {
+	import { RangeInput, MomentInput, OptionsInput, EventObjectInput, EventSourceInput } from 'fullcalendar/src/types/input-types'; global {
 	    interface JQueryStatic {
 	        fullCalendar: object;
 	    }
@@ -2531,7 +2593,7 @@ declare module 'fullcalendar/src/types/jquery-hooks' {
 	        fullCalendar(method: 'destroy'): JQuery;
 	        fullCalendar(method: 'option', name: string | object, value?: any): any;
 	        fullCalendar(method: 'isValidViewType', viewType: string): boolean;
-	        fullCalendar(method: 'changeView', viewName: string, dateOrRange: RangeInput | MomentInput): JQuery;
+	        fullCalendar(method: 'changeView', viewName: string, dateOrRange?: RangeInput | MomentInput): JQuery;
 	        fullCalendar(method: 'zoomTo', newDate: moment.Moment, viewType?: string): JQuery;
 	        fullCalendar(method: 'prev'): JQuery;
 	        fullCalendar(method: 'next'): JQuery;
@@ -2550,7 +2612,7 @@ declare module 'fullcalendar/src/types/jquery-hooks' {
 	        fullCalendar(method: 'refetchEvents'): JQuery;
 	        fullCalendar(method: 'renderEvents', eventInputs: EventObjectInput[], isSticky?: boolean): JQuery;
 	        fullCalendar(method: 'renderEvent', eventInput: EventObjectInput, isSticky?: boolean): JQuery;
-	        fullCalendar(method: 'removeEvents', legacyQuery: any): JQuery;
+	        fullCalendar(method: 'removeEvents', legacyQuery?: any): JQuery;
 	        fullCalendar(method: 'clientEvents', legacyQuery: any): any;
 	        fullCalendar(method: 'updateEvents', eventPropsArray: EventObjectInput[]): JQuery;
 	        fullCalendar(method: 'updateEvent', eventProps: EventObjectInput): JQuery;
@@ -2595,6 +2657,7 @@ declare module 'fullcalendar/plugins/gcal/GcalEventSource' {
 	        url: any;
 	        location: any;
 	        description: any;
+	        extendedProperties: {};
 	    };
 	    buildUrl(): string;
 	    buildRequestParams(start: any, end: any, timezone: any): any;
@@ -2604,6 +2667,9 @@ declare module 'fullcalendar/plugins/gcal/GcalEventSource' {
 	    applyMiscProps(rawProps: any): void;
 	}
 	export default Default;
+}
+declare module 'fullcalendar/plugins/gcal/main' {
+	export {};
 }
 declare module 'fullcalendar' {
 	import main = require('fullcalendar/src/main');
